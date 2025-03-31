@@ -31,24 +31,24 @@ export default async function getStandings(teamName:string,season:number,leaguei
     for (let i = 0; i < leagues.length; i += 70) {
         const batch = leagues.slice(i, i + 70);
 
-        const fetchPromises = batch.map(async (league) => {
-            const cacheKey = `standings11:league-${league.league}`;
+        const fetchPromises = batch.map(async () => {
+            const cacheKey = `standings11:league-${leagueid}`;
             const cachedData = await redis.get(cacheKey);
 
             if (cachedData) {
-                console.log(`✅ Returning cached data for ${league.name} standings from Redis`);
+                console.log(`✅ Returning cached data for ${teamName} standings from Redis`);
                 const parsedData = typeof cachedData === "string" ? JSON.parse(cachedData) : cachedData;
 
                 // If cached data is empty or invalid, delete and fetch fresh data
                 if (!parsedData || parsedData.length === 2) {
-                    console.log(`⚠️ Empty cache detected for ${league.name}. Deleting...`);
+                    console.log(`⚠️ Empty cache detected for ${teamName}. Deleting...`);
                     await redis.del(cacheKey);
                 } else {
                     return parsedData; // Return cached standings
                 }
             }
 
-            console.log(`⏳ Fetching fresh standings for ${league.name}...`);
+            console.log(`⏳ Fetching fresh standings for ${teamName}...`);
             const url = `https://v3.football.api-sports.io/standings?season=${season}&league=${leagueid}`;
 
             try {
@@ -60,11 +60,11 @@ export default async function getStandings(teamName:string,season:number,leaguei
                     await redis.set(cacheKey, JSON.stringify(standing), { ex: 172800 }); // Cache for 48 hours
                     return standing;
                 } else {
-                    console.log(`❌ No valid data for ${league.name}, skipping cache storage.`);
+                    console.log(`❌ No valid data for ${teamName}, skipping cache storage.`);
                     return null;
                 }
             } catch (err) {
-                console.error(`Error fetching ${league.name} standings: ${err}`);
+                console.error(`Error fetching ${teamName} standings: ${err}`);
                 return null;
             }
         });

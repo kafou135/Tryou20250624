@@ -26,18 +26,9 @@ export default async function Team({
     const teamName = match[2]; // Extracts the team name
     const season = parseInt(match[3]); // Extracts the season
     const leagueid = parseInt(match[4]); // Extracts the season
-    let teamInfo: Team | undefined = await getTeamInfoByTeamId(teamId,teamName,season,leagueid);
+    let teamInfo: Team = await getTeamInfoByTeamId(teamId,teamName,season,leagueid);
     let fixturesByTeamId: Fixture[] = await getFixturesByTeamId(teamId,teamName,season,leagueid);
 
-    if (!teamInfo) {
-        return (
-            <div className="flex w-full justify-center items-center py-5">
-                <div className="flex max-w-7xl p-5 w-full md:flex-row justify-center items-center text-neutral-100 bg-gray-900 rounded-lg shadow-lg">
-                    Team Info Not Available
-                </div>
-            </div>
-        )
-    }
 
     return (
         <div className="flex justify-center items-center text-neutral-100 py-5">

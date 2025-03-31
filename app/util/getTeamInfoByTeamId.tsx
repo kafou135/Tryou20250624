@@ -2,7 +2,7 @@ import { Team } from '@/types';
 import 'server-only';
 import getTeams from './getTeams';
 
-export default async function getTeamInfoByTeamId(teamid: number,teamName:string,season:number,leagueid:number): Promise<Team | undefined> {
+export default async function getTeamInfoByTeamId(teamid: number,teamName:string,season:number,leagueid:number): Promise<Team> {
     try {
         const teams: Team[] = await getTeams(teamid,teamName,season,leagueid);
 
@@ -12,7 +12,7 @@ export default async function getTeamInfoByTeamId(teamid: number,teamName:string
             }
         }
 
-        return undefined;
+        throw new Error(`Team with ID ${teamid} not found`); // Ensure function always returns a Team
     } catch (error) {
         console.error('An Error occured while fetching team info by team Id: ', error);
         throw error;
