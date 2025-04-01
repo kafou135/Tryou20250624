@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import Link from "next/link";
 import getFixtureByFixtureId from "@/app/util/getFixtureByFixtureId";
 import { Events, Fixture, H2H, Lineups } from "@/types";
@@ -823,7 +822,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                 {/* Home Team */}
                 <div className="w-1/3 flex flex-col justify-center items-center">
                     <Link href={`../team/${fixtureByFixtureId.teams.home.id}nm${fixtureByFixtureId.league.name}seas${fixtureByFixtureId.league.season}lid${fixtureByFixtureId.league.id}`}>
-                        <Image
+                        <img
                             src={`https://media.api-sports.io/football/teams/${fixtureByFixtureId.teams.home.id}.png`}
                             alt="HomeLogoMatch"
                             width={80}
@@ -870,7 +869,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                 {/* Away Team */}
                 <div className="w-1/3 flex flex-col justify-center items-center">
                 <Link href={`../team/${fixtureByFixtureId.teams.away.id}nm${fixtureByFixtureId.league.name}seas${fixtureByFixtureId.league.season}lid${fixtureByFixtureId.league.id}`}>
-                <Image
+                <img
                             src={`https://media.api-sports.io/football/teams/${fixtureByFixtureId.teams.away.id}.png`}
                             alt="AwayLogoMatch"
                             width={80}
@@ -1027,14 +1026,12 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                       {lineups[1]?.formation}
                                                   </div>
                                               
-                                                  {/* Field Image */}
+                                                  {/* Field img */}
                                                   
-                                                  <Image
-                                                      src="/field.jpg"
-                                                      alt="Football Field"
-                                                      layout="fill"
-                                                      objectFit="contain"
-                                                      className="z-0"
+                                                  <img
+                                                    src="/field.jpg"
+                                                    alt="Football Field"
+                                                    className="z-0 w-full h-full object-contain"
                                                   />
                                               
                                                   {/* Home Team Players */}
@@ -1061,7 +1058,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                                   paddingRight: "0px"
                                                               }}
                                                           >
-                                                              {/* Player Image */}
+                                                              {/* Player img */}
                                                               <img
                                                                   src={`https://media.api-sports.io/football/players/${player.player.id}.png`}
                                                                   alt={player.player.name}
@@ -1116,7 +1113,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                                   paddingRight: "0px"
                                                               }}
                                                           >
-                                                              {/* Player Image */}
+                                                              {/* Player img */}
                                                               <img
                                                                   src={`https://media.api-sports.io/football/players/${player.player.id}.png`}
                                                                   alt={player.player.name}
@@ -1254,7 +1251,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                       {new Date(match.fixture.date).toLocaleDateString()}
                                                   </div>
                                                   <div className="w-1/3 flex flex-col items-center">
-                                                      <Image
+                                                      <img
                                                             src={`https://media.api-sports.io/football/teams/${match.teams.home.id}.png`}
                                                           alt={match.teams.home.name}
                                                           width={40}
@@ -1270,7 +1267,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                       )}
                                                   </div>
                                                   <div className="w-1/3 flex flex-col items-center">
-                                                      <Image
+                                                      <img
                                                             src={`https://media.api-sports.io/football/teams/${match.teams.away.id}.png`}
                                                             alt={match.teams.away.name}
                                                           width={40}
