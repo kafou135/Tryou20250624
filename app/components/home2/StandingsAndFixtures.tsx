@@ -72,7 +72,6 @@ export default function StandingsAndFixtures({ filteredFixtures }: { filteredFix
         <div className="flex flex-wrap w-full bg-gray-900 p-6 rounded-lg shadow-xl border border-gray-900">
             {/* Sidebar with League Buttons */}
             <div className="w-full md:w-1/4 bg-gray-600 shadow-md p-4 rounded-lg overflow-x-auto">
-            <h1 className="text-black">Standings</h1>
                 {menuItems.map((league, i) => (
                     <Link href={`/standing/${league.yearr}${league.league}`} key={league.league}>
                         <button

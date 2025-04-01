@@ -21,7 +21,6 @@ type PageProps = {
 
 export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: PageProps) {
   
-    console.log('H2HHHH2H2H2H2H2H2',events);
     const [activeTab, setActiveTab] = useState("summary"); // Default tab
 
     if (!fixtureByFixtureId) {
@@ -825,7 +824,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                 <div className="w-1/3 flex flex-col justify-center items-center">
                     <Link href={`../team/${fixtureByFixtureId.teams.home.id}nm${fixtureByFixtureId.league.name}seas${fixtureByFixtureId.league.season}lid${fixtureByFixtureId.league.id}`}>
                         <Image
-                            src={fixtureByFixtureId.teams.home.logo}
+                            src={`https://media.api-sports.io/football/teams/${fixtureByFixtureId.teams.home.id}.png`}
                             alt="HomeLogoMatch"
                             width={80}
                             height={80}
@@ -872,7 +871,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                 <div className="w-1/3 flex flex-col justify-center items-center">
                 <Link href={`../team/${fixtureByFixtureId.teams.away.id}nm${fixtureByFixtureId.league.name}seas${fixtureByFixtureId.league.season}lid${fixtureByFixtureId.league.id}`}>
                 <Image
-                            src={fixtureByFixtureId.teams.away.logo}
+                            src={`https://media.api-sports.io/football/teams/${fixtureByFixtureId.teams.away.id}.png`}
                             alt="AwayLogoMatch"
                             width={80}
                             height={80}
@@ -1256,7 +1255,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                   </div>
                                                   <div className="w-1/3 flex flex-col items-center">
                                                       <Image
-                                                          src={match.teams.home.logo}
+                                                            src={`https://media.api-sports.io/football/teams/${match.teams.home.id}.png`}
                                                           alt={match.teams.home.name}
                                                           width={40}
                                                           height={40}
@@ -1272,8 +1271,8 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                   </div>
                                                   <div className="w-1/3 flex flex-col items-center">
                                                       <Image
-                                                          src={match.teams.away.logo}
-                                                          alt={match.teams.away.name}
+                                                            src={`https://media.api-sports.io/football/teams/${match.teams.away.id}.png`}
+                                                            alt={match.teams.away.name}
                                                           width={40}
                                                           height={40}
                                                       />
