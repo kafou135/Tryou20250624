@@ -33,7 +33,7 @@ export default function FixtureItem({ match, index }: PageProps) {
 
     return (
         <Link
-            href={`/match/${match.fixture.id}`}
+            href={`/match/${match.fixture.id}nm${match.league.name}seas${match.league.season}lid${match.league.id}`}
             key={match.fixture.id}
             className={`flex w-full p-3 bm-0 justify-between items-center h-24 hover:bg-red-800/50 ${index % 2 === 0 ? 'bg-black/40' : ''} rounded-md shadow-md`}
         >

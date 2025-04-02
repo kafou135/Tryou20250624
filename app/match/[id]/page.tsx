@@ -15,7 +15,19 @@ type PageProps = {
 };
 
 export default async function page({ params }: PageProps){
-    let fixtureByFixtureId: Fixture | undefined = await getFixtureByFixtureId(parseInt(params.id));
+    const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
+    if (!match) {
+        return (
+            <div className="flex justify-center items-center text-neutral-100 py-5">
+                <p className="text-red-500 text-lg">Invalid Team ID format</p>
+            </div>
+        );
+    }
+    const fixtureeId = parseInt(match[1]); // Extracts the numeric team ID
+    const ligName = match[2]; // Extracts the team name
+    const season = parseInt(match[3]); // Extracts the season
+    const leagueid = parseInt(match[4]); // Extracts the season
+    let fixtureByFixtureId: Fixture= await getFixtureByFixtureId(fixtureeId,ligName,season,leagueid);
 // Define pairs of home and away team IDs
 const pairs: [number, number][] = [
   [Number(fixtureByFixtureId?.teams.home.id), Number(fixtureByFixtureId?.teams.away.id)]
