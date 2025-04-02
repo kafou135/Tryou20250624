@@ -80,7 +80,7 @@ export default async function getH2HBatch(pairs: [number, number][]): Promise<Re
 
         // Store fresh results in Redis (expires in 2 weeks)
         const redisSetOperations = freshResults.map(({ key, h2h }) =>
-            redis.set(`h2h:${key}`, JSON.stringify(h2h), { ex: 1209600 }) // Cache for 2 weeks
+            redis.set(`h2h:${key}`, JSON.stringify(h2h), { ex: 60 }) // Cache for 2 weeks
         );
         await Promise.all(redisSetOperations);
 
