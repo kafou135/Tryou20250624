@@ -22,6 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Gridiola",
+          "url": "https://www.gridiola.com/"
+        }) }} />
       <meta property="og:image" content="/khdam1.png?v=4"/>
       <meta property="og:image:width" content="1200"/>
       <meta property="og:image:height" content="630"/>
