@@ -18,13 +18,13 @@ type PageProps = {
 export default function FixtureItem({ match, index }: PageProps) {
     const router = useRouter();
     const [elapsedTime, setElapsedTime] = useState(match.fixture.status.elapsed);
-    const bla = match.fixture.status.elapsed 
+
     useEffect(() => {
-        if (["1H", "2H", "ET"].includes(match.fixture.status.short)) {
+        if (["1H", "2H"].includes(match.fixture.status.short)) {
             const interval = setInterval(() => {
-                setElapsedTime(bla => bla + 1);
-            }, 60000); // Updates every minute
-    
+                setElapsedTime(prevTime => prevTime + 1);
+            }, 60000); // Updates every minute to reflect real match time
+
             return () => clearInterval(interval);
         }
     }, [match.fixture.status.short]);

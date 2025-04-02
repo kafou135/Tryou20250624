@@ -843,7 +843,9 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                     </div>
                     <div className="text-xl md:text-2xl font-bold py-1">
                         {fixtureByFixtureId.fixture.status.short === "NS" ? (
-                            "VS"
+                            <span className="text-white">
+                            {fixtureByFixtureId.goals.home} - {fixtureByFixtureId.goals.away}
+                        </span>
                         ) : fixtureByFixtureId.fixture.status.short === "1H" || fixtureByFixtureId.fixture.status.short === "2H"|| fixtureByFixtureId.fixture.status.short === "HT"|| fixtureByFixtureId.fixture.status.short === "ET" || fixtureByFixtureId.fixture.status.short === "BT"|| fixtureByFixtureId.fixture.status.short === "P"|| fixtureByFixtureId.fixture.status.short === "SUSP" || fixtureByFixtureId.fixture.status.short === "INT" ? (
                             <span className="text-red-500">
                                 {fixtureByFixtureId.goals.home} - {fixtureByFixtureId.goals.away}
