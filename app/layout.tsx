@@ -22,6 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+      <title>Gridiola</title>
+      <meta name="google-site-verification" content="puUhOSsCARgxfUFDNfef5wmOccrx4Wc92YxDJw0rzXo" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
