@@ -37,13 +37,13 @@ export default function FixtureItem({ match, index }: PageProps) {
             key={match.fixture.id}
             className={`flex w-full p-3 bm-0 justify-between items-center h-24 hover:bg-red-800/50 ${index % 2 === 0 ? 'bg-black/40' : ''} rounded-md shadow-md`}
         >
-            <div className="flex items-center justify-center w-1/4">
-                <img src={`https://media.api-sports.io/football/teams/${match.teams.home.id}.png`} alt="HomeLogo" width={50} height={50} />
-                <span className="ml-2 text-sm text-white">{match.teams.home.name}</span>
-            </div>
+            <div className="flex flex-col items-center w-3/12 text-sm">
+                        <img src={match.teams.home.logo} alt="HomeLogo" width={50} height={50}  />
+                        <div>{match.teams.home.name}</div>
+                    </div>
 
-            <div className="flex flex-col items-center justify-center w-1/2 text-center">
-                <div className="text-xs text-white"><LocalTime fixture={match} /></div>
+                    <div className="flex flex-col items-center w-6/12 text-xs md:text-sm">
+                                <LocalTime fixture={match} />
                 <div className="my-1 text-xl font-semibold">
                     {match.fixture.status.short === "NS" ? (
                         <span className="text-lg text-white">vs</span>
@@ -121,10 +121,10 @@ export default function FixtureItem({ match, index }: PageProps) {
                 )}
             </div>
 
-            <div className="flex items-center justify-center w-1/4">
-                <img src={`https://media.api-sports.io/football/teams/${match.teams.away.id}.png`} alt="AwayLogo" width={50} height={50} />
-                <span className="ml-2 text-sm text-white">{match.teams.away.name}</span>
-            </div>
+            <div className="flex flex-col items-center w-3/12 text-sm">
+                        <img src={match.teams.away.logo} alt="AwayLogo" width={50} height={50}  />
+                        <div>{match.teams.away.name}</div>
+                    </div>
         </Link>
     );
 }

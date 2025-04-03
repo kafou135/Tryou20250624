@@ -1,27 +1,18 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useTransition, useEffect } from 'react';
 
 export default function RefreshButton() {
-    const router = useRouter();
-    const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            startTransition(() => router.refresh());
-        }, 13000); // Refresh every 12 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      router.refresh(); // Refresh the page every second
+    }, 60000); // 1000ms = 1 second
 
-        return () => clearInterval(interval); // Cleanup on unmount
-    }, [router]);
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, [router]);
 
-    return (
-        <button
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all"
-            onClick={() => startTransition(() => router.refresh())}
-            disabled={isPending}
-        >
-            {isPending ? 'Refreshing...' : 'Refresh Data'}
-        </button>
-    );
+  return null; // No need to render anything
 }
