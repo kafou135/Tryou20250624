@@ -1021,12 +1021,12 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                 <>
                    <div className="relative w-full max-w-3xl">
                                               {/* Home Team Formation (Top Left) */}
-                                                  <div className="absolute top-2 left-2 bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-bold z-10">
+                                                  <div className="absolute top-0 left-0 bg-blue-600 text-white px-2 py-0 rounded-md text-sm font-bold z-10">
                                                       {lineups?.[0]?.formation}
                                                   </div>
                                               
                                                   {/* Away Team Formation (Top Right) */}
-                                                  <div className="absolute top-2 right-2 bg-red-600 text-white px-3 py-1 rounded-md text-sm font-bold z-10">
+                                                  <div className="absolute top-0 right-0 bg-red-600 text-white px-2 py-0 rounded-md text-sm font-bold z-10">
                                                       {lineups?.[1]?.formation}
                                                   </div>
                                               
@@ -1070,16 +1070,20 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                                       />
                                               
                                                               {/* Player Number */}
-                                                              <div   className="bg-blue-600 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-2 md:py-1 lg:px-2 lg:py-1 rounded-full mt-1 text-[10px] sm:text-xs md:text-sm lg:text-base transition-all"
+                                                             {/* <div   className="bg-blue-600 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-2 md:py-1 lg:px-2 lg:py-1 rounded-full mt-1 text-[10px] sm:text-xs md:text-sm lg:text-base transition-all"
                                                               >
   {player.player.number}
 </div>
-
+*/}
                                               
                                                               {/* Player Name */}
                                                               <div
   className="mt-0 sm:mt-2 md:mt-3 bg-black/50 rounded text-[10px] sm:text-xs md:text-sm lg:text-sm p-0 transition-all"
->                             {(() => {
+>         <span   className="bg-blue-600 px-1 py-0.25 sm:px-1 sm:py-0.25 md:px-1 md:py-0.25 lg:px-1 lg:py-0.25 rounded-full mt-1 text-[10px] sm:text-xs md:text-sm lg:text-base transition-all"
+                                                              >
+  {player.player.number}
+</span>
+                {(() => {
                            const nameParts = player.player.name.split(" "); // Split the name by space
                            if (nameParts.length > 1) {
                                let remainingName = nameParts.slice(1).join(" "); // Get everything after the first word
@@ -1128,16 +1132,19 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                               />
                                               
                                                               {/* Player Number */}
-                                                              <div   className="bg-red-600 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-2 md:py-1 lg:px-2 lg:py-1 rounded-full mt-1 text-[10px] sm:text-xs md:text-sm lg:text-base transition-all"
+                                                             {/* <div   className="bg-red-600 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-2 md:py-1 lg:px-2 lg:py-1 rounded-full mt-1 text-[10px] sm:text-xs md:text-sm lg:text-base transition-all"
                                                               >
                                                                   {player.player.number}
                                                                   
-                                                              </div>
+                                                              </div>*/}
                                               
                                                               {/* Player Name */}
-                                                              <div
+                                                              {player.player.pos !== "G" &&(<div
   className="mt-0 sm:mt-2 md:mt-3 bg-black/50 rounded text-[10px] sm:text-xs md:text-sm lg:text-sm p-0 transition-all"
->                          {(() => {
+>         <span   className="bg-red-600 px-1 py-0.25 sm:px-1 sm:py-0.25 md:px-1 md:py-0.25 lg:px-1 lg:py-0.25 rounded-full mt-1 text-[10px] sm:text-xs md:text-sm lg:text-base transition-all"
+                                                              >
+  {player.player.number}
+</span>                  {(() => {
                            const nameParts = player.player.name.split(" "); // Split the name by space
                            if (nameParts.length > 1) {
                                let remainingName = nameParts.slice(1).join(" "); // Get everything after the first word
@@ -1148,7 +1155,28 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                            }
                            return player.player.name; // If no space, display the full name
                        })()}
-                   </div>
+                   </div>)}
+
+
+
+
+                                                              {player.player.pos == "G" &&(<div
+  className="mt-0 sm:mt-2 md:mt-3 bg-black/50 rounded text-[10px] sm:text-xs md:text-sm lg:text-sm p-0 transition-all"
+>         <span   className="bg-red-600 px-1 py-0.25 sm:px-1 sm:py-0.25 md:px-1 md:py-0.25 lg:px-1 lg:py-0.25 rounded-full mt-1 text-[10px] sm:text-xs md:text-sm lg:text-base transition-all"
+                                                              >
+  {player.player.number}
+</span>                  {(() => {
+                           const nameParts = player.player.name.split(" "); // Split the name by space
+                           if (nameParts.length > 1) {
+                               let remainingName = nameParts.slice(1).join(" "); // Get everything after the first word
+                               if (remainingName.length > 12) {
+                                   return remainingName.substring(0, 12) + "..."; // Truncate if longer than 12
+                               }
+                               return remainingName; // Return normally if 12 or less
+                           }
+                           return player.player.name; // If no space, display the full name
+                       })()}
+                   </div>)}
                    
                                               
                                                       </div>
@@ -1259,7 +1287,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                   <div className="text-xs text-gray-400">
                                                       {new Date(match.fixture.date).toLocaleDateString()}
                                                   </div>
-                                                  <div className="w-1/3 flex flex-col items-center">
+                                                  <div className="flex flex-col items-center">
                                                       <img
                                                             src={`https://media.api-sports.io/football/teams/${match.teams.home.id}.png`}
                                                           alt={match.teams.home.name}
@@ -1275,7 +1303,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                           "VS"
                                                       )}
                                                   </div>
-                                                  <div className="w-1/3 flex flex-col items-center">
+                                                  <div className="flex flex-col items-center">
                                                       <img
                                                             src={`https://media.api-sports.io/football/teams/${match.teams.away.id}.png`}
                                                             alt={match.teams.away.name}
