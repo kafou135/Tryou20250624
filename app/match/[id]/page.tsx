@@ -57,6 +57,37 @@ let events = eventsData[fixtureID]; // Get the events using the fixture ID
     return (
         <div>
             <Match fixtureByFixtureId={fixtureByFixtureId} h2h={h2h} lineups={lineups} events={events}/>
+            <div className="text-gray-300 mb-8 leading-relaxed space-y-4">
+  <h1 className="text-2xl font-bold text-white">{fixtureByFixtureId.teams.home.name} vs {fixtureByFixtureId.teams.away.name} - Match Preview & Head-to-Head</h1>
+
+  <p>
+    The clash between <strong>{fixtureByFixtureId.teams.home.name}</strong> and <strong>{fixtureByFixtureId.teams.away.name}</strong> is set to be an exciting encounter. 
+    With both teams having a rich history in this league, this page provides detailed insights into their head-to-head records, in-game events, and starting formations.
+  </p>
+
+  <h2 className="text-xl font-semibold text-white">📊 Head-to-Head Statistics</h2>
+  <p>
+    Over the years, these two teams have faced each other multiple times, with <strong>{h2h[0].teams.home.name}</strong> wins for <strong>{fixtureByFixtureId.teams.home.name}</strong> and <strong>{h2h[1].teams.away.name}</strong> wins for <strong>{fixtureByFixtureId.teams.away.name}</strong>.
+    Matches between these sides are often filled with drama, goals, and key moments that decide the outcome.
+  </p>
+
+  <h2 className="text-xl font-semibold text-white">⚽ Live Match Events & Updates</h2>
+  <p>
+    Stay updated with real-time events as the match progresses. Goals, yellow/red cards, substitutions, and key moments will be displayed here.
+    Whether it's a last-minute winner or a controversial penalty, we track every moment as it happens.
+  </p>
+
+  <h2 className="text-xl font-semibold text-white">📍 Tactical Lineups & Player Positions</h2>
+  <p>
+    Understanding the formations of each team is crucial to analyzing the game. Our lineup section provides a visual representation of how each team sets up on the field.
+    Will <strong>{fixtureByFixtureId.teams.home.name}</strong> opt for an attacking 4-3-3, or will <strong>{fixtureByFixtureId.teams.away.name}</strong> defend deep with a 5-4-1 formation?
+  </p>
+
+  <p>
+    With all this information at your fingertips, you're set for an immersive football experience. Follow the game closely and analyze the performance of your favorite teams and players.
+  </p>
+</div>
+
         </div>
     )
 

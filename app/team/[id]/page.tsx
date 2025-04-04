@@ -31,6 +31,7 @@ export default async function Team({
 
 
     return (
+        <>
         <div className="flex justify-center items-center text-neutral-100 py-5">
             <div className="flex flex-col max-w-7xl p-5 w-full md:flex-row gap-5 bg-gray-900 rounded-lg shadow-lg">
                 <div className="flex flex-col md:w-1/3 justify-center items-center bg-gray-800 rounded-lg p-5 shadow-md">
@@ -88,6 +89,38 @@ export default async function Team({
                     <Fixtures fixturesByTeamId={fixturesByTeamId} teamId={parseInt(params.id)} />
                 </div>
             </div>
+            
+
         </div>
+        <div className="text-gray-300 mb-8 leading-relaxed space-y-4 max-w-7xl mx-auto px-4">
+  <h1 className="text-2xl font-bold text-white">{teamInfo.team.name} – Team Stats, League Form & Fixtures</h1>
+
+  <p>
+    Explore comprehensive insights into <strong>{teamInfo.team.name}</strong>’s recent performances, standings, and upcoming matches for the {season}/{season + 1} season. From win/loss form to goals scored and conceded, this page gives fans everything they need to track their team’s journey in the current league.
+  </p>
+
+  <h2 className="text-xl font-semibold text-white">📈 Current League Standing</h2>
+  <p>
+    {teamInfo.team.name} currently holds the <strong>#{teamInfo.rank}</strong> spot in the league. With a total of <strong>{teamInfo.points}</strong> points from <strong>{teamInfo.all.played}</strong> matches, the team has achieved <strong>{teamInfo.all.win}</strong> wins, <strong>{teamInfo.all.draw}</strong> draws, and <strong>{teamInfo.all.lose}</strong> losses.
+    They've scored <strong>{teamInfo.all.goals.for}</strong> goals while conceding <strong>{teamInfo.all.goals.against}</strong>, giving them a goal difference of <strong>{teamInfo.goalsDiff}</strong>.
+  </p>
+
+  <h2 className="text-xl font-semibold text-white">🔥 Team Form</h2>
+  <p>
+    The recent form of {teamInfo.team.name} is shown below with colored indicators: <span className="text-green-400">🟢 Win</span>, <span className="text-gray-400">⚪ Draw</span>, and <span className="text-red-400">🔴 Loss</span>.
+    This gives fans a quick visual of their momentum heading into the next fixtures.
+  </p>
+
+  <h2 className="text-xl font-semibold text-white">📅 Previous & Upcoming Fixtures</h2>
+  <p>
+    Stay updated with {teamInfo.team.name}'s full schedule. View details of their most recent games, including goals, opponents, and match outcomes. The upcoming fixture list helps supporters plan ahead to follow the action live. Whether it's a home game or away clash, we’ve got you covered.
+  </p>
+
+  <p>
+    Dive into the team’s stats, evaluate their performance, and get real-time updates — all in one place. Ideal for passionate fans, fantasy football players, and sports analysts alike.
+  </p>
+</div>
+
+        </>
     )
 }

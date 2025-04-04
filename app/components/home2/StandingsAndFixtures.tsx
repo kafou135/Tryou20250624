@@ -127,6 +127,25 @@ export default function StandingsAndFixtures({ filteredFixtures }: { filteredFix
                     ))}
                 </div>
             </div>
+            <div className="text-gray-300 mb-8 leading-relaxed space-y-4">
+  <h1 className="text-2xl font-bold text-white">Today’s Football Matches and Live Scores</h1>
+  <p>
+    Welcome to your one-stop destination for all football fixtures happening today! Whether you're a fan of the English Premier League, Spain's La Liga, Italy’s Serie A, Germany's Bundesliga, or France’s Ligue 1, this page gives you real-time updates and match schedules.
+  </p>
+  <p>
+    Football is more than just a game—it's a global language that brings people together. Our platform is designed to offer fans an easy way to keep track of their favorite teams and leagues, all in one place. With intuitive navigation and up-to-date fixtures, you’ll never miss a kick, goal, or result.
+  </p>
+  <p>
+    Each match you see below is updated in real time, so whether you’re preparing for fantasy football or just want to catch today’s biggest rivalries, you’re in the right place. From league leaders to underdog showdowns, every game has its own story.
+  </p>
+  <p>
+    Click on any league from the sidebar to view current standings and explore more about your favorite teams. You can also browse matches by date to plan your football viewing experience. We believe fans deserve a simple, beautiful, and fast way to get the data they need.
+  </p>
+  <p>
+    Don't forget to bookmark this page and check back daily for fresh updates, player performances, and full fixture breakdowns. We're committed to making this your go-to hub for everything football-related.
+  </p>
+</div>
+
         </div>
     );  
 }

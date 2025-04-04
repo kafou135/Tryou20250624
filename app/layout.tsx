@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
+import SearchBar from './components/searchBar/SearchBar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -80,6 +81,7 @@ export default function RootLayout({
 
             {/* Main Content (Children) */}
             <main className="px-4 py-8 sm:px-6 lg:px-8">
+              <SearchBar/>
               {children}
             </main>
           </div>
