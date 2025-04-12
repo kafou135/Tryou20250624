@@ -53,7 +53,7 @@ export default async function getH2HBatch(pairs: [number, number][]): Promise<Re
             }
         });
 
-        if (!pairsToFetch||pairsToFetch.length === 2) {
+        if (pairsToFetch.length === 2) {
             console.log("✅ All requested H2H data found in Redis cache.");
             return results;
         }
