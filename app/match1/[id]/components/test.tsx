@@ -842,8 +842,8 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                         <LocalTime fixture={fixtureByFixtureId} />
                     </div>
                     <div className="text-xl md:text-2xl font-bold py-1">
-                            <span className="text-white">
-                            {fixtureByFixtureId.goals.home} - {fixtureByFixtureId.goals.away}
+                    <span className="text-white">
+                            {fixtureByFixtureId.goals?.home ?? 0} - {fixtureByFixtureId.goals.away ?? fixtureByFixtureId.score.halftime.away ?? fixtureByFixtureId.goals.away}
                         </span>
                        
                     </div>

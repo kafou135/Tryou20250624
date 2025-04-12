@@ -39,17 +39,19 @@ export default function RootLayout({
        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8853506957457177"
      crossOrigin="anonymous"></Script>
      <Script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></Script>
-     <script
-    type="module"
-    src="https://widgets.api-sports.io/2.0.3/widgets.js">
-</script>
+     
       </head>
       <body>
-      <div data-refresh="15"/>
-     <script
-    type="module"
-    src="https://widgets.api-sports.io/2.0.3/widgets.js">
-</script>
+      <div
+  id="api_football_widget"
+  data-host="v3.football.api-sports.io"
+  data-key="bfc80e7adee96f66d9666e447c62298d"
+  data-theme="dark"
+  data-refresh="60"
+></div>
+
+<script async src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
+
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8853506957457177"
      crossOrigin="anonymous"></Script>
 <ins className="adsbygoogle display:block"

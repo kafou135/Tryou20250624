@@ -105,19 +105,19 @@ export default function FixtureItem({ match, index }: PageProps) {
                 )}
                 {["1H"].includes(match.fixture.status.short) && (
     <div className="text-xs text-red-600">
-        {elapsedTime >= 45 ? `45+${elapsedTime - 44}` : elapsedTime}
+        {match.fixture.status.elapsed >= 45 ? `45+${match.fixture.status.elapsed - 44}` : match.fixture.status.elapsed}
         <span className="inline-block animate-ping">′</span>
     </div>
 )}
                 {["2H"].includes(match.fixture.status.short) && (
     <div className="text-xs text-red-600">
-        {elapsedTime >= 90 ? `90+${elapsedTime - 89}` : elapsedTime}
+        {match.fixture.status.elapsed >= 90 ? `90+${match.fixture.status.elapsed - 89}` : match.fixture.status.elapsed}
         <span className="inline-block animate-ping">′</span>
     </div>
 )}
                 {["ET"].includes(match.fixture.status.short) && (
     <div className="text-xs text-red-600">
-        {elapsedTime+1}
+        {match.fixture.status.elapsed+1}
         <span className="inline-block animate-ping">′</span>
     </div>
 )}
