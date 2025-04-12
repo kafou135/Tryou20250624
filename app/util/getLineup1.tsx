@@ -23,7 +23,7 @@ async function fetchLineup(id: number, API_KEY: string): Promise<Lineups[]> {
         }
 
         const data = await response.json();
-        return data?.response ?? [];
+        return data.response ?? [];
     } catch (err) {
         console.error(`❌ Error fetching lineup for fixture ${id}:`, err);
         return [];
