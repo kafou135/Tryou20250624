@@ -77,7 +77,7 @@ export default async function getLineupBatch(ids: number[]): Promise<Record<numb
 
         // Store fresh results in Redis (expires in 2 weeks)
         const redisSetOperations = freshResults.map(({ key, lineup }) =>
-            redis.set(`lineup:${key}`, JSON.stringify(lineup), { ex: 1 }) // Cache for 2 weeks
+            redis.set(`lineup:${key}`, JSON.stringify(lineup), { ex: 60 }) // Cache for 2 weeks
         );
         await Promise.all(redisSetOperations);
 

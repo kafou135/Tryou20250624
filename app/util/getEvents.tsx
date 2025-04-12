@@ -77,7 +77,7 @@ export default async function getEventsBatch(fixtureIds: number[]): Promise<Reco
 
         // Store fresh results in Redis (expires in 2 weeks)
         const redisSetOperations = freshResults.map(({ id, events }) =>
-            redis.set(`event:${id}`, JSON.stringify(events), { ex: 1 }) // 2 weeks
+            redis.set(`event:${id}`, JSON.stringify(events), { ex: 60 }) // 2 weeks
         );
         await Promise.all(redisSetOperations);
 
