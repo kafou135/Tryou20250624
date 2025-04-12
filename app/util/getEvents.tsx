@@ -3,8 +3,8 @@ import { Events } from "@/types";
 import { Redis } from "@upstash/redis";
 
 const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL2!,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN2!,
+    url: process.env.UPSTASH_REDIS_REST_URL1!,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN1!,
 });
 
 // Function to fetch events for a single fixture
@@ -53,7 +53,7 @@ export default async function getEventsBatch(fixtureIds: number[]): Promise<Reco
             }
         });
 
-        if (fixturesToFetch.length < 3) {
+        if (!fixturesToFetch||fixturesToFetch.length === 2) {
             console.log("✅ All requested events found in Redis cache.");
             return results;
         }
