@@ -6,7 +6,6 @@ import SearchBar from './components/searchBar/SearchBar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Gridiola', // Updated app name
   description: 'Your go-to app for football stats, live matches, and team insights.', // Updated description
   icons:{
     icon:['/khdam1.png?v=4'],
@@ -40,9 +39,17 @@ export default function RootLayout({
        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8853506957457177"
      crossOrigin="anonymous"></Script>
      <Script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></Script>
-     
+     <script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+</script>
       </head>
       <body>
+      <div data-refresh="15"/>
+     <script
+    type="module"
+    src="https://widgets.api-sports.io/2.0.3/widgets.js">
+</script>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8853506957457177"
      crossOrigin="anonymous"></Script>
 <ins className="adsbygoogle display:block"

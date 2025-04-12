@@ -29,11 +29,17 @@ export default function FixtureItem({ match, index }: PageProps) {
         }
     }, [match.fixture.status.short]);
     
+    useEffect(() => {
+        const interval = setInterval(() => {
+          router.refresh(); // Refresh the page every second
+        }, 60000); // 1000ms = 1 second
     
+        return () => clearInterval(interval); // Cleanup interval on unmount
+      }, [router]);
 
     return (
         <Link
-            href={`/match/${match.fixture.id}nm${match.league.name}seas${match.league.season}lid${match.league.id}`}
+            href={`/match1/${match.fixture.id}nm${match.league.name}seas${match.league.season}lid${match.league.id}`}
             key={match.fixture.id}
             className={`flex w-full p-3 bm-0 justify-between items-center h-24 hover:bg-red-800/50 ${index % 2 === 0 ? 'bg-black/40' : ''} rounded-md shadow-md`}
         >
@@ -126,5 +132,6 @@ export default function FixtureItem({ match, index }: PageProps) {
                         <div>{match.teams.away.name}</div>
                     </div>
         </Link>
+        
     );
 }
