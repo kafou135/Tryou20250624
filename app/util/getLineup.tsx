@@ -53,7 +53,7 @@ export default async function getLineupBatch(ids: number[]): Promise<Record<numb
             }
         });
 
-        if (idsToFetch.length < 3) {
+        if (!idsToFetch||idsToFetch.length === 2) {
             console.log("✅ All requested lineup data found in Redis cache.");
             return results;
         }

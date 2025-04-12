@@ -53,7 +53,7 @@ export default async function getEventsBatch(fixtureIds: number[]): Promise<Reco
             }
         });
 
-        if (!fixturesToFetch||fixturesToFetch.length === 2) {
+        if (fixturesToFetch.length === 3) {
             console.log("✅ All requested events found in Redis cache.");
             return results;
         }

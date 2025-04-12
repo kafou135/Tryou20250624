@@ -67,7 +67,7 @@ let events = eventsData[fixtureID]; // Get the events using the fixture ID
 
   <h2 className="text-xl font-semibold text-white">📊 Head-to-Head Statistics</h2>
   <p>
-    Over the years, these two teams have faced each other multiple times, with <strong>{h2h[0].teams.home.name}</strong> wins for <strong>{fixtureByFixtureId.teams.home.name}</strong> and <strong>{h2h[1].teams.away.name}</strong> wins for <strong>{fixtureByFixtureId.teams.away.name}</strong>.
+    Over the years, these two teams have faced each other multiple times, withwins for <strong>{fixtureByFixtureId.teams.home.name}</strong> and wins for <strong>{fixtureByFixtureId.teams.away.name}</strong>.
     Matches between these sides are often filled with drama, goals, and key moments that decide the outcome.
   </p>
 
