@@ -19,9 +19,15 @@ export default function Fixtures({ fixturesByTeamId, teamId }: PageProps) {
     const handleShowMore = () => setVisibleItemsCount((prevCount) => prevCount + 5);
 
     const today = moment().format("YYYY-MM-DD");
-    const fixturesDone = fixturesByTeamId.filter(fixture => moment(fixture.fixture.date).format("YYYY-MM-DD") < today).reverse();
-    const fixturesToday = fixturesByTeamId.filter(fixture => moment(fixture.fixture.date).format("YYYY-MM-DD") === today);
-    const fixturesFuture = fixturesByTeamId.filter(fixture => moment(fixture.fixture.date).format("YYYY-MM-DD") > today);
+    const allFixtures = Object.values(fixturesByTeamId).flat();
+
+    const fixturesDone = allFixtures
+    .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") < today)
+    .reverse();
+      const fixturesToday = allFixtures
+    .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") === today);
+    const fixturesFuture = allFixtures
+    .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") > today);
     const firstItemsFixturesFuture = fixturesFuture.slice(0, 5);
     
     const prevItem = () => setCurrentIndex(prev => Math.max(prev - 1, 0));
