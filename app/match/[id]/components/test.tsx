@@ -1200,8 +1200,8 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                         <div className="mt-3 bg-gray-900 p-2 rounded-md shadow">
                             <h4 className="text-xs font-semibold text-center text-blue-400">Substitutes</h4>
                             <ul className="text-xs text-gray-300 italic">
-                                {lineups?.[0]?.substitutes.length > 0 ? (
-                                    lineups[0].substitutes.map((player) => (
+                                {lineups?.[0]?.substitutes?.length > 0 ? (
+                                    lineups?.[0]?.substitutes?.map((player) => (
                                         <li key={player.player.id} className="py-1">
                                             {player.player.name} ({player.player.number})
                                         </li>
@@ -1245,8 +1245,8 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                         <div className="mt-3 bg-gray-900 p-2 rounded-md shadow">
                             <h4 className="text-xs font-semibold text-center text-blue-400">Substitutes</h4>
                             <ul className="text-xs text-gray-300 italic">
-                                {lineups?.[1]?.substitutes.length > 0 ? (
-                                    lineups[1].substitutes.map((player) => (
+                                {lineups?.[1]?.substitutes?.length > 0 ? (
+                                    lineups?.[1]?.substitutes?.map((player) => (
                                         <li key={player.player.id} className="py-1">
                                             {player.player.name} ({player.player.number})
                                         </li>
