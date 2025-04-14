@@ -95,6 +95,7 @@ export default function RootLayout({
             </main>
           </div>
         </div>
+        <Script type="module" src="main.js"></Script>
       </body>
     </html>
   );

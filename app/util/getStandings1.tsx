@@ -22,7 +22,7 @@ export default async function getStandings(teamName:string,season:number,leaguei
 
     const standings: Standing[] = [];
     const leagues = [
-        { league: 140, name: "EPL", yearr: -1 },
+        { league: 45, name: "EPL", yearr: -1 },
 
 
     ];

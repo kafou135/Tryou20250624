@@ -513,4 +513,125 @@ type EventsRes={
     comments: string    
 }
 
-export { AllFixtures, Fixture , Team,Standing, ResponseOdds,Odds, Livestates, AllLiveStates,Lineupsreponse,Lineups,League,Topscorers,H2H,Events,EventsRes}
+
+//TEAM BY TEAM ID
+
+
+type leaguebyid={
+  league: {
+    id: number,
+    name: string,
+    country: string,
+    logo: string,
+    flag: string,
+    season: number,
+    standings: [
+        [
+            {
+                rank: number,
+                team: {
+                    id: number,
+                    name: string,
+                    logo: string
+                },
+                points: number,
+                goalsDiff: number,
+                group: string,
+                form: string,
+                status: string,
+                description: string,
+                all: {
+                    played: number,
+                    win: number,
+                    draw: number,
+                    lose: number,
+                    goals: {
+                        for: number,
+                        against: number
+                    }
+                },
+                home: {
+                    played: number,
+                    win: number,
+                    draw: number,
+                    lose: number,
+                    goals: {
+                        for: number,
+                        against: number
+                    }
+                },
+                away: {
+                    played: number,
+                    win: number,
+                    draw: number,
+                    lose: number,
+                    goals: {
+                        for: number,
+                        against: number
+                    }
+                },
+                update: string
+            }
+        ]
+    ]
+    }
+}
+type idd={
+id: number,
+name: string,
+country: string,
+logo: string,
+flag: string,
+season: number,
+standings: [
+    [
+        {
+            rank: number,
+            team: {
+                id: number,
+                name: string,
+                logo: string
+            },
+            points: number,
+            goalsDiff: number,
+            group: string,
+            form: string,
+            status: string,
+            description: string,
+            all: {
+                played: number,
+                win: number,
+                draw: number,
+                lose: number,
+                goals: {
+                    for: number,
+                    against: number
+                }
+            },
+            home: {
+                played: number,
+                win: number,
+                draw: number,
+                lose: number,
+                goals: {
+                    for: number,
+                    against: number
+                }
+            },
+            away: {
+                played: number,
+                win: number,
+                draw: number,
+                lose: number,
+                goals: {
+                    for: number,
+                    against: number
+                }
+            },
+            update: string
+        }
+    ]
+]
+}
+
+export { AllFixtures, Fixture , Team,Standing, ResponseOdds,Odds, Livestates, AllLiveStates,Lineupsreponse,Lineups,League,Topscorers,H2H,Events,EventsRes,leaguebyid}
