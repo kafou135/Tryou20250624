@@ -21,9 +21,8 @@ export default function Fixtures({ fixturesByTeamId, teamId }: PageProps) {
     const today = moment().format("YYYY-MM-DD");
     const allFixtures = Object.values(fixturesByTeamId).flat();
 
-    const fixturesDone = allFixtures
-    .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") < today)
-    .reverse();
+    const fixturesDone = fixturesByTeamId
+    .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") < today).reverse();
       const fixturesToday = allFixtures
     .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") === today);
     const fixturesFuture = allFixtures

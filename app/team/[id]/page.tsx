@@ -51,7 +51,7 @@ export default async function Team({
                             <div className="text-center">Form</div>
                             <div className="flex justify-center items-center">
                                 {
-                                    teamInfo?.league?.standings[0]?.[0]?.form?.split('').map((char, i) => (
+                                    teamInfo?.league?.standings[0]?.[0]?.form.split('').map((char: string, i: any) => (
                                         <div
                                             key={char + i}
                                             className={`opacity-80 w-4 h-4 m-1 rounded-full
