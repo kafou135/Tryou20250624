@@ -15,7 +15,7 @@ export default async function getFixtureByTeamId(teamid: number,teamName:string,
   if (cached) {
     return cached;
   }
-    const response = await fetch(`https://v3.football.api-sports.io/standings?team=${teamid}&season=${season}"`, {
+    const response = await fetch(`https://v3.football.api-sports.io/standings?team=${teamid}&season=${season}&league=${leagueid}`, {
       method: 'GET',
       headers: {
         'x-apisports-key': 'bfc80e7adee96f66d9666e447c62298d',
@@ -28,7 +28,7 @@ export default async function getFixtureByTeamId(teamid: number,teamName:string,
     }
   
     const data = await response.json();
-    const fixture = data.response; // or data.response for the array
+    const fixture = data.response[0]; // or data.response for the array
     await redis.set(cacheKey, fixture, { ex: 60 });
 
   return fixture;

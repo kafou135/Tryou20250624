@@ -14,7 +14,7 @@ type PageProps = {
 export default async function Team({
     params
 }: PageProps) {
-    console.log('teamInfosdsd');
+    
     const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
     if (!match) {
         return (
@@ -27,7 +27,7 @@ export default async function Team({
     const teamName = match[2]; // Extracts the team name
     const season = parseInt(match[3]); // Extracts the season
     const leagueid = parseInt(match[4]); // Extracts the season
-    let teamInfo:leaguebyid= await getTeamInfoByTeamId(teamId,teamName,season,leagueid);
+    let teamInfo= await getTeamInfoByTeamId(teamId,teamName,season,leagueid);
     let fixturesByTeamId: Fixture[] = await getFixturesByTeamId(teamId,teamName,season,leagueid);
 
 
@@ -43,7 +43,7 @@ export default async function Team({
                         height={150}
                         className="p-3 border-2 border-gray-700"
                     />
-                    <div className="text-2xl font-bold mt-3">{teamInfo?.league?.standings[0]?.[0]?.team?.name}</div>
+                    <div className="text-2xl font-bold mt-3">{teamInfo.league?.standings?.[0][0].team.name}</div>
                     <div className="flex justify-center items-center w-full mt-2 text-lg font-semibold">
                         <div className="w-1/3 text-center">#{teamInfo?.league?.standings[0]?.[0]?.rank}</div>
                         <div className="w-1/3 text-center">{teamInfo?.league?.standings[0]?.[0]?.group}</div>
@@ -51,12 +51,12 @@ export default async function Team({
                             <div className="text-center">Form</div>
                             <div className="flex justify-center items-center">
                                 {
-                                    teamInfo?.league?.standings[0]?.[0]?.form.split('').map((char, i) => (
+                                    teamInfo?.league?.standings[0]?.[0]?.form?.split('').map((char, i) => (
                                         <div
                                             key={char + i}
                                             className={`opacity-80 w-4 h-4 m-1 rounded-full
                                             ${char === 'L' ? 'bg-red-500' : char === 'D' ?
-                                                    'bg-gray-500' : 'bg-green-500'}`}
+                                                    'bg-yellow-500' : 'bg-green-500'}`}
                                         />
                                     ))
                                 }
