@@ -18,7 +18,7 @@ const redis = new Redis({
 });
 
 const leagues =    [
-    { league: 253, name: 'EPL' ,yearr:0, startmonth: '2024-08-01', endmonth: '2025-06-01'},
+    { league: 2, name: 'EPL' ,yearr:-1, startmonth: '2024-07-01', endmonth: '2025-06-01'},
      { league: 39, name: 'EPL' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
      { league: 140, name: 'EPL' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
      { league: 135, name: 'EPL' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
