@@ -7,7 +7,7 @@ import FixturesByLeague from "./FixturesByLeague";
 import moment from "moment";
 import Link from "next/link";
 
-export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures1,filteredFixtures2,filteredFixtures3,filteredFixtures4,filteredFixtures5,filteredFixtures6,filteredFixtures7,filteredFixtures8 }: { filteredFixtures: AllFixtures[], filteredFixtures1: AllFixtures[],filteredFixtures2: AllFixtures[],filteredFixtures3: AllFixtures[], filteredFixtures4: AllFixtures[],filteredFixtures5: AllFixtures[],filteredFixtures6: AllFixtures[], filteredFixtures7: AllFixtures[], filteredFixtures8: AllFixtures[] }) {
+export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures1,filteredFixtures2,filteredFixtures3,filteredFixtures4,filteredFixtures5,filteredFixtures6,filteredFixtures7,filteredFixtures8,filteredFixtures9,filteredFixtures10 }: { filteredFixtures: AllFixtures[], filteredFixtures1: AllFixtures[],filteredFixtures2: AllFixtures[],filteredFixtures3: AllFixtures[], filteredFixtures4: AllFixtures[],filteredFixtures5: AllFixtures[],filteredFixtures6: AllFixtures[], filteredFixtures7: AllFixtures[], filteredFixtures8: AllFixtures[] , filteredFixtures9: AllFixtures[] , filteredFixtures10: AllFixtures[] }) {
     const [selectedDate, setSelectedDate] = useState(moment().format("YYYY-MM-DD"));
     
     const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -32,6 +32,8 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
     const [updatedFixtures6, setUpdatedFixtures6] = useState<AllFixtures[]>(filteredFixtures6);
     const [updatedFixtures7, setUpdatedFixtures7] = useState<AllFixtures[]>(filteredFixtures7);
     const [updatedFixtures8, setUpdatedFixtures8] = useState<AllFixtures[]>(filteredFixtures8);
+    const [updatedFixtures9, setUpdatedFixtures9] = useState<AllFixtures[]>(filteredFixtures9);
+    const [updatedFixtures10, setUpdatedFixtures10] = useState<AllFixtures[]>(filteredFixtures10);
 
     const menuRef = useRef<HTMLDivElement>(null);
 
@@ -98,6 +100,18 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
             setUpdatedFixtures2(filteredFixtures8);
         }
     }, [filteredFixtures8]);
+
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures9) !== JSON.stringify(filteredFixtures9)) {
+            setUpdatedFixtures2(filteredFixtures8);
+        }
+    }, [filteredFixtures9]);
+
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures10) !== JSON.stringify(filteredFixtures10)) {
+            setUpdatedFixtures2(filteredFixtures10);
+        }
+    }, [filteredFixtures10]);
 
 
     useEffect(() => {
@@ -243,6 +257,24 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         </>
                     ))}
                     {updatedFixtures8.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures9.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures10.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
