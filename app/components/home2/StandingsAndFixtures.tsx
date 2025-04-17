@@ -7,7 +7,7 @@ import FixturesByLeague from "./FixturesByLeague";
 import moment from "moment";
 import Link from "next/link";
 
-export default function StandingsAndFixtures({ filteredFixtures }: { filteredFixtures: AllFixtures[] }) {
+export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures1,filteredFixtures2,filteredFixtures3,filteredFixtures4,filteredFixtures5,filteredFixtures6,filteredFixtures7,filteredFixtures8 }: { filteredFixtures: AllFixtures[], filteredFixtures1: AllFixtures[],filteredFixtures2: AllFixtures[],filteredFixtures3: AllFixtures[], filteredFixtures4: AllFixtures[],filteredFixtures5: AllFixtures[],filteredFixtures6: AllFixtures[], filteredFixtures7: AllFixtures[], filteredFixtures8: AllFixtures[] }) {
     const [selectedDate, setSelectedDate] = useState(moment().format("YYYY-MM-DD"));
     
     const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -24,6 +24,15 @@ export default function StandingsAndFixtures({ filteredFixtures }: { filteredFix
 
     const [activeTab, setActiveTab] = useState(0);
     const [updatedFixtures, setUpdatedFixtures] = useState<AllFixtures[]>(filteredFixtures);
+    const [updatedFixtures1, setUpdatedFixtures1] = useState<AllFixtures[]>(filteredFixtures1);
+    const [updatedFixtures2, setUpdatedFixtures2] = useState<AllFixtures[]>(filteredFixtures2);
+    const [updatedFixtures3, setUpdatedFixtures3] = useState<AllFixtures[]>(filteredFixtures3);
+    const [updatedFixtures4, setUpdatedFixtures4] = useState<AllFixtures[]>(filteredFixtures4);
+    const [updatedFixtures5, setUpdatedFixtures5] = useState<AllFixtures[]>(filteredFixtures5);
+    const [updatedFixtures6, setUpdatedFixtures6] = useState<AllFixtures[]>(filteredFixtures6);
+    const [updatedFixtures7, setUpdatedFixtures7] = useState<AllFixtures[]>(filteredFixtures7);
+    const [updatedFixtures8, setUpdatedFixtures8] = useState<AllFixtures[]>(filteredFixtures8);
+
     const menuRef = useRef<HTMLDivElement>(null);
 
     const scrollToTab = (index: number) => {
@@ -48,6 +57,48 @@ export default function StandingsAndFixtures({ filteredFixtures }: { filteredFix
             setUpdatedFixtures(filteredFixtures);
         }
     }, [filteredFixtures]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures1) !== JSON.stringify(filteredFixtures1)) {
+            setUpdatedFixtures1(filteredFixtures1);
+        }
+    }, [filteredFixtures1]);
+
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures2) !== JSON.stringify(filteredFixtures2)) {
+            setUpdatedFixtures2(filteredFixtures2);
+        }
+    }, [filteredFixtures2]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures3) !== JSON.stringify(filteredFixtures3)) {
+            setUpdatedFixtures2(filteredFixtures3);
+        }
+    }, [filteredFixtures3]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures4) !== JSON.stringify(filteredFixtures4)) {
+            setUpdatedFixtures2(filteredFixtures4);
+        }
+    }, [filteredFixtures4]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures5) !== JSON.stringify(filteredFixtures5)) {
+            setUpdatedFixtures2(filteredFixtures5);
+        }
+    }, [filteredFixtures5]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures6) !== JSON.stringify(filteredFixtures6)) {
+            setUpdatedFixtures2(filteredFixtures6);
+        }
+    }, [filteredFixtures6]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures7) !== JSON.stringify(filteredFixtures7)) {
+            setUpdatedFixtures2(filteredFixtures7);
+        }
+    }, [filteredFixtures7]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures8) !== JSON.stringify(filteredFixtures8)) {
+            setUpdatedFixtures2(filteredFixtures8);
+        }
+    }, [filteredFixtures8]);
+
 
     useEffect(() => {
         const handleWheel = (event: WheelEvent) => {
@@ -117,13 +168,88 @@ export default function StandingsAndFixtures({ filteredFixtures }: { filteredFix
                 </div>
 
                 {/* Fixtures */}
-                <div className="flex flex-col w-full max-w-4xl mx-auto pt-2 space-y-4">
+                <div className="max-w-4xl mx-auto pt-2 space-y-4">
                     {updatedFixtures.map((league, j) => (
+                        <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
                             key={league.name + j}
                             selectedDate={selectedDate}
                         />
+
+                        </>
+                    ))}
+                    {updatedFixtures1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures2.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures3.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures4.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures5.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures6.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures7.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures8.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
                     ))}
                 </div>
             </div>

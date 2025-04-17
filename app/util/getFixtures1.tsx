@@ -15,7 +15,7 @@ async function fetchFixturesByLeague(year: number, id: number,season:number): Pr
         },
         next: {
             // revalidate data every 24 hours
-            revalidate: 1 * 1 * 60
+            revalidate: 60 * 60 * 24
         }
     }
 

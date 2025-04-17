@@ -45,7 +45,7 @@ const fixtureId = Number(fixtureByFixtureId?.fixture.id);
 let lineupsData = await getLineupBatch([fixtureId]);
 
 // Access the lineups for the specific fixture ID
-let lineups = lineupsData[fixtureId]; // Get the lineups using the fixture ID
+let lineups = await getFixtureByFixtureId(fixtureeId,ligName,season,leagueid); // Get the lineups using the fixture ID
 // If fixtureId is already declared elsewhere, use a different name here
 const fixtureID = Number(fixtureByFixtureId?.fixture.id); // Renamed to fixtureID
 
