@@ -5,8 +5,8 @@ import { Redis } from "@upstash/redis";
 const API_KEY = process.env.API_KEY as string;
 
 // Redis setup
-const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL3;
-const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN3;
+const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL6;
+const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN6;
 
 if (!REDIS_URL || !REDIS_TOKEN) {
   throw new Error("🚨 Redis environment variables are missing.");
@@ -18,36 +18,33 @@ const redis = new Redis({
 });
 
 const leagues =    [
-    {league: 312, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 313, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 655, yearr:0, startmonth: '2025-01-01', endmonth: '2025-05-01', name: "EPL"},
-    {league: 809, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-10-01', name: "EPL"},
-    {league: 397, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 1048, yearr:-1, startmonth: '2024-10-01', endmonth: '2025-04-01', name: "EPL"},
-    {league: 130, yearr:0, startmonth: '2025-01-01', endmonth: '2025-07-01', name: "EPL"},
-    {league: 1032, yearr:0, startmonth: '2025-01-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 128, yearr:0, startmonth: '2025-01-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 131, yearr:0, startmonth: '2025-02-01', endmonth: '2025-07-01', name: "EPL"},
-    {league: 132, yearr:0, startmonth: '2025-03-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 129, yearr:0, startmonth: '2025-02-01', endmonth: '2025-11-01', name: "EPL"},
-    {league: 906, yearr:0, startmonth: '2025-02-01', endmonth: '2025-11-01', name: "EPL"},
-    {league: 810, yearr:0, startmonth: '2025-03-01', endmonth: '2025-04-01', name: "EPL"},
-    {league: 1178, yearr:0, startmonth: '2025-03-01', endmonth: '2025-04-01', name: "EPL"},
-    {league: 134, yearr:0, startmonth: '2025-03-01', endmonth: '2025-08-01', name: "EPL"},
-    {league: 1067, yearr:0, startmonth: '2025-02-01', endmonth: '2025-12-01', name: "EPL"},
-    {league: 517, yearr:-1, startmonth: '2024-12-01', endmonth: '2025-01-01', name: "EPL"},
-    {league: 709, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', name: "EPL"},
-   
-]
+    {league: 155, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 156, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 157, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 158, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 159, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 160, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 161, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 518, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 148, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01', country: "Belgium", name: "EPL"},
+{league: 149, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 150, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+{league: 519,yearr: -1,startmonth: '2024-07-01',endmonth: '2025-08-01',country: "Belgium",name: "EPL"},
+{league: 146,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-04-01',country: "Belgium",name: "EPL"},
+{league: 689,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-05-01',country: "Belgium",name: "EPL"},
+{league: 690,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-05-01',country: "Belgium",name: "EPL"},
+{league: 981,yearr: -1,startmonth: '2024-05-01',endmonth: '2025-06-01',country: "Belgium",name: "EPL"},
+{league: 151,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-05-01',country: "Belgium",name: "EPL"},
+{league: 152,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-05-01',country: "Belgium",name: "EPL"},]
 
 async function fetchFixturesByLeague(
     year: number,
     league: number,
     yearr: number,
-    lastWeek: string,
+    currentTimeFormat: string,
     nextWeek: string
 ): Promise<Fixture[]> {
-    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek}&to=${nextWeek}`;
+    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
     const options = {
         method: 'GET',
         headers: {
@@ -76,7 +73,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
         const year = currentTime.year();
         const month = currentTime.month() + 1; // Month is 0-indexed, so add 1
         const lastWeek = currentTime.subtract(7, 'days').format('YYYY-MM-DD');
-        const nextWeek = currentTime.subtract(1, 'days').format('YYYY-MM-DD');
+        const nextWeek = currentTime.add(10, 'days').format('YYYY-MM-DD');
 
         // Process 30 leagues at a time
         const leagueChunks = [];
@@ -101,7 +98,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
                             console.log(`⚠️ Empty cache for ${league.name}. Deleting from Redis...`);
                             await redis.del(cacheKey); // Remove the empty data from Redis
                             console.log(`❌ Empty data in cache, fetching fresh data for ${league.name}`);
-                            const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, lastWeek, nextWeek);
+                            const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, currentTimeFormat, nextWeek);
                             
                             // Store the fresh data in Redis
                             
@@ -119,7 +116,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
 
                     // Cache miss, fetch fresh data
                     console.log(`⏳ Fetching fresh data for ${league.name}...`);
-                    const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, lastWeek, nextWeek);
+                    const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, currentTimeFormat, nextWeek);
 
                     // If fixtures are empty, don't cache and skip
                     if (fixtures.length === 0) {

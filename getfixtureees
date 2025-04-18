@@ -41,6 +41,7 @@ const leagues =    [
     {league: 187, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
   {league: 516, yearr:0, startmonth: '2025-01-01', endmonth: '2025-02-01', name: "EPL"},
   {league: 515, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
+  ------
   {league: 312, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
   {league: 313, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
   {league: 655, yearr:0, startmonth: '2025-01-01', endmonth: '2025-05-01', name: "EPL"},
@@ -60,6 +61,7 @@ const leagues =    [
   {league: 1067, yearr:0, startmonth: '2025-02-01', endmonth: '2025-12-01', name: "EPL"},
   {league: 517, yearr:-1, startmonth: '2024-12-01', endmonth: '2025-01-01', name: "EPL"},
   {league: 709, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', name: "EPL"},
+  ------
   {league: 343, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-04-01', name: "EPL"},
   {league: 342, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', name: "EPL"},
   {league: 654, yearr:0, startmonth: '2025-02-01', endmonth: '2025-03-01', name: "EPL"},
@@ -77,6 +79,7 @@ const leagues =    [
   {league: 193, yearr:0, startmonth: '2025-03-01', endmonth: '2025-10-01', name: "EPL"},
   {league: 482, yearr:0, startmonth: '2025-02-01', endmonth: '2025-09-01', name: "EPL"},
   {league: 833, yearr:0, startmonth: '2025-02-01', endmonth: '2025-09-01', name: "EPL"},
+  -----
   {league: 194, yearr:0, startmonth: '2025-02-01', endmonth: '2025-09-01', name: "EPL"},
   {league: 834, yearr:0, startmonth: '2025-02-01', endmonth: '2025-09-01', name: "EPL"},
   {league: 1091, yearr:0, startmonth: '2025-03-01', endmonth: '2025-09-01', name: "EPL"},
@@ -91,6 +94,7 @@ const leagues =    [
   {league: 218,yearr:-1,startmonth: '2024-08-01',endmonth: '2025-04-01',country: "Austria",name: "EPL"},
   {league: 220,yearr:-1,startmonth: '2024-07-01',endmonth: '2025-05-01',country: "Austria",name: "EPL"},
   {league: 484,yearr:-1,startmonth: '2024-08-01',endmonth: '2025-04-01',country: "Austria",name: "EPL"},
+  ------
   {league: 224,yearr:-1,startmonth: '2024-08-01',endmonth: '2025-07-01',country: "Austria",name: "EPL"},
   {league: 225,yearr:-1,startmonth: '2024-08-01',endmonth: '2025-07-01',country: "Austria",name: "EPL"},
   {league: 226,yearr:-1,startmonth: '2024-08-01',endmonth: '2025-07-01',country: "Austria",name: "EPL"},
@@ -107,6 +111,7 @@ const leagues =    [
   {league: 420,yearr:-1,startmonth: '2024-10-01',endmonth: '2025-05-01',country: "Azerbaijan",name: "EPL"},
   {league: 419,yearr:-1,startmonth: '2024-08-01',endmonth: '2025-06-01',country: "Azerbaijan",name: "EPL"},
   {league: 1049,yearr:-1,startmonth: '2025-01-01',endmonth: '2025-05-01',country: "Bahrain",name: "EPL"},
+  -------
   {league: 417,yearr:-1,startmonth: '2024-09-01',endmonth: '2025-05-01',country: "Bahrain",name: "EPL"},
   {league: 1109,yearr:-1,startmonth: '2024-05-01',endmonth: '2025-06-01',country: "Bahrain",name: "EPL"},
   {league: 811,yearr:-1,startmonth: '2024-12-01',endmonth: '2025-05-01',country: "Bangladesh",name: "EPL"},
@@ -125,6 +130,7 @@ const leagues =    [
   {league: 153, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
   {league: 691, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
   {league: 154, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
+  ------
   {league: 155, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
   {league: 156, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
   {league: 157, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', country: "Belgium", name: "EPL"},
@@ -143,6 +149,7 @@ const leagues =    [
   {league: 981,yearr: -1,startmonth: '2024-05-01',endmonth: '2025-06-01',country: "Belgium",name: "EPL"},
   {league: 151,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-05-01',country: "Belgium",name: "EPL"},
   {league: 152,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-05-01',country: "Belgium",name: "EPL"},
+  --------
   {league: 416,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-04-01',country: "Belize",name: "EPL"},
   {league: 415,yearr: 0,startmonth: '2024-09-01',endmonth: '2025-07-01',country: "Benin",name: "EPL"},
   {league: 414,yearr: 0,startmonth: '2024-09-01',endmonth: '2025-05-01',country: "Bermuda",name: "EPL"},
@@ -161,6 +168,7 @@ const leagues =    [
   {league: 77, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 1146, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-12-01', country: "Brazil", name: "EPL"},
   {league: 1110, yearr:-1, startmonth: '2024-05-01', endmonth: '2025-09-01', country: "Brazil", name: "EPL"},
+  ------
   {league: 521, yearr:0, startmonth: '2025-03-01', endmonth: '2025-05-01', country: "Brazil", name: "EPL"},
   {league: 522, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 1134, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-10-01', country: "Brazil", name: "EPL"},
@@ -177,6 +185,7 @@ const leagues =    [
   {league: 1147, yearr: 0, startmonth: '2024-09-01', endmonth: '2025-12-01', country: "Brazil", name: "EPL"},
   {league: 624, yearr: 0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 625, yearr: -1, startmonth: '2024-09-01', endmonth: '2025-01-01', country: "Brazil", name: "EPL"},
+  ------
   {league: 851, yearr: 0, startmonth: '2024-05-01', endmonth: '2025-09-01', country: "Brazil", name: "EPL"},
   {league: 1155, yearr: -1, startmonth: '2024-09-01', endmonth: '2025-01-01', country: "Brazil", name: "EPL"},
   {league: 1106, yearr: 0, startmonth: '2024-05-01', endmonth: '2025-09-01', country: "Brazil", name: "EPL"},
@@ -196,6 +205,7 @@ const leagues =    [
   {league: 617, yearr: -1, startmonth: '2024-10-01', endmonth: '2025-01-01', country: "Brazil", name: "EPL"},
   {league: 612, yearr: 0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 1097, yearr: 0, startmonth: '2025-04-01', endmonth: '2025-07-01', country: "Brazil", name: "EPL"},
+  -------
   {league: 1165, yearr: -1, startmonth: '2024-11-01', endmonth: '2025-01-01', country: "Brazil", name: "EPL"},
   {league: 1158, yearr: 0, startmonth: '2024-08-01', endmonth: '2025-12-01', country: "Brazil", name: "EPL"},
   {league: 742, yearr:0, startmonth: '2025-06-01', endmonth: '2025-11-01', country: "Brazil", name: "EPL"},
@@ -214,6 +224,7 @@ const leagues =    [
   {league: 608, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 1148, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-12-01', country: "Brazil", name: "EPL"},
   {league: 630, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
+  -------
   {league: 1096, yearr:0, startmonth: '2025-04-01', endmonth: '2025-08-01', country: "Brazil", name: "EPL"},
   {league: 629, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 619, yearr:0, startmonth: '2024-05-01', endmonth: '2025-07-01', country: "Brazil", name: "EPL"},
@@ -233,6 +244,7 @@ const leagues =    [
   {league: 475, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 476, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 605, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
+  --------
   {league: 1062, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
   {league: 1086, yearr:0, startmonth: '2025-04-01', endmonth: '2025-12-01', country: "Brazil", name: "EPL"},
   {league: 1098, yearr:0, startmonth: '2025-04-01', endmonth: '2025-07-01', country: "Brazil", name: "EPL"},
@@ -252,6 +264,7 @@ const leagues =    [
   {league: 1135, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-12-01', country: "Brazil", name: "EPL"},
   {league: 1108, yearr:-1, startmonth: '2024-05-01', endmonth: '2025-08-01', country: "Brazil", name: "EPL"},
   {league: 71, yearr:0, startmonth: '2025-03-01', endmonth: '2026-01-01', country: "Brazil", name: "EPL"},
+  ------
   {league: 72, yearr:0, startmonth: '2025-04-01', endmonth: '2025-12-01', country: "Brazil", name: "EPL"},
   {league: 75, yearr:0, startmonth: '2025-04-01', endmonth: '2025-09-01', country: "Brazil", name: "EPL"},
   {league: 76, yearr:0, startmonth: '2025-04-01', endmonth: '2025-08-01', country: "Brazil", name: "EPL"},

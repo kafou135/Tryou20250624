@@ -18,25 +18,20 @@ const redis = new Redis({
 });
 
 const leagues =    [
-    {league: 312, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 313, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 655, yearr:0, startmonth: '2025-01-01', endmonth: '2025-05-01', name: "EPL"},
-    {league: 809, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-10-01', name: "EPL"},
-    {league: 397, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 1048, yearr:-1, startmonth: '2024-10-01', endmonth: '2025-04-01', name: "EPL"},
-    {league: 130, yearr:0, startmonth: '2025-01-01', endmonth: '2025-07-01', name: "EPL"},
-    {league: 1032, yearr:0, startmonth: '2025-01-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 128, yearr:0, startmonth: '2025-01-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 131, yearr:0, startmonth: '2025-02-01', endmonth: '2025-07-01', name: "EPL"},
-    {league: 132, yearr:0, startmonth: '2025-03-01', endmonth: '2025-06-01', name: "EPL"},
-    {league: 129, yearr:0, startmonth: '2025-02-01', endmonth: '2025-11-01', name: "EPL"},
-    {league: 906, yearr:0, startmonth: '2025-02-01', endmonth: '2025-11-01', name: "EPL"},
-    {league: 810, yearr:0, startmonth: '2025-03-01', endmonth: '2025-04-01', name: "EPL"},
-    {league: 1178, yearr:0, startmonth: '2025-03-01', endmonth: '2025-04-01', name: "EPL"},
-    {league: 134, yearr:0, startmonth: '2025-03-01', endmonth: '2025-08-01', name: "EPL"},
-    {league: 1067, yearr:0, startmonth: '2025-02-01', endmonth: '2025-12-01', name: "EPL"},
-    {league: 517, yearr:-1, startmonth: '2024-12-01', endmonth: '2025-01-01', name: "EPL"},
-    {league: 709, yearr:-1, startmonth: '2024-08-01', endmonth: '2025-05-01', name: "EPL"},
+    {league: 61,yearr:-1,startmonth: '2024-08-01',endmonth: '2025-06-01',country: "France",name: "EPL"},
+    {league: 311,yearr: 0,startmonth: '2024-08-01',endmonth: '2025-05-01',name: "EPL"},
+    {league: 512,yearr: 0,startmonth: '2024-09-01',endmonth: '2025-05-01',name: "EPL"},
+    {league: 513,yearr: 0,startmonth: '2024-09-01',endmonth: '2025-05-01',name: "EPL"},
+    {league: 978,yearr: 0,startmonth: '2024-05-01',endmonth: '2025-06-01',name: "EPL"},
+    {league: 707,yearr: 0,startmonth: '2024-09-01',endmonth: '2025-05-01',name: "EPL"},
+    {league: 708,yearr: -1,startmonth: '2024-12-01',endmonth: '2025-01-01',name: "EPL"},
+    {league: 310,yearr: 0,startmonth: '2024-08-01',endmonth: '2025-06-01',name: "EPL"},
+    {league: 514,yearr: 0,startmonth: '2024-12-01',endmonth: '2025-04-01',name: "EPL"},
+    {league: 186,yearr: 0,startmonth: '2024-09-01',endmonth: '2025-06-01',name: "EPL"},
+    {league: 187, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
+  {league: 516, yearr:0, startmonth: '2025-01-01', endmonth: '2025-02-01', name: "EPL"},
+  {league: 515, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
+    
    
 ]
 
@@ -70,13 +65,16 @@ async function fetchFixturesByLeague(
 
 export default async function getFixtures(): Promise<AllFixtures[]> {
     try {
+        const now = moment();
+        const midnight = moment().endOf('day').add(1, 'second'); // tiny buffer
+        const secondsUntilMidnight = midnight.diff(now, 'seconds');
         const allFixturesByLeague: AllFixtures[] = [];
         const currentTime = moment();
         const currentTimeFormat = moment().format('YYYY-MM-DD');
         const year = currentTime.year();
         const month = currentTime.month() + 1; // Month is 0-indexed, so add 1
-        const lastWeek = currentTime.subtract(7, 'days').format('YYYY-MM-DD');
-        const nextWeek = currentTime.subtract(1, 'days').format('YYYY-MM-DD');
+        const lastWeek = currentTime.add(1, 'days').format('YYYY-MM-DD');
+        const nextWeek = currentTime.subtract(3, 'days').format('YYYY-MM-DD');
 
         // Process 30 leagues at a time
         const leagueChunks = [];
@@ -138,7 +136,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
 
                    // Store ongoing fixtures in Redis for 3 minutes, ensuring they persist until refresh
                    if (ongoingFixtures.length > 0) {
-                       await redis.set(`${cacheKey}:LIVEE`, JSON.stringify(ongoingFixtures), {ex: 60});
+                       await redis.set(`${cacheKey}:LIVEE`, JSON.stringify(ongoingFixtures), {ex: secondsUntilMidnight});
                    }
 
                     return {

@@ -44,10 +44,10 @@ async function fetchFixturesByLeague(
     year: number,
     league: number,
     yearr: number,
-    lastWeek: string,
+    currentTimeFormat: string,
     nextWeek: string
 ): Promise<Fixture[]> {
-    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek}&to=${nextWeek}`;
+    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
     const options = {
         method: 'GET',
         headers: {
@@ -76,7 +76,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
         const year = currentTime.year();
         const month = currentTime.month() + 1; // Month is 0-indexed, so add 1
         const lastWeek = currentTime.subtract(7, 'days').format('YYYY-MM-DD');
-        const nextWeek = currentTime.subtract(1, 'days').format('YYYY-MM-DD');
+        const nextWeek = currentTime.add(10, 'days').format('YYYY-MM-DD');
 
         // Process 30 leagues at a time
         const leagueChunks = [];
@@ -101,7 +101,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
                             console.log(`⚠️ Empty cache for ${league.name}. Deleting from Redis...`);
                             await redis.del(cacheKey); // Remove the empty data from Redis
                             console.log(`❌ Empty data in cache, fetching fresh data for ${league.name}`);
-                            const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, lastWeek, nextWeek);
+                            const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, currentTimeFormat, nextWeek);
                             
                             // Store the fresh data in Redis
                             
@@ -119,7 +119,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
 
                     // Cache miss, fetch fresh data
                     console.log(`⏳ Fetching fresh data for ${league.name}...`);
-                    const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, lastWeek, nextWeek);
+                    const fixtures = await fetchFixturesByLeague(year, league.league, league.yearr, currentTimeFormat, nextWeek);
 
                     // If fixtures are empty, don't cache and skip
                     if (fixtures.length === 0) {

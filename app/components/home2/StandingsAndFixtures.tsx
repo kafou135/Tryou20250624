@@ -7,7 +7,7 @@ import FixturesByLeague from "./FixturesByLeague";
 import moment from "moment";
 import Link from "next/link";
 
-export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures1,filteredFixtures2,filteredFixtures3,filteredFixtures4,filteredFixtures5,filteredFixtures6,filteredFixtures7,filteredFixtures8,filteredFixtures9,filteredFixtures10 }: { filteredFixtures: AllFixtures[], filteredFixtures1: AllFixtures[],filteredFixtures2: AllFixtures[],filteredFixtures3: AllFixtures[], filteredFixtures4: AllFixtures[],filteredFixtures5: AllFixtures[],filteredFixtures6: AllFixtures[], filteredFixtures7: AllFixtures[], filteredFixtures8: AllFixtures[] , filteredFixtures9: AllFixtures[] , filteredFixtures10: AllFixtures[] }) {
+export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures1,filteredFixtures2,filteredFixtures3,filteredFixtures4,filteredFixtures5,filteredFixtures6,filteredFixtures7,filteredFixtures8,filteredFixtures9,filteredFixtures10,filteredFixtures_1,filteredFixtures_2,filteredFixtures1_1,filteredFixtures1_2,filteredFixtures2_1,filteredFixtures2_2,filteredFixtures3_1,filteredFixtures3_2,filteredFixtures4_1,filteredFixtures4_2,filteredFixtures5_1,filteredFixtures5_2,filteredFixtures6_1,filteredFixtures6_2,filteredFixtures7_1,filteredFixtures7_2,filteredFixtures8_1,filteredFixtures8_2,filteredFixtures9_1,filteredFixtures9_2,filteredFixtures10_1,filteredFixtures10_2 }: { filteredFixtures: AllFixtures[], filteredFixtures1: AllFixtures[],filteredFixtures2: AllFixtures[],filteredFixtures3: AllFixtures[], filteredFixtures4: AllFixtures[],filteredFixtures5: AllFixtures[],filteredFixtures6: AllFixtures[], filteredFixtures7: AllFixtures[], filteredFixtures8: AllFixtures[] , filteredFixtures9: AllFixtures[] , filteredFixtures10: AllFixtures[],filteredFixtures_1:AllFixtures[],filteredFixtures_2:AllFixtures[],filteredFixtures1_1:AllFixtures[],filteredFixtures1_2:AllFixtures[],filteredFixtures2_1:AllFixtures[],filteredFixtures2_2:AllFixtures[],filteredFixtures3_1:AllFixtures[],filteredFixtures3_2:AllFixtures[],filteredFixtures4_1:AllFixtures[],filteredFixtures4_2:AllFixtures[],filteredFixtures5_1:AllFixtures[],filteredFixtures5_2:AllFixtures[],filteredFixtures6_1:AllFixtures[],filteredFixtures6_2:AllFixtures[],filteredFixtures7_1:AllFixtures[],filteredFixtures7_2:AllFixtures[],filteredFixtures8_1:AllFixtures[],filteredFixtures8_2:AllFixtures[],filteredFixtures9_1:AllFixtures[],filteredFixtures9_2:AllFixtures[],filteredFixtures10_1:AllFixtures[],filteredFixtures10_2:AllFixtures[] }) {
     const [selectedDate, setSelectedDate] = useState(moment().format("YYYY-MM-DD"));
     
     const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -24,16 +24,38 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
 
     const [activeTab, setActiveTab] = useState(0);
     const [updatedFixtures, setUpdatedFixtures] = useState<AllFixtures[]>(filteredFixtures);
+    const [updatedFixtures_1, setUpdatedFixtures_1] = useState<AllFixtures[]>(filteredFixtures_1);
+    const [updatedFixtures_2, setUpdatedFixtures_2] = useState<AllFixtures[]>(filteredFixtures_2);
     const [updatedFixtures1, setUpdatedFixtures1] = useState<AllFixtures[]>(filteredFixtures1);
+    const [updatedFixtures1_1, setUpdatedFixtures1_1] = useState<AllFixtures[]>(filteredFixtures1_1);
+    const [updatedFixtures1_2, setUpdatedFixtures1_2] = useState<AllFixtures[]>(filteredFixtures1_2);
     const [updatedFixtures2, setUpdatedFixtures2] = useState<AllFixtures[]>(filteredFixtures2);
+    const [updatedFixtures2_1, setUpdatedFixtures2_1] = useState<AllFixtures[]>(filteredFixtures2_1);
+    const [updatedFixtures2_2, setUpdatedFixtures2_2] = useState<AllFixtures[]>(filteredFixtures2_2);
     const [updatedFixtures3, setUpdatedFixtures3] = useState<AllFixtures[]>(filteredFixtures3);
+    const [updatedFixtures3_1, setUpdatedFixtures3_1] = useState<AllFixtures[]>(filteredFixtures3_1);
+    const [updatedFixtures3_2, setUpdatedFixtures3_2] = useState<AllFixtures[]>(filteredFixtures3_2);
     const [updatedFixtures4, setUpdatedFixtures4] = useState<AllFixtures[]>(filteredFixtures4);
+    const [updatedFixtures4_1, setUpdatedFixtures4_1] = useState<AllFixtures[]>(filteredFixtures4_1);
+    const [updatedFixtures4_2, setUpdatedFixtures4_2] = useState<AllFixtures[]>(filteredFixtures4_2);
     const [updatedFixtures5, setUpdatedFixtures5] = useState<AllFixtures[]>(filteredFixtures5);
+    const [updatedFixtures5_1, setUpdatedFixtures5_1] = useState<AllFixtures[]>(filteredFixtures5_1);
+    const [updatedFixtures5_2, setUpdatedFixtures5_2] = useState<AllFixtures[]>(filteredFixtures5_2);
     const [updatedFixtures6, setUpdatedFixtures6] = useState<AllFixtures[]>(filteredFixtures6);
+    const [updatedFixtures6_1, setUpdatedFixtures6_1] = useState<AllFixtures[]>(filteredFixtures6_1);
+    const [updatedFixtures6_2, setUpdatedFixtures6_2] = useState<AllFixtures[]>(filteredFixtures6_2);
     const [updatedFixtures7, setUpdatedFixtures7] = useState<AllFixtures[]>(filteredFixtures7);
+    const [updatedFixtures7_1, setUpdatedFixtures7_1] = useState<AllFixtures[]>(filteredFixtures7_1);
+    const [updatedFixtures7_2, setUpdatedFixtures7_2] = useState<AllFixtures[]>(filteredFixtures7_2);
     const [updatedFixtures8, setUpdatedFixtures8] = useState<AllFixtures[]>(filteredFixtures8);
+    const [updatedFixtures8_1, setUpdatedFixtures8_1] = useState<AllFixtures[]>(filteredFixtures8_1);
+    const [updatedFixtures8_2, setUpdatedFixtures8_2] = useState<AllFixtures[]>(filteredFixtures8_2);
     const [updatedFixtures9, setUpdatedFixtures9] = useState<AllFixtures[]>(filteredFixtures9);
+    const [updatedFixtures9_1, setUpdatedFixtures9_1] = useState<AllFixtures[]>(filteredFixtures9_1);
+    const [updatedFixtures9_2, setUpdatedFixtures9_2] = useState<AllFixtures[]>(filteredFixtures9_2);
     const [updatedFixtures10, setUpdatedFixtures10] = useState<AllFixtures[]>(filteredFixtures10);
+    const [updatedFixtures10_1, setUpdatedFixtures10_1] = useState<AllFixtures[]>(filteredFixtures10_1);
+    const [updatedFixtures10_2, setUpdatedFixtures10_2] = useState<AllFixtures[]>(filteredFixtures10_2);
 
     const menuRef = useRef<HTMLDivElement>(null);
 
@@ -60,34 +82,104 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
         }
     }, [filteredFixtures]);
     useEffect(() => {
+        if (JSON.stringify(updatedFixtures_1) !== JSON.stringify(filteredFixtures_1)) {
+            setUpdatedFixtures(filteredFixtures_1);
+        }
+    }, [filteredFixtures_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures_2) !== JSON.stringify(filteredFixtures_2)) {
+            setUpdatedFixtures1(filteredFixtures_2);
+        }
+    }, [filteredFixtures_2]);
+
+    useEffect(() => {
         if (JSON.stringify(updatedFixtures1) !== JSON.stringify(filteredFixtures1)) {
-            setUpdatedFixtures1(filteredFixtures1);
+            setUpdatedFixtures2(filteredFixtures1);
         }
     }, [filteredFixtures1]);
-
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures1_1) !== JSON.stringify(filteredFixtures1_1)) {
+            setUpdatedFixtures2(filteredFixtures1_1);
+        }
+    }, [filteredFixtures1_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures1_2) !== JSON.stringify(filteredFixtures1_2)) {
+            setUpdatedFixtures2(filteredFixtures1_2);
+        }
+    }, [filteredFixtures1_2]);
     useEffect(() => {
         if (JSON.stringify(updatedFixtures2) !== JSON.stringify(filteredFixtures2)) {
             setUpdatedFixtures2(filteredFixtures2);
         }
     }, [filteredFixtures2]);
     useEffect(() => {
+        if (JSON.stringify(updatedFixtures2_1) !== JSON.stringify(filteredFixtures2_1)) {
+            setUpdatedFixtures2(filteredFixtures2_1);
+        }
+    }, [filteredFixtures2_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures2_2) !== JSON.stringify(filteredFixtures2_2)) {
+            setUpdatedFixtures2(filteredFixtures2_2);
+        }
+    }, [filteredFixtures2_2]);
+    useEffect(() => {
         if (JSON.stringify(updatedFixtures3) !== JSON.stringify(filteredFixtures3)) {
             setUpdatedFixtures2(filteredFixtures3);
         }
     }, [filteredFixtures3]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures3_1) !== JSON.stringify(filteredFixtures3_1)) {
+            setUpdatedFixtures2(filteredFixtures3_1);
+        }
+    }, [filteredFixtures3_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures3_2) !== JSON.stringify(filteredFixtures3_2)) {
+            setUpdatedFixtures2(filteredFixtures3_2);
+        }
+    }, [filteredFixtures3_2]);
     useEffect(() => {
         if (JSON.stringify(updatedFixtures4) !== JSON.stringify(filteredFixtures4)) {
             setUpdatedFixtures2(filteredFixtures4);
         }
     }, [filteredFixtures4]);
     useEffect(() => {
+        if (JSON.stringify(updatedFixtures4_1) !== JSON.stringify(filteredFixtures4_1)) {
+            setUpdatedFixtures2(filteredFixtures4_1);
+        }
+    }, [filteredFixtures4_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures4_2) !== JSON.stringify(filteredFixtures4_2)) {
+            setUpdatedFixtures2(filteredFixtures4_2);
+        }
+    }, [filteredFixtures4_2]);
+    useEffect(() => {
         if (JSON.stringify(updatedFixtures5) !== JSON.stringify(filteredFixtures5)) {
             setUpdatedFixtures2(filteredFixtures5);
         }
     }, [filteredFixtures5]);
     useEffect(() => {
+        if (JSON.stringify(updatedFixtures5_1) !== JSON.stringify(filteredFixtures5_1)) {
+            setUpdatedFixtures2(filteredFixtures5_1);
+        }
+    }, [filteredFixtures5_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures5_2) !== JSON.stringify(filteredFixtures5_2)) {
+            setUpdatedFixtures2(filteredFixtures5_2);
+        }
+    }, [filteredFixtures5_2]);
+    useEffect(() => {
         if (JSON.stringify(updatedFixtures6) !== JSON.stringify(filteredFixtures6)) {
             setUpdatedFixtures2(filteredFixtures6);
+        }
+    }, [filteredFixtures6]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures6_1) !== JSON.stringify(filteredFixtures6_1)) {
+            setUpdatedFixtures2(filteredFixtures6_1);
+        }
+    }, [filteredFixtures6_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures6_2) !== JSON.stringify(filteredFixtures6_2)) {
+            setUpdatedFixtures2(filteredFixtures6_2);
         }
     }, [filteredFixtures6]);
     useEffect(() => {
@@ -96,22 +188,62 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
         }
     }, [filteredFixtures7]);
     useEffect(() => {
+        if (JSON.stringify(updatedFixtures7_1) !== JSON.stringify(filteredFixtures7_1)) {
+            setUpdatedFixtures2(filteredFixtures7_1);
+        }
+    }, [filteredFixtures7_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures7_2) !== JSON.stringify(filteredFixtures7_2)) {
+            setUpdatedFixtures2(filteredFixtures7_2);
+        }
+    }, [filteredFixtures7_2]);
+    useEffect(() => {
         if (JSON.stringify(updatedFixtures8) !== JSON.stringify(filteredFixtures8)) {
             setUpdatedFixtures2(filteredFixtures8);
         }
     }, [filteredFixtures8]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures8_1) !== JSON.stringify(filteredFixtures8_1)) {
+            setUpdatedFixtures2(filteredFixtures8_1);
+        }
+    }, [filteredFixtures8_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures8_2) !== JSON.stringify(filteredFixtures8_2)) {
+            setUpdatedFixtures2(filteredFixtures8_2);
+        }
+    }, [filteredFixtures8_2]);
 
     useEffect(() => {
         if (JSON.stringify(updatedFixtures9) !== JSON.stringify(filteredFixtures9)) {
-            setUpdatedFixtures2(filteredFixtures8);
+            setUpdatedFixtures2(filteredFixtures9);
         }
     }, [filteredFixtures9]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures9_1) !== JSON.stringify(filteredFixtures9_1)) {
+            setUpdatedFixtures2(filteredFixtures9_1);
+        }
+    }, [filteredFixtures9_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures9_2) !== JSON.stringify(filteredFixtures9_2)) {
+            setUpdatedFixtures2(filteredFixtures9_2);
+        }
+    }, [filteredFixtures9_2]);
 
     useEffect(() => {
         if (JSON.stringify(updatedFixtures10) !== JSON.stringify(filteredFixtures10)) {
             setUpdatedFixtures2(filteredFixtures10);
         }
     }, [filteredFixtures10]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures10_1) !== JSON.stringify(filteredFixtures10_1)) {
+            setUpdatedFixtures2(filteredFixtures10_1);
+        }
+    }, [filteredFixtures10_1]);
+    useEffect(() => {
+        if (JSON.stringify(updatedFixtures10_2) !== JSON.stringify(filteredFixtures10_2)) {
+            setUpdatedFixtures2(filteredFixtures10_2);
+        }
+    }, [filteredFixtures10_2]);
 
 
     useEffect(() => {
@@ -193,7 +325,45 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
 
                         </>
                     ))}
+                    {updatedFixtures_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+
+                        </>
+                    ))}
+                    {updatedFixtures_2.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+
+                        </>
+                    ))}
                     {updatedFixtures1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures1_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures1_2.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
@@ -211,7 +381,43 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         />
                         </>
                     ))}
+                    {updatedFixtures2_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures2_2.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
                     {updatedFixtures3.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures3_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures3_2.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
@@ -229,7 +435,43 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         />
                         </>
                     ))}
+                    {updatedFixtures4_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures4_2.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
                     {updatedFixtures5.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures5_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures5_2.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
@@ -247,7 +489,43 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         />
                         </>
                     ))}
+                    {updatedFixtures6_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures6_2.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
                     {updatedFixtures7.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures7_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures7_2.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
@@ -265,6 +543,24 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         />
                         </>
                     ))}
+                    {updatedFixtures8_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures8_2.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
                     {updatedFixtures9.map((league, j) => (
                         <>
                         <FixturesByLeague
@@ -274,7 +570,43 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         />
                         </>
                     ))}
+                    {updatedFixtures9_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures9_2.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
                     {updatedFixtures10.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures10_1.map((league, j) => (
+                        <>
+                        <FixturesByLeague
+                            fixturesByTeamId={league.fixtures}
+                            key={league.name + j}
+                            selectedDate={selectedDate}
+                        />
+                        </>
+                    ))}
+                    {updatedFixtures10_2.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}

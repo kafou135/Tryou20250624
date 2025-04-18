@@ -73,7 +73,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
         const year = currentTime.year();
         const month = currentTime.month() + 1; // Month is 0-indexed, so add 1
         const lastWeek = currentTime.subtract(7, 'days').format('YYYY-MM-DD');
-        const nextWeek = currentTime.add(10, 'days').format('YYYY-MM-DD');
+        const nextWeek = currentTime.subtract(1, 'days').format('YYYY-MM-DD');
 
         // Process 30 leagues at a time
         const leagueChunks = [];
