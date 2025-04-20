@@ -85,7 +85,7 @@ export default function Fixtures({ fixturesByTeamId,selectedDate }: PageProps) {
                         <div className="text-center">{fixture.league.name}</div>
                         <LocalTime fixture={fixture} />
                         <div className="text-lg font-bold">
-                            {fixture.score.fulltime.home} - {fixture.score.fulltime.away}
+                            {fixture.goals.home} - {fixture.goals.away}
                         </div>
                         <div className="text-center">{fixture.fixture.venue.name}</div>
                     </div>
