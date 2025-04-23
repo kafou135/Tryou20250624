@@ -87,6 +87,24 @@ export default function Fixtures({ fixturesByTeamId,selectedDate }: PageProps) {
                         <div className="text-lg font-bold">
                             {fixture.goals.home} - {fixture.goals.away}
                         </div>
+                        {["1H"].includes(fixture.fixture.status.short) && (
+    <div className="text-xs text-red-600">
+        {fixture.fixture.status.elapsed >= 45 ? `45+${fixture.fixture.status.elapsed - 44}` : fixture.fixture.status.elapsed}
+        <span className="inline-block animate-ping">′</span>
+    </div>
+)}
+                {["2H"].includes(fixture.fixture.status.short) && (
+    <div className="text-xs text-red-600">
+        {fixture.fixture.status.elapsed >= 90 ? `90+${fixture.fixture.status.elapsed - 89}` : fixture.fixture.status.elapsed}
+        <span className="inline-block animate-ping">′</span>
+    </div>
+)}
+                {["ET"].includes(fixture.fixture.status.short) && (
+    <div className="text-xs text-red-600">
+        {fixture.fixture.status.elapsed+1}
+        <span className="inline-block animate-ping">′</span>
+    </div>
+)}
                         <div className="text-center">{fixture.fixture.venue.name}</div>
                     </div>
                     <div className="flex flex-col items-center w-3/12 text-sm">

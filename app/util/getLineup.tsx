@@ -8,7 +8,7 @@ const redis = new Redis({
 });
 
 // Function to fetch lineup data for a single fixture
-async function fetchLineup(id: number, API_KEY: string): Promise<Lineups[]> {
+async function fetchLineup(id: number, API_KEY: string){
     const url = `https://v3.football.api-sports.io/fixtures/lineups?fixture=${id}`;
     const options = {
         method: "GET",
@@ -23,7 +23,7 @@ async function fetchLineup(id: number, API_KEY: string): Promise<Lineups[]> {
         }
 
         const data = await response.json();
-        return data?.response ?? [];
+        return data.response ?? [];
     } catch (err) {
         console.error(`❌ Error fetching lineup for fixture ${id}:`, err);
         return [];

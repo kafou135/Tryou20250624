@@ -8,7 +8,7 @@ const redis = new Redis({
 });
 
 // Function to fetch events for a single fixture
-async function getH2H(id: number, API_KEY: string): Promise<Events[]> {
+async function getH2H(id: number, API_KEY: string) {
     const url = `https://v3.football.api-sports.io/fixtures/events?fixture=${id}`;
     const options = {
         method: "GET",
@@ -23,7 +23,7 @@ async function getH2H(id: number, API_KEY: string): Promise<Events[]> {
         }
 
         const data = await response.json();
-        return data?.response ?? [];
+        return data.response ?? [];
     } catch (err) {
         console.error(`❌ Error fetching H2H events for fixture ${id}:`, err);
         return [];
