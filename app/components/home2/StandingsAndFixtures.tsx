@@ -77,170 +77,170 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
     };
 
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures) !== JSON.stringify(filteredFixtures)) {
+        if (updatedFixtures.length !== filteredFixtures.length) {
             setUpdatedFixtures(filteredFixtures);
         }
     }, [filteredFixtures]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures_1) !== JSON.stringify(filteredFixtures_1)) {
+        if ((updatedFixtures_1).length !== (filteredFixtures_1).length) {
             setUpdatedFixtures(filteredFixtures_1);
         }
     }, [filteredFixtures_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures_2) !== JSON.stringify(filteredFixtures_2)) {
+        if ((updatedFixtures_2).length !== (filteredFixtures_2).length) {
             setUpdatedFixtures1(filteredFixtures_2);
         }
     }, [filteredFixtures_2]);
 
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures1) !== JSON.stringify(filteredFixtures1)) {
+        if ((updatedFixtures1).length !== (filteredFixtures1).length) {
             setUpdatedFixtures2(filteredFixtures1);
         }
     }, [filteredFixtures1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures1_1) !== JSON.stringify(filteredFixtures1_1)) {
+        if ((updatedFixtures1_1).length !== (filteredFixtures1_1).length) {
             setUpdatedFixtures2(filteredFixtures1_1);
         }
     }, [filteredFixtures1_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures1_2) !== JSON.stringify(filteredFixtures1_2)) {
+        if ((updatedFixtures1_2).length !== (filteredFixtures1_2).length) {
             setUpdatedFixtures2(filteredFixtures1_2);
         }
     }, [filteredFixtures1_2]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures2) !== JSON.stringify(filteredFixtures2)) {
+        if ((updatedFixtures2).length !== (filteredFixtures2).length) {
             setUpdatedFixtures2(filteredFixtures2);
         }
     }, [filteredFixtures2]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures2_1) !== JSON.stringify(filteredFixtures2_1)) {
+        if ((updatedFixtures2_1).length !== (filteredFixtures2_1).length) {
             setUpdatedFixtures2(filteredFixtures2_1);
         }
     }, [filteredFixtures2_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures2_2) !== JSON.stringify(filteredFixtures2_2)) {
+        if ((updatedFixtures2_2).length !== (filteredFixtures2_2).length) {
             setUpdatedFixtures2(filteredFixtures2_2);
         }
     }, [filteredFixtures2_2]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures3) !== JSON.stringify(filteredFixtures3)) {
+        if ((updatedFixtures3).length !== (filteredFixtures3).length) {
             setUpdatedFixtures2(filteredFixtures3);
         }
     }, [filteredFixtures3]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures3_1) !== JSON.stringify(filteredFixtures3_1)) {
+        if ((updatedFixtures3_1).length !== (filteredFixtures3_1).length) {
             setUpdatedFixtures2(filteredFixtures3_1);
         }
     }, [filteredFixtures3_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures3_2) !== JSON.stringify(filteredFixtures3_2)) {
+        if ((updatedFixtures3_2).length !== (filteredFixtures3_2).length) {
             setUpdatedFixtures2(filteredFixtures3_2);
         }
     }, [filteredFixtures3_2]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures4) !== JSON.stringify(filteredFixtures4)) {
+        if ((updatedFixtures4).length !== (filteredFixtures4).length) {
             setUpdatedFixtures2(filteredFixtures4);
         }
     }, [filteredFixtures4]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures4_1) !== JSON.stringify(filteredFixtures4_1)) {
+        if ((updatedFixtures4_1).length !== (filteredFixtures4_1).length) {
             setUpdatedFixtures2(filteredFixtures4_1);
         }
     }, [filteredFixtures4_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures4_2) !== JSON.stringify(filteredFixtures4_2)) {
+        if ((updatedFixtures4_2).length !== (filteredFixtures4_2).length) {
             setUpdatedFixtures2(filteredFixtures4_2);
         }
     }, [filteredFixtures4_2]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures5) !== JSON.stringify(filteredFixtures5)) {
+        if ((updatedFixtures5).length !== (filteredFixtures5).length) {
             setUpdatedFixtures2(filteredFixtures5);
         }
     }, [filteredFixtures5]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures5_1) !== JSON.stringify(filteredFixtures5_1)) {
+        if ((updatedFixtures5_1).length !== (filteredFixtures5_1).length) {
             setUpdatedFixtures2(filteredFixtures5_1);
         }
     }, [filteredFixtures5_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures5_2) !== JSON.stringify(filteredFixtures5_2)) {
+        if ((updatedFixtures5_2).length !== (filteredFixtures5_2).length) {
             setUpdatedFixtures2(filteredFixtures5_2);
         }
     }, [filteredFixtures5_2]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures6) !== JSON.stringify(filteredFixtures6)) {
+        if ((updatedFixtures6).length !== (filteredFixtures6).length) {
             setUpdatedFixtures2(filteredFixtures6);
         }
     }, [filteredFixtures6]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures6_1) !== JSON.stringify(filteredFixtures6_1)) {
+        if ((updatedFixtures6_1).length !== (filteredFixtures6_1).length) {
             setUpdatedFixtures2(filteredFixtures6_1);
         }
     }, [filteredFixtures6_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures6_2) !== JSON.stringify(filteredFixtures6_2)) {
+        if ((updatedFixtures6_2).length !== (filteredFixtures6_2).length) {
             setUpdatedFixtures2(filteredFixtures6_2);
         }
     }, [filteredFixtures6]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures7) !== JSON.stringify(filteredFixtures7)) {
+        if ((updatedFixtures7).length !== (filteredFixtures7).length) {
             setUpdatedFixtures2(filteredFixtures7);
         }
     }, [filteredFixtures7]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures7_1) !== JSON.stringify(filteredFixtures7_1)) {
+        if ((updatedFixtures7_1).length !== (filteredFixtures7_1).length) {
             setUpdatedFixtures2(filteredFixtures7_1);
         }
     }, [filteredFixtures7_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures7_2) !== JSON.stringify(filteredFixtures7_2)) {
+        if ((updatedFixtures7_2).length !== (filteredFixtures7_2).length) {
             setUpdatedFixtures2(filteredFixtures7_2);
         }
     }, [filteredFixtures7_2]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures8) !== JSON.stringify(filteredFixtures8)) {
+        if ((updatedFixtures8).length !== (filteredFixtures8).length) {
             setUpdatedFixtures2(filteredFixtures8);
         }
     }, [filteredFixtures8]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures8_1) !== JSON.stringify(filteredFixtures8_1)) {
+        if ((updatedFixtures8_1).length !== (filteredFixtures8_1).length) {
             setUpdatedFixtures2(filteredFixtures8_1);
         }
     }, [filteredFixtures8_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures8_2) !== JSON.stringify(filteredFixtures8_2)) {
+        if ((updatedFixtures8_2).length !== (filteredFixtures8_2).length) {
             setUpdatedFixtures2(filteredFixtures8_2);
         }
     }, [filteredFixtures8_2]);
 
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures9) !== JSON.stringify(filteredFixtures9)) {
+        if ((updatedFixtures9).length !== (filteredFixtures9).length) {
             setUpdatedFixtures2(filteredFixtures9);
         }
     }, [filteredFixtures9]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures9_1) !== JSON.stringify(filteredFixtures9_1)) {
+        if ((updatedFixtures9_1).length !== (filteredFixtures9_1).length) {
             setUpdatedFixtures2(filteredFixtures9_1);
         }
     }, [filteredFixtures9_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures9_2) !== JSON.stringify(filteredFixtures9_2)) {
+        if ((updatedFixtures9_2).length !== (filteredFixtures9_2).length) {
             setUpdatedFixtures2(filteredFixtures9_2);
         }
     }, [filteredFixtures9_2]);
 
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures10) !== JSON.stringify(filteredFixtures10)) {
+        if ((updatedFixtures10).length !== (filteredFixtures10).length) {
             setUpdatedFixtures2(filteredFixtures10);
         }
     }, [filteredFixtures10]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures10_1) !== JSON.stringify(filteredFixtures10_1)) {
+        if ((updatedFixtures10_1).length !== (filteredFixtures10_1).length) {
             setUpdatedFixtures2(filteredFixtures10_1);
         }
     }, [filteredFixtures10_1]);
     useEffect(() => {
-        if (JSON.stringify(updatedFixtures10_2) !== JSON.stringify(filteredFixtures10_2)) {
+        if ((updatedFixtures10_2).length !== (filteredFixtures10_2).length) {
             setUpdatedFixtures2(filteredFixtures10_2);
         }
     }, [filteredFixtures10_2]);

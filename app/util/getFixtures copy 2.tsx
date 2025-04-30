@@ -70,8 +70,8 @@ const secondsUntilMidnight = midnight.diff(now, 'seconds');
 
         // Process 30 leagues at a time
         const leagueChunks = [];
-        for (let i = 0; i < leagues.length; i += 80) {
-            leagueChunks.push(leagues.slice(i, i + 80));
+        for (let i = 0; i < leagues.length; i += 160) {
+            leagueChunks.push(leagues.slice(i, i + 160));
         }
 
         for (const chunk of leagueChunks) {
