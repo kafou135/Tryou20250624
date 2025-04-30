@@ -83,28 +83,28 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
     }, [filteredFixtures]);
     useEffect(() => {
         if ((updatedFixtures_1).length !== (filteredFixtures_1).length) {
-            setUpdatedFixtures(filteredFixtures_1);
+            setUpdatedFixtures_1(filteredFixtures_1);
         }
     }, [filteredFixtures_1]);
     useEffect(() => {
         if ((updatedFixtures_2).length !== (filteredFixtures_2).length) {
-            setUpdatedFixtures1(filteredFixtures_2);
+            setUpdatedFixtures_2(filteredFixtures_2);
         }
     }, [filteredFixtures_2]);
 
     useEffect(() => {
         if ((updatedFixtures1).length !== (filteredFixtures1).length) {
-            setUpdatedFixtures2(filteredFixtures1);
+            setUpdatedFixtures1(filteredFixtures1);
         }
     }, [filteredFixtures1]);
     useEffect(() => {
         if ((updatedFixtures1_1).length !== (filteredFixtures1_1).length) {
-            setUpdatedFixtures2(filteredFixtures1_1);
+            setUpdatedFixtures1_1(filteredFixtures1_1);
         }
     }, [filteredFixtures1_1]);
     useEffect(() => {
         if ((updatedFixtures1_2).length !== (filteredFixtures1_2).length) {
-            setUpdatedFixtures2(filteredFixtures1_2);
+            setUpdatedFixtures1_2(filteredFixtures1_2);
         }
     }, [filteredFixtures1_2]);
     useEffect(() => {
@@ -114,134 +114,134 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
     }, [filteredFixtures2]);
     useEffect(() => {
         if ((updatedFixtures2_1).length !== (filteredFixtures2_1).length) {
-            setUpdatedFixtures2(filteredFixtures2_1);
+            setUpdatedFixtures2_1(filteredFixtures2_1);
         }
     }, [filteredFixtures2_1]);
     useEffect(() => {
         if ((updatedFixtures2_2).length !== (filteredFixtures2_2).length) {
-            setUpdatedFixtures2(filteredFixtures2_2);
+            setUpdatedFixtures2_2(filteredFixtures2_2);
         }
     }, [filteredFixtures2_2]);
     useEffect(() => {
         if ((updatedFixtures3).length !== (filteredFixtures3).length) {
-            setUpdatedFixtures2(filteredFixtures3);
+            setUpdatedFixtures3(filteredFixtures3);
         }
     }, [filteredFixtures3]);
     useEffect(() => {
         if ((updatedFixtures3_1).length !== (filteredFixtures3_1).length) {
-            setUpdatedFixtures2(filteredFixtures3_1);
+            setUpdatedFixtures3_1(filteredFixtures3_1);
         }
     }, [filteredFixtures3_1]);
     useEffect(() => {
         if ((updatedFixtures3_2).length !== (filteredFixtures3_2).length) {
-            setUpdatedFixtures2(filteredFixtures3_2);
+            setUpdatedFixtures3_2(filteredFixtures3_2);
         }
     }, [filteredFixtures3_2]);
     useEffect(() => {
         if ((updatedFixtures4).length !== (filteredFixtures4).length) {
-            setUpdatedFixtures2(filteredFixtures4);
+            setUpdatedFixtures4(filteredFixtures4);
         }
     }, [filteredFixtures4]);
     useEffect(() => {
         if ((updatedFixtures4_1).length !== (filteredFixtures4_1).length) {
-            setUpdatedFixtures2(filteredFixtures4_1);
+            setUpdatedFixtures4_1(filteredFixtures4_1);
         }
     }, [filteredFixtures4_1]);
     useEffect(() => {
         if ((updatedFixtures4_2).length !== (filteredFixtures4_2).length) {
-            setUpdatedFixtures2(filteredFixtures4_2);
+            setUpdatedFixtures4_2(filteredFixtures4_2);
         }
     }, [filteredFixtures4_2]);
     useEffect(() => {
         if ((updatedFixtures5).length !== (filteredFixtures5).length) {
-            setUpdatedFixtures2(filteredFixtures5);
+            setUpdatedFixtures5(filteredFixtures5);
         }
     }, [filteredFixtures5]);
     useEffect(() => {
         if ((updatedFixtures5_1).length !== (filteredFixtures5_1).length) {
-            setUpdatedFixtures2(filteredFixtures5_1);
+            setUpdatedFixtures5_1(filteredFixtures5_1);
         }
     }, [filteredFixtures5_1]);
     useEffect(() => {
         if ((updatedFixtures5_2).length !== (filteredFixtures5_2).length) {
-            setUpdatedFixtures2(filteredFixtures5_2);
+            setUpdatedFixtures5_2(filteredFixtures5_2);
         }
     }, [filteredFixtures5_2]);
     useEffect(() => {
         if ((updatedFixtures6).length !== (filteredFixtures6).length) {
-            setUpdatedFixtures2(filteredFixtures6);
+            setUpdatedFixtures6(filteredFixtures6);
         }
     }, [filteredFixtures6]);
     useEffect(() => {
         if ((updatedFixtures6_1).length !== (filteredFixtures6_1).length) {
-            setUpdatedFixtures2(filteredFixtures6_1);
+            setUpdatedFixtures6_1(filteredFixtures6_1);
         }
     }, [filteredFixtures6_1]);
     useEffect(() => {
         if ((updatedFixtures6_2).length !== (filteredFixtures6_2).length) {
-            setUpdatedFixtures2(filteredFixtures6_2);
+            setUpdatedFixtures6_2(filteredFixtures6_2);
         }
     }, [filteredFixtures6]);
     useEffect(() => {
         if ((updatedFixtures7).length !== (filteredFixtures7).length) {
-            setUpdatedFixtures2(filteredFixtures7);
+            setUpdatedFixtures7(filteredFixtures7);
         }
     }, [filteredFixtures7]);
     useEffect(() => {
         if ((updatedFixtures7_1).length !== (filteredFixtures7_1).length) {
-            setUpdatedFixtures2(filteredFixtures7_1);
+            setUpdatedFixtures7_1(filteredFixtures7_1);
         }
     }, [filteredFixtures7_1]);
     useEffect(() => {
         if ((updatedFixtures7_2).length !== (filteredFixtures7_2).length) {
-            setUpdatedFixtures2(filteredFixtures7_2);
+            setUpdatedFixtures7_2(filteredFixtures7_2);
         }
     }, [filteredFixtures7_2]);
     useEffect(() => {
         if ((updatedFixtures8).length !== (filteredFixtures8).length) {
-            setUpdatedFixtures2(filteredFixtures8);
+            setUpdatedFixtures8(filteredFixtures8);
         }
     }, [filteredFixtures8]);
     useEffect(() => {
         if ((updatedFixtures8_1).length !== (filteredFixtures8_1).length) {
-            setUpdatedFixtures2(filteredFixtures8_1);
+            setUpdatedFixtures8_1(filteredFixtures8_1);
         }
     }, [filteredFixtures8_1]);
     useEffect(() => {
         if ((updatedFixtures8_2).length !== (filteredFixtures8_2).length) {
-            setUpdatedFixtures2(filteredFixtures8_2);
+            setUpdatedFixtures8_2(filteredFixtures8_2);
         }
     }, [filteredFixtures8_2]);
 
     useEffect(() => {
         if ((updatedFixtures9).length !== (filteredFixtures9).length) {
-            setUpdatedFixtures2(filteredFixtures9);
+            setUpdatedFixtures9(filteredFixtures9);
         }
     }, [filteredFixtures9]);
     useEffect(() => {
         if ((updatedFixtures9_1).length !== (filteredFixtures9_1).length) {
-            setUpdatedFixtures2(filteredFixtures9_1);
+            setUpdatedFixtures9_1(filteredFixtures9_1);
         }
     }, [filteredFixtures9_1]);
     useEffect(() => {
         if ((updatedFixtures9_2).length !== (filteredFixtures9_2).length) {
-            setUpdatedFixtures2(filteredFixtures9_2);
+            setUpdatedFixtures9_2(filteredFixtures9_2);
         }
     }, [filteredFixtures9_2]);
 
     useEffect(() => {
         if ((updatedFixtures10).length !== (filteredFixtures10).length) {
-            setUpdatedFixtures2(filteredFixtures10);
+            setUpdatedFixtures10(filteredFixtures10);
         }
     }, [filteredFixtures10]);
     useEffect(() => {
         if ((updatedFixtures10_1).length !== (filteredFixtures10_1).length) {
-            setUpdatedFixtures2(filteredFixtures10_1);
+            setUpdatedFixtures10_1(filteredFixtures10_1);
         }
     }, [filteredFixtures10_1]);
     useEffect(() => {
         if ((updatedFixtures10_2).length !== (filteredFixtures10_2).length) {
-            setUpdatedFixtures2(filteredFixtures10_2);
+            setUpdatedFixtures10_2(filteredFixtures10_2);
         }
     }, [filteredFixtures10_2]);
 
