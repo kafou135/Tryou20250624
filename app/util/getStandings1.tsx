@@ -1,99 +1,49 @@
-import "server-only";
+
+import 'server-only';
 import { Standing } from "@/types";
 import moment from "moment";
-import { Redis } from "@upstash/redis";
 
-const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL!,
-    token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
+export default async function getStandings(yearr:number,id:number): Promise<Standing[]> {
 
-export default async function getStandings(teamName:string,season:number,leagueid:number): Promise<Standing[]> {
+   
+
     const currentTime = moment();
     const month = currentTime.month();
-    let year = month <= 6 ? currentTime.year() - 1 : currentTime.year();
+    let year;
+
+    if (month <= 6) {
+        year = currentTime.year() - 1;
+    } else {
+        year = currentTime.year();
+    }
 
     const API_KEY: string = process.env.API_KEY as string;
+
     const options = {
-        method: "GET",
-        headers: { "X-RapidAPI-Key": API_KEY },
-        next: { revalidate: 60 * 60 * 24 }, // Revalidate every 24 hours
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': API_KEY,
+        },
+        
     };
 
     const standings: Standing[] = [];
-    const leagues = [
-        { league: 45, name: "EPL", yearr: -1 },
 
+    
+        let url = `https://v3.football.api-sports.io/standings?season=${2024+yearr}&league=${id}`
 
-    ];
-
-    // Fetch standings in batches of 30 leagues
-    for (let i = 0; i < leagues.length; i += 70) {
-        const batch = leagues.slice(i, i + 70);
-
-        const fetchPromises = batch.map(async () => {
-            const cacheKey = `standings11:league-${leagueid}`;
-            const cachedData = await redis.get(cacheKey);
-
-            if (cachedData) {
-                console.log(`✅ Returning cached data for ${teamName} standings from Redis`);
-                const parsedData = typeof cachedData === "string" ? JSON.parse(cachedData) : cachedData;
-
-                // If cached data is empty or invalid, delete and fetch fresh data
-                if (!parsedData || parsedData.length === 2) {
-                    console.log(`⚠️ Empty cache detected for ${teamName}. Deleting...`);
-                    await redis.del(cacheKey);
-                } else {
-                    return parsedData; // Return cached standings
-                }
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            const standing = data.response[0];
+        
+            if (standing) {
+              standings.push(standing);
             }
-
-            console.log(`⏳ Fetching fresh standings for ${teamName}...`);
-            const url = `https://v3.football.api-sports.io/standings?season=${season}&league=${leagueid}`;
-
-            try {
-                const response = await fetch(url, options);
-                const data = await response.json();
-                const standing = data.response?.[0];
-
-                if (standing) {
-                    await redis.set(cacheKey, JSON.stringify(standing), { ex: 172800 }); // Cache for 48 hours
-                    return standing;
-                } else {
-                    console.log(`❌ No valid data for ${teamName}, skipping cache storage.`);
-                    return null;
-                }
-            } catch (err) {
-                console.error(`Error fetching ${teamName} standings: ${err}`);
-                return null;
-            }
-        });
-
-        // Process all fetched results in the batch
-        const batchResults = await Promise.all(fetchPromises);
-        standings.push(...batchResults.filter(Boolean));
-    }
+        } catch (err) {
+            console.error(`Error fetching ${id} standings: ${err}`);
+        }
+    
 
     return standings;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
