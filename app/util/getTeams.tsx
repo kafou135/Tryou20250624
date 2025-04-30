@@ -5,7 +5,7 @@ import getStandings from './getStandings1';
 export default async function getTeams(teamid: number,teamName:string,season:number,leagueid:number): Promise<Team[]> {
 
     try {
-        const standings: Standing[] = await getStandings(teamName,season,leagueid);
+        const standings: Standing[] = await getStandings(season,leagueid);
 
         const teams: Team[] = [];
 
