@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import SearchBar from './components/searchBar/SearchBar';
 const inter = Inter({ subsets: ['latin'] });
+const API_KEY = process.env.API_KEY!;
 
 export const metadata: Metadata = {
   description: 'Your go-to app for football stats, live matches, and team insights.', // Updated description
@@ -45,7 +46,7 @@ export default function RootLayout({
       <div
   id="api_football_widget"
   data-host="v3.football.api-sports.io"
-  data-key="bfc80e7adee96f66d9666e447c62298d"
+  data-key= {API_KEY}
   data-theme="dark"
   data-refresh="60"
 ></div>

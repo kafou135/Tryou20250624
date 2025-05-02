@@ -34,8 +34,7 @@ async function fetchFixturesByLeague(
     lastWeek: string,
     nextWeek: string
 ): Promise<Fixture[]> {
-    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek}&to=${nextWeek}`;
-    const options = {
+const nextWeek1 = moment().subtract(1, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().subtract(7, 'days').format('YYYY-MM-DD');    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek1}&to=${nextWeek1}`;    const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': API_KEY,
@@ -57,13 +56,16 @@ async function fetchFixturesByLeague(
 
 export default async function getFixtures(): Promise<AllFixtures[]> {
     try {
+        const now = moment();
+const midnight = moment().endOf('day').add(1, 'second'); // tiny buffer
+const secondsUntilMidnight = midnight.diff(now, 'seconds');
         const allFixturesByLeague: AllFixtures[] = [];
         const currentTime = moment();
         const currentTimeFormat = moment().format('YYYY-MM-DD');
         const year = currentTime.year();
         const month = currentTime.month() + 1; // Month is 0-indexed, so add 1
-        const lastWeek = currentTime.subtract(7, 'days').format('YYYY-MM-DD');
-        const nextWeek = currentTime.subtract(1, 'days').format('YYYY-MM-DD');
+        const lastWeek = moment().subtract(7, 'days').format('YYYY-MM-DD');
+        const nextWeek = moment().subtract(1, 'days').format('YYYY-MM-DD');
 
         // Process 30 leagues at a time
         const leagueChunks = [];
@@ -125,7 +127,7 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
 
                    // Store ongoing fixtures in Redis for 3 minutes, ensuring they persist until refresh
                    if (ongoingFixtures.length > 0) {
-                       await redis.set(`${cacheKey}:LIVEE`, JSON.stringify(ongoingFixtures), {ex: 60});
+                       await redis.set(`${cacheKey}:LIVEE`, JSON.stringify(ongoingFixtures), {ex: secondsUntilMidnight});
                    }
 
                     return {
