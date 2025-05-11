@@ -261,10 +261,16 @@ type AllLiveStates = {
   //Lineup
 
   type Lineupsreponse={
-    response:Lineups[]
+    response:Lineups
+
 }
+
 type Lineups={
-    team:TeamLineup,
+  lineups:Lineups2[],
+    
+}
+type Lineups2={
+  team:TeamLineup,
     formation:string,
     startXI:StartXILineup[],
     substitutes:StartXILineup[],

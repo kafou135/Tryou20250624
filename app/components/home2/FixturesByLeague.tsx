@@ -74,7 +74,7 @@ export default function Fixtures({ fixturesByTeamId,selectedDate }: PageProps) {
             {fixtures.map(fixture => (
                 <Link
                     key={fixture.fixture.id}
-                    href={`/match/${fixture.fixture.id}nm${fixture.league.name}seas${fixture.league.season}lid${fixture.league.id}`}
+                    href={`/match1/${fixture.fixture.id}nm${fixture.league.name}seas${fixture.league.season}lid${fixture.league.id}`}
                     className="w-full flex items-center bg-gray-700 hover:bg-red-800 rounded-md p-4 mb-2"
                 >
                     <div className="flex flex-col items-center w-3/12 text-sm">

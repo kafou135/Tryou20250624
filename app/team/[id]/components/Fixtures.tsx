@@ -58,7 +58,7 @@ export default function Fixtures({ fixturesByTeamId, teamId }: PageProps) {
                 </button>
                 <div className="flex transition-transform duration-500" style={{ transform: `translateX(${getTranslateX(currentIndex)})` }}>
                     {firstItemsFixturesFuture.map((fixture) => (
-                        <Link key={fixture.fixture.id} href={`/match/${fixture.fixture.id}nm${fixture.league.name}seas${fixture.league.season}lid${fixture.league.id}`} className="w-full flex-shrink-0 flex items-center bg-gray-700 hover:bg-red-800 rounded-md p-4">
+                        <Link key={fixture.fixture.id} href={`/match1/${fixture.fixture.id}nm${fixture.league.name}seas${fixture.league.season}lid${fixture.league.id}`} className="w-full flex-shrink-0 flex items-center bg-gray-700 hover:bg-red-800 rounded-md p-4">
                             <div className="flex flex-col items-center w-3/12 text-sm">
                                 <img src={fixture.teams.home.logo} alt="HomeLogo" width={50} height={50}  />
                                 <div>{fixture.teams.home.name}</div>
@@ -83,7 +83,7 @@ export default function Fixtures({ fixturesByTeamId, teamId }: PageProps) {
 
             <div className="w-full text-center text-lg font-bold p-2 bg-red-700/80 mt-4 rounded-t-md">Match Results</div>
             {fixturesDone.slice(0, visibleItemsCount).map((fixture, i) => (
-                <Link key={fixture.fixture.id} href={`/match/${fixture.fixture.id}nm${fixture.league.name}seas${fixture.league.season}lid${fixture.league.id}`} className="w-full flex items-center bg-gray-700 hover:bg-red-800 rounded-md p-4 mb-2">
+                <Link key={fixture.fixture.id} href={`/match1/${fixture.fixture.id}nm${fixture.league.name}seas${fixture.league.season}lid${fixture.league.id}`} className="w-full flex items-center bg-gray-700 hover:bg-red-800 rounded-md p-4 mb-2">
                     <div className="flex flex-col items-center w-3/12 text-sm">
                         <img src={fixture.teams.home.logo} alt="HomeLogo" width={50} height={50}  />
                         <div>{fixture.teams.home.name}</div>

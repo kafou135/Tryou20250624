@@ -44,7 +44,7 @@ async function fetchFixturesByLeague(
     currentTimeFormat: string,
     nextWeek: string
 ): Promise<Fixture[]> {
-    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
+    const url = `https://v3.foll.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
     const options = {
         method: 'GET',
         headers: {
