@@ -34,7 +34,7 @@ async function fetchFixturesByLeague(
     lastWeek: string,
     nextWeek: string
 ): Promise<Fixture[]> {
-const nextWeek1 = moment().subtract(1, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().subtract(7, 'days').format('YYYY-MM-DD');    const url = `https://v3.fball.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek1}&to=${nextWeek1}`;    const options = {
+const nextWeek1 = moment().subtract(1, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().subtract(7, 'days').format('YYYY-MM-DD');    const url = `https://v3.fball.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=11-05-2025&to=11-05-2025`;    const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': API_KEY,
