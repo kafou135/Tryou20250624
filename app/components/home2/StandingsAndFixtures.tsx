@@ -10,17 +10,11 @@ import LoadingComponent from "../LoadingComponent";
 
 export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures1,filteredFixtures2,filteredFixtures3,filteredFixtures4,filteredFixtures5,filteredFixtures6,filteredFixtures7,filteredFixtures8,filteredFixtures9,filteredFixtures10,filteredFixtures_1,filteredFixtures_2,filteredFixtures1_1,filteredFixtures1_2,filteredFixtures2_1,filteredFixtures2_2,filteredFixtures3_1,filteredFixtures3_2,filteredFixtures4_1,filteredFixtures4_2,filteredFixtures5_1,filteredFixtures5_2,filteredFixtures6_1,filteredFixtures6_2,filteredFixtures7_1,filteredFixtures7_2,filteredFixtures8_1,filteredFixtures8_2,filteredFixtures9_1,filteredFixtures9_2,filteredFixtures10_1,filteredFixtures10_2 }: { filteredFixtures: AllFixtures[], filteredFixtures1: AllFixtures[],filteredFixtures2: AllFixtures[],filteredFixtures3: AllFixtures[], filteredFixtures4: AllFixtures[],filteredFixtures5: AllFixtures[],filteredFixtures6: AllFixtures[], filteredFixtures7: AllFixtures[], filteredFixtures8: AllFixtures[] , filteredFixtures9: AllFixtures[] , filteredFixtures10: AllFixtures[],filteredFixtures_1:AllFixtures[],filteredFixtures_2:AllFixtures[],filteredFixtures1_1:AllFixtures[],filteredFixtures1_2:AllFixtures[],filteredFixtures2_1:AllFixtures[],filteredFixtures2_2:AllFixtures[],filteredFixtures3_1:AllFixtures[],filteredFixtures3_2:AllFixtures[],filteredFixtures4_1:AllFixtures[],filteredFixtures4_2:AllFixtures[],filteredFixtures5_1:AllFixtures[],filteredFixtures5_2:AllFixtures[],filteredFixtures6_1:AllFixtures[],filteredFixtures6_2:AllFixtures[],filteredFixtures7_1:AllFixtures[],filteredFixtures7_2:AllFixtures[],filteredFixtures8_1:AllFixtures[],filteredFixtures8_2:AllFixtures[],filteredFixtures9_1:AllFixtures[],filteredFixtures9_2:AllFixtures[],filteredFixtures10_1:AllFixtures[],filteredFixtures10_2:AllFixtures[] }) {
     const [selectedDate, setSelectedDate] = useState(moment().format("YYYY-MM-DD"));
-    const [loading, setLoading] = useState(true);
 
     const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedDate(event.target.value);
     };
-    useEffect(() => {
-    setLoading(true); // Set loading to true when the component mounts
-    setTimeout(() => {
-        setLoading(false); // Simulate loading complete after 2 seconds (adjust as needed)
-    }, 2000);
-}, []);
+   
 
     const menuItems = [
         { league: 39, name: 'EPL', yearr: 0 },
@@ -275,12 +269,7 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
 
     return (
         <div className="flex flex-wrap w-full bg-gray-900 p-6 rounded-lg shadow-xl border border-gray-900">
-            {/* Sidebar with League Buttons */}
-            {loading ? (
-<div className="flex items-center justify-center h-full">
-  <LoadingComponent />
-</div>
-        ) : (<div className="flex flex-wrap w-full bg-gray-900 p-6 rounded-lg shadow-xl border border-gray-900">
+            <div className="flex flex-wrap w-full bg-gray-900 p-6 rounded-lg shadow-xl border border-gray-900">
         <div className="w-full md:w-1/4 bg-gray-600 shadow-md p-4 rounded-lg overflow-x-auto">
                 {menuItems.map((league, i) => (
                     <Link href={`/standing/${league.yearr}${league.league}`} key={league.league}>
@@ -652,7 +641,7 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
   </p>
 </div>
 </div>
-)}
+
             
 
         </div>

@@ -7,6 +7,7 @@ import { Events, Fixture, H2H,Lineups } from "@/types";
 import getH2HBatch from "@/app/util/getH2H";
 import getLineupBatch from "@/app/util/getLineup1";
 import getEventsBatch from "@/app/util/getEvents";
+import LoadingComponent from "@/app/components/LoadingComponent";
 
 type PageProps = {
     params: {
@@ -15,6 +16,7 @@ type PageProps = {
 };
 
 export default async function page({ params }: PageProps){
+      
     const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
     if (!match) {
         return (
@@ -56,6 +58,7 @@ let eventsData = await getEventsBatch([fixtureID]);
 let events = eventsData[fixtureID]; // Get the events using the fixture ID
     return (
         <div>
+         
             <Match fixtureByFixtureId={fixtureByFixtureId} h2h={h2h} lineups={lineups} events={events}/>
             <div className="text-gray-300 mb-8 leading-relaxed space-y-4">
   <h1 className="text-2xl font-bold text-white">{fixtureByFixtureId.teams.home.name} vs {fixtureByFixtureId.teams.away.name} - Match Preview & Head-to-Head</h1>
@@ -87,6 +90,7 @@ let events = eventsData[fixtureID]; // Get the events using the fixture ID
     With all this information at your fingertips, you're set for an immersive football experience. Follow the game closely and analyze the performance of your favorite teams and players.
   </p>
 </div>
+
 
         </div>
     )

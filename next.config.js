@@ -9,7 +9,6 @@ const nextConfig = {
             'media-3.api-sports.io'
         ]
     },
-    staticPageGenerationTimeout: 180,
 }
 
 module.exports = nextConfig

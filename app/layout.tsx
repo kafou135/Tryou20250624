@@ -161,18 +161,7 @@ export default async function RootLayout({
             {/* Main Content (Children) */}
             <main className="px-4 py-8 sm:px-6 lg:px-8">
               <SearchBar/>
-<StandingsAndFixtures filteredFixtures={filteredFixtures} filteredFixtures1={filteredFixtures1} filteredFixtures2={filteredFixtures2} filteredFixtures3={filteredFixtures3} filteredFixtures4={filteredFixtures4} filteredFixtures5={filteredFixtures5} filteredFixtures6={filteredFixtures6} filteredFixtures7={filteredFixtures7} filteredFixtures8={filteredFixtures8} filteredFixtures9={filteredFixtures9} filteredFixtures10={filteredFixtures10}
-      filteredFixtures_1={filteredFixtures_1} filteredFixtures_2={filteredFixtures_2} 
-      filteredFixtures1_1={filteredFixtures1_1} filteredFixtures1_2={filteredFixtures1_2} 
-      filteredFixtures2_1={filteredFixtures2_1} filteredFixtures2_2={filteredFixtures2_2} 
-      filteredFixtures3_1={filteredFixtures3_1} filteredFixtures3_2={filteredFixtures3_2} 
-      filteredFixtures4_1={filteredFixtures4_1} filteredFixtures4_2={filteredFixtures4_2} 
-      filteredFixtures5_1={filteredFixtures5_1} filteredFixtures5_2={filteredFixtures5_2} 
-      filteredFixtures6_1={filteredFixtures6_1} filteredFixtures6_2={filteredFixtures6_2} 
-      filteredFixtures7_1={filteredFixtures7_1} filteredFixtures7_2={filteredFixtures7_2} 
-      filteredFixtures8_1={filteredFixtures8_1} filteredFixtures8_2={filteredFixtures8_2}
-      filteredFixtures9_1={filteredFixtures9_1} filteredFixtures9_2={filteredFixtures9_2}
-      filteredFixtures10_1={filteredFixtures10_1} filteredFixtures10_2={filteredFixtures10_2}/>
+             {children}
             </main>
           </div>
         </div>
