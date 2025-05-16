@@ -7,7 +7,7 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
 
    
 
-    const currentTime = moment();
+    const currentTime = moment().format('YYYY-MM-DD')
     const month = currentTime.month();
     let year;
 

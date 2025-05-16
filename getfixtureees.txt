@@ -325,9 +325,9 @@ async function fetchFixturesByLeague(year: number, league: number, yearr: number
 
 export default async function getFixtures(): Promise<AllFixtures[]> {
     try {
-        const currentTime = moment();
-        const year = currentTime.year();
-        const month = currentTime.month();
+        const currentTime = moment().format('YYYY-MM-DD')
+        const year = moment().year();
+        const month = moment().month();
 
         // 🔥 Fetch ALL leagues' data at once using `mget`
         const cacheKeys = leagues.map(league => `fixtures:league-${league.league}`);

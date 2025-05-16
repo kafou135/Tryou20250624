@@ -69,7 +69,7 @@
 //export default async function getFixtures(): Promise<AllFixtures[]> {
 //    try {
 //        const allFixturesByLeague: AllFixtures[] = [];
-//        const currentTime = moment();
+//        const currentTime = moment().format('YYYY-MM-DD')
 //        const currentTimeFormat = moment().format('YYYY-MM-DD');
 //        const year = currentTime.year();
 //        const month = currentTime.month() + 1; // Month is 0-indexed, so add 1

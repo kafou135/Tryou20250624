@@ -1059,7 +1059,7 @@ const leagues =    [
     export default async function getFixtures(): Promise<AllFixtures[]> {
         try {
             const allFixturesByLeague: AllFixtures[] = [];
-            const currentTime = moment();
+            const currentTime = moment().format('YYYY-MM-DD')
             const currentTimeFormat = moment().format('YYYY-MM-DD');
             const year = currentTime.year();
             const lastWeek = currentTime.subtract(7, 'days').format('YYYY-MM-DD');

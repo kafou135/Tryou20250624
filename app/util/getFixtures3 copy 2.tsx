@@ -4,18 +4,7 @@ import { Redis } from "@upstash/redis";
 
 const API_KEY = process.env.API_KEY as string;
 
-// Redis setup
-const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL3;
-const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN3;
 
-if (!REDIS_URL || !REDIS_TOKEN) {
-  throw new Error("🚨 Redis environment variables are missing.");
-}
-
-const redis = new Redis({
-  url: REDIS_URL,
-  token: REDIS_TOKEN,
-});
 
 const leagues =    [
     {league: 312, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
@@ -69,20 +58,20 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
      
 
     try {
-        const currentTime = moment();
-        const year = currentTime.year();
-        const month = currentTime.month();
+        const currentTime = moment().format('YYYY-MM-DD');
+        const year = moment().year()
+        const month = moment().month();
 
         const allFixturesByLeague: AllFixtures[] = [];
 
 
             for (const league of leagues) {
-            if (month <= 5) {
+            if (currentTime <= league.endmonth) {
                 allFixturesByLeague.push({
                     name: league.name,
                     fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),
                 });
-            } else if (month >= 8) {
+            } else if (currentTime >= league.startmonth) {
                 allFixturesByLeague.push({
                     name: league.name,
                     fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),

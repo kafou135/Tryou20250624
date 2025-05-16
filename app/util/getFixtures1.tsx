@@ -40,9 +40,9 @@ export default async function getFixtures(name:string,season:number,id:number): 
     
 
     try {
-        const currentTime = moment();
-        const year = currentTime.year();
-        const month = currentTime.month();
+        const currentTime = moment().format('YYYY-MM-DD')
+        const year = moment().year();
+        const month = moment().month();
 
         const allFixturesByLeague: AllFixtures[] = [];
 

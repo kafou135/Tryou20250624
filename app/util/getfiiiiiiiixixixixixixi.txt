@@ -49,7 +49,7 @@ if (cachedData) {
 else {
                 // Fetch fresh data if no cached data
                 console.log(`⏳ Fetching fresh data for ${league.name}...`);
-                const currentTime = moment();
+                const currentTime = moment().format('YYYY-MM-DD')
                 const year = currentTime.year();
                 const month = currentTime.month();
 
