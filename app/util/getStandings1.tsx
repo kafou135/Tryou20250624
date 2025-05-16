@@ -8,13 +8,13 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
    
 
     const currentTime = moment().format('YYYY-MM-DD')
-    const month = currentTime.month();
+    const month = moment().month();
     let year;
 
     if (month <= 6) {
-        year = currentTime.year() - 1;
+        year = moment().year() - 1;
     } else {
-        year = currentTime.year();
+        year = moment().year();
     }
 
     const API_KEY: string = process.env.API_KEY as string;
