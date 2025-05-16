@@ -45,8 +45,8 @@ export default async function getFixtures(): Promise<AllFixtures[]> {
    
        try {
            const currentTime = moment().format('YYYY-MM-DD')
-           const year = currentTime.year();
-           const month = currentTime.month();
+           const year = moment().year();
+           const month = moment().month();
    
            const allFixturesByLeague: AllFixtures[] = [];
    
