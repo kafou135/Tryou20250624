@@ -11,11 +11,9 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
     const month = moment().month();
     let year;
 
-    if (month <= 6) {
+    
         year = moment().year() - 1;
-    } else {
-        year = moment().year();
-    }
+  
 
     const API_KEY: string = process.env.API_KEY as string;
 

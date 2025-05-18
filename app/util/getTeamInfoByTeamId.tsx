@@ -6,7 +6,7 @@ export const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL1!,
   token: process.env.UPSTASH_REDIS_REST_TOKEN1!,
 });
-
+const API_KEY = process.env.API_KEY as string;
 export default async function getFixtureByTeamId(teamid: number,teamName:string,season:number,leagueid:number) {
     const cacheKey = `fixtureByteamId:${teamid}`;
 
@@ -18,7 +18,7 @@ export default async function getFixtureByTeamId(teamid: number,teamName:string,
     const response = await fetch(`https://v3.football.api-sports.io/standings?team=${teamid}&season=${season}&league=${leagueid}`, {
       method: 'GET',
       headers: {
-        'x-apisports-key': 'bfc80e7adee96f66d9666e447c62298d',
+        'x-apisports-key': API_KEY,
         'x-rapidapi-host': 'v3.football.api-sports.io', // optional, may not be required anymore
       },
     });
