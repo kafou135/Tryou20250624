@@ -27,7 +27,7 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
         
     };
 
-    const standings: Standing[] = [];
+    let standings: Standing[] = [];
 
     
         let url = `https://v3.football.api-sports.io/standings?season=${2024+yearr}&league=${id}`
