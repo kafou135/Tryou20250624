@@ -16,18 +16,19 @@ type PageProps = {
 export default async function Team({
     params
 }: PageProps) {
-    const idString = params.id.toString(); // Convert number to string
-    const yearr = idString.slice(0, 1); // First three characters
-    const id = idString.slice(1); // Remaining characters
-
-    console.log("ID:", id, "Year:", yearr); // Debugging
-
-// Assuming id and yearr are variables
-// Assuming you have id and yearr variables for a single league
-const standingsData: Standing[] = await getStandingsBatch(Number(yearr),Number(id))
-
-// This retrieves the standings for the specific league by the id
-    const topscorers:Topscorers[] = await getTopScorersBatch(Number(yearr),Number(id))
+  const idString = params.id.toString(); // Convert number to string
+  const yearr = idString.slice(0, 1); // First three characters
+  const id = idString.slice(1); // Remaining characters
+  
+  console.log("ID:", id, "Year:", yearr); // Debugging
+  
+  // Assuming id and yearr are variables
+  // Assuming you have id and yearr variables for a single league
+  const standingsData: Standing[] = await getStandingsBatch(Number(yearr),Number(id))
+  
+  // This retrieves the standings for the specific league by the id
+  const topscorers:Topscorers[] = await getTopScorersBatch(Number(yearr),Number(id))
+  console.log("standingsData",standingsData)
 
     return (
         <>
@@ -38,7 +39,7 @@ const standingsData: Standing[] = await getStandingsBatch(Number(yearr),Number(i
   <h1 className="text-2xl font-bold text-white">League Standings and Top Scorers Overview</h1>
 
   <p>
-    Welcome to the official league table and top scorers page for the {standingsData[0]?.league.name} {standingsData[0]?.league.season} season. Whether you're following the title race, the battle for European spots, or the fight to avoid relegation, this page has all the up-to-date data you need.
+    Welcome to the official league table and top scorers page for the {standingsData[0][0]?.league?.name} {standingsData[0][0]?.league?.season} season. Whether you're following the title race, the battle for European spots, or the fight to avoid relegation, this page has all the up-to-date data you need.
   </p>
 
   <h2 className="text-xl font-semibold text-white">🏆 Live Standings & Points Table</h2>

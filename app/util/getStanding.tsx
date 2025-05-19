@@ -35,7 +35,7 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
         try {
             const response = await fetch(url, options);
             const data = await response.json();
-            const standing = data.response[0];
+            const standing = data.response;
         
             if (standing) {
               standings.push(standing);
