@@ -24,7 +24,7 @@ export default async function Team({
   
   // Assuming id and yearr are variables
   // Assuming you have id and yearr variables for a single league
-  const standingsData: Standing[] = await getStandingsBatch(Number(yearr),Number(id))
+  const standingsData: Standing[][] = await getStandingsBatch(Number(yearr),Number(id))
   
   // This retrieves the standings for the specific league by the id
   const topscorers:Topscorers[] = await getTopScorersBatch(Number(yearr),Number(id))
