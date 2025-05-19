@@ -7,7 +7,7 @@ import Link from "next/link";
 import { log } from "node:console";
 
 type PageProps = {
-    standingsData: Standing[];
+    standingsData: Standing[][];
     topscorers:Topscorers[];
 };
 
