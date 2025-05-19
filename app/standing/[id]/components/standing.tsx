@@ -32,15 +32,15 @@ export default function Match({ standingsData,topscorers }: PageProps) {
         <div className="flex flex-col w-full justify-center items-center bg-gray-900 text-neutral-100 py-5 md:py-6">
             <div className="flex w-full max-w-3xl items-center justify-center bg-gray-800 p-4 rounded-lg shadow-md">
                 <div ref={menuRef} className="w-full flex overflow-x-hidden snap-x scrollbar-none scroll-smooth text-xs md:text-sm">
-                    {standingsData.map((responseData) => (
-                        <div key={responseData[0].league.id} className="flex-shrink-0 w-full snap-center flex justify-center items-center">
+                    {(standingsData[0] as unknown as Standing[]).map((responseData) => (
+                        <div key={responseData.league.id} className="flex-shrink-0 w-full snap-center flex justify-center items-center">
                             <div className="flex flex-col justify-between p-4 w-full bg-gray-800 rounded-lg shadow-md mb-4">
                                 
                                 {/* League Name and Logo */}
                                 <div className="flex w-full justify-between items-center p-2 bg-gray-700 rounded-t-lg mb-4">
                                     <div className="flex items-center text-xl font-bold text-white">
-                                        <img src={responseData[0].league.logo} alt={responseData[0].league.name} className="w-8 h-8 mr-2" />
-                                        {responseData[0].league.name}
+                                        <img src={responseData.league.logo} alt={responseData.league.name} className="w-8 h-8 mr-2" />
+                                        {responseData.league.name}
                                     </div>
                                 </div>
 
@@ -117,8 +117,8 @@ export default function Match({ standingsData,topscorers }: PageProps) {
                                                     </div>
 
                                                     {/* Teams */}
-                                                    {responseData[0].league.standings[0].map((team, j) => (
-                                                        <Link href={`/team/${team.team.id}nm${team.team.name}seas${responseData[0].league.season}lid${responseData[0].league.id}`} key={j + team.team.name} className={`flex w-full p-2 hover:bg-red-800/50 rounded-lg ${j % 2 === 0 ? 'bg-black/40' : 'bg-gray-700'}`}>
+                                                    {responseData.league.standings[0].map((team, j) => (
+                                                        <Link href={`/team/${team.team.id}nm${team.team.name}seas${responseData.league.season}lid${responseData.league.id}`} key={j + team.team.name} className={`flex w-full p-2 hover:bg-red-800/50 rounded-lg ${j % 2 === 0 ? 'bg-black/40' : 'bg-gray-700'}`}>
                                                             <div className="w-1/12 flex px-2 justify-center items-center text-xs md:text-sm">{j + 1}</div>
                                                             <div className="w-3/12 flex text-xs md:text-sm items-center">
                                                                 <img src={team.team.logo} alt={team.team.name} className="w-6 h-6 mr-2" />
