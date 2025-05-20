@@ -3,7 +3,7 @@ import 'server-only';
 import { Standing } from "@/types";
 import moment from "moment";
 
-export default async function getStandings(yearr:number,id:number): Promise<Standing[]> {
+export default async function getStandings(yearr:number,id:number): Promise<Standing[][]> {
 
    
 
@@ -27,7 +27,7 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
         }
     };
 
-    const standings: Standing[] = [];
+    const standings: Standing[][] = [];
 
     const leagues = [
         { name: 'EPL', id: 39 },
