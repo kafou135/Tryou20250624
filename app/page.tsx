@@ -36,6 +36,8 @@ import getFixtures10_2 from './util/getFixtures10 copy 2';
 import getFixtures11 from './util/getFixtures11';
 import getFixtures11_1 from './util/getFixtures11 copy';
 import getFixtures11_2 from './util/getFixtures11 copy 2';
+import { log } from 'node:console';
+import Fixtures from './components/home2/FixturesByLeague';
 
 export const revalidate = 1;
 
@@ -78,7 +80,8 @@ export default async function Home() {
   if (!filteredFixtures?.length) {
     return null;
   }
-
+ console.log('Fixtures:',filteredFixtures8,filteredFixtures9,filteredFixtures3);
+ 
   return (
     <div>
     <StandingsAndFixtures filteredFixtures={filteredFixtures} filteredFixtures1={filteredFixtures1} filteredFixtures2={filteredFixtures2} filteredFixtures3={filteredFixtures3} filteredFixtures4={filteredFixtures4} filteredFixtures5={filteredFixtures5} filteredFixtures6={filteredFixtures6} filteredFixtures7={filteredFixtures7} filteredFixtures8={filteredFixtures8} filteredFixtures9={filteredFixtures9} filteredFixtures10={filteredFixtures10}
