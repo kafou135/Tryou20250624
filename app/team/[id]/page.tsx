@@ -33,11 +33,12 @@ export default async function Team({
 
 
     return (
-        <>
-        <Head>
+        <html lang="en">
+        <head>
         <title>Gridiola</title>
         <meta name="description" content="Your go-to app for football stats, live matches, and team insights." />
-      </Head>
+      </head>
+      <body>
         <div className="flex justify-center items-center text-neutral-100 py-5">
             <div className="flex flex-col max-w-7xl p-5 w-full md:flex-row gap-5 bg-gray-900 rounded-lg shadow-lg">
                 <div className="flex flex-col md:w-1/3 justify-center items-center bg-gray-800 rounded-lg p-5 shadow-md">
@@ -126,7 +127,8 @@ export default async function Team({
     Dive into the team’s stats, evaluate their performance, and get real-time updates — all in one place. Ideal for passionate fans, fantasy football players, and sports analysts alike.
   </p>
 </div>
+</body>
 
-        </>
+        </html>
     )
 }
