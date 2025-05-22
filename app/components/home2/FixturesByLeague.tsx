@@ -84,9 +84,32 @@ export default function Fixtures({ fixturesByTeamId,selectedDate }: PageProps) {
                     <div className="flex flex-col items-center w-6/12 text-xs md:text-sm">
                         <div className="text-center">{fixture.league.name}</div>
                         <LocalTime fixture={fixture} />
-                        <div className="text-lg font-bold">
-                            {fixture.goals.home} - {fixture.goals.away}
+                        <div className="my-1 text-xl font-semibold">
+                    {fixture.fixture.status.short === "NS" ? (
+                        <span className="text-lg text-white">{fixture.goals.home} - {fixture.goals.away}</span>
+                    ) : fixture.fixture.status.short === "FT" ? (
+                        <span className="text-white">{fixture.goals.home} - {fixture.goals.away}</span>
+                    ) :  fixture.fixture.status.short === "PEN" ? (
+<span className="text-white">
+    {fixture.teams.home.winner === true 
+        ? `${fixture.goals.home + 1} - ${fixture.goals.away}` 
+        : `${fixture.goals.home} - ${fixture.goals.away + 1}`}
+</span>
+                    ) : fixture.fixture.status.short === "P" ? (
+                        <div>
+                        <span className="text-red-600">{fixture.goals.home} - {fixture.goals.away}</span>
+                        <span className="text-red-600 text-xl">PENALTIES</span>
                         </div>
+                    ) :  fixture.fixture.status.short === "AET" ? (
+                        <span className="text-white">{fixture.goals.home} - {fixture.goals.away}</span>
+                    ) :fixture.fixture.status.short === "PEN" ? (
+                        <span className="text-white">{fixture.goals.home} - {fixture.goals.away}</span>
+                    ): fixture.fixture.status.short === "FT" ? (
+                        <span className="text-white">{fixture.goals.home} - {fixture.goals.away}</span>
+                    ) : (
+                        <span className="text-red-700">{fixture.goals.home} - {fixture.goals.away}</span>
+                    )}
+                </div>
                         {["1H"].includes(fixture.fixture.status.short) && (
     <div className="text-xs text-red-600">
         {fixture.fixture.status.elapsed >= 45 ? `45+${fixture.fixture.status.elapsed - 44}` : fixture.fixture.status.elapsed}

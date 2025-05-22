@@ -8,7 +8,8 @@ import getH2HBatch from "@/app/util/getH2H";
 import getLineupBatch from "@/app/util/getLineup1";
 import getEventsBatch from "@/app/util/getEvents";
 import LoadingComponent from "@/app/components/LoadingComponent";
-
+import Head from "next/head";
+import moment from "moment";
 type PageProps = {
     params: {
         id: string;
@@ -53,12 +54,15 @@ const fixtureID = Number(fixtureByFixtureId?.fixture.id); // Renamed to fixtureI
 
 // Fetch event data for the given fixture ID using getEventsBatch
 let eventsData = await getEventsBatch([fixtureID]);
-
+const today= moment().format('YYYY-MM-DD');
 // Access the events for the specific fixture ID
 let events = eventsData[fixtureID]; // Get the events using the fixture ID
     return (
         <div>
-         
+           <Head>
+        <title>{fixtureByFixtureId.teams.home.name} vs {fixtureByFixtureId.teams.away.name}</title>
+        <meta name="description" content={`the march of ${fixtureByFixtureId.teams.home.name} vs ${fixtureByFixtureId.teams.away.name} ${today}`} />
+      </Head>
             <Match fixtureByFixtureId={fixtureByFixtureId} h2h={h2h} lineups={lineups} events={events}/>
             <div className="text-gray-300 mb-8 leading-relaxed space-y-4">
   <h1 className="text-2xl font-bold text-white">{fixtureByFixtureId.teams.home.name} vs {fixtureByFixtureId.teams.away.name} - Match Preview & Head-to-Head</h1>
