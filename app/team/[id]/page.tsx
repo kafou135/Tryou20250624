@@ -4,6 +4,7 @@ import type { leaguebyid, Team } from "@/types"
 import Image from "next/image"
 import Fixtures from "./components/Fixtures"
 import getFixturesByTeamId from "@/app/util/getFixturesByTeamId"
+import Head from "next/head"
 
 type PageProps = {
     params: {
@@ -33,6 +34,10 @@ export default async function Team({
 
     return (
         <>
+        <Head>
+        <title>Gridiola</title>
+        <meta name="description" content="Your go-to app for football stats, live matches, and team insights." />
+      </Head>
         <div className="flex justify-center items-center text-neutral-100 py-5">
             <div className="flex flex-col max-w-7xl p-5 w-full md:flex-row gap-5 bg-gray-900 rounded-lg shadow-lg">
                 <div className="flex flex-col md:w-1/3 justify-center items-center bg-gray-800 rounded-lg p-5 shadow-md">

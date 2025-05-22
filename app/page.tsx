@@ -38,7 +38,7 @@ import getFixtures11_1 from './util/getFixtures11 copy';
 import getFixtures11_2 from './util/getFixtures11 copy 2';
 import { log } from 'node:console';
 import Fixtures from './components/home2/FixturesByLeague';
-
+import Head from 'next/head';
 export const revalidate = 1;
 
 export default async function Home() {
@@ -84,6 +84,10 @@ export default async function Home() {
  
   return (
     <div>
+      <Head>
+        <title>Gridiola</title>
+        <meta name="description" content="Your go-to app for football stats, live matches, and team insights." />
+      </Head>
     <StandingsAndFixtures filteredFixtures={filteredFixtures} filteredFixtures1={filteredFixtures1} filteredFixtures2={filteredFixtures2} filteredFixtures3={filteredFixtures3} filteredFixtures4={filteredFixtures4} filteredFixtures5={filteredFixtures5} filteredFixtures6={filteredFixtures6} filteredFixtures7={filteredFixtures7} filteredFixtures8={filteredFixtures8} filteredFixtures9={filteredFixtures9} filteredFixtures10={filteredFixtures10}
     filteredFixtures_1={filteredFixtures_1} filteredFixtures_2={filteredFixtures_2} 
       filteredFixtures1_1={filteredFixtures1_1} filteredFixtures1_2={filteredFixtures1_2} 

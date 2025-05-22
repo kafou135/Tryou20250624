@@ -9,7 +9,6 @@ const API_KEY = process.env.API_KEY!;
 
 
 export const metadata: Metadata = {
-  description: 'Your go-to app for football stats, live matches, and team insights.', // Updated description
   icons:{
     icon:['/khdam1.png?v=4'],
     apple:['/apple-touch-icon1.png?v=4'],
@@ -26,7 +25,6 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-      <title>Gridiola</title>
       <meta name="google-site-verification" content="puUhOSsCARgxfUFDNfef5wmOccrx4Wc92YxDJw0rzXo" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
