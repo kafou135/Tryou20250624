@@ -39,9 +39,7 @@ async function fetchFixturesByLeague(
         headers: {
             'X-RapidAPI-Key': API_KEY,
         },
-        next: {
-            revalidate: 1 * 1 * 15,
-        },
+        
     };
 
     try {
