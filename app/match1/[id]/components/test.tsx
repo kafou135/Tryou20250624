@@ -913,7 +913,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
 
                 <div className="w-full mt-4 p-3 bg-gray-900 rounded-lg">
                   <ul className="space-y-2">
-                    {events?.map((event, index) => {
+                    {lineups?.events?.map((event, index) => {
                         // Determine if the event is for the home or away team
                         const isHomeTeam = event?.team?.id === fixtureByFixtureId.teams.home.id;
                         const isAwayTeam = event?.team.id === fixtureByFixtureId.teams.away.id;
