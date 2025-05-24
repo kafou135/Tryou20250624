@@ -57,8 +57,8 @@ const today= moment().format('YYYY-MM-DD');
 let events = eventsData[fixtureID]; // Get the events using the fixture ID
 
   return {
-    title: `${fixtureByFixtureId.teams.home.name} vs ${fixtureByFixtureId.teams.away.name}`,
-    description: `the match between ${fixtureByFixtureId.teams.home.name} and ${fixtureByFixtureId.teams.away.name} ${today}`,
+    title: `${fixtureByFixtureId?.teams.home.name} vs ${fixtureByFixtureId?.teams.away.name}`,
+    description: `the match between ${fixtureByFixtureId?.teams.home.name} and ${fixtureByFixtureId?.teams.away.name} ${today}`,
   };
 }
 export default async function page({ params }: PageProps){
@@ -107,16 +107,16 @@ let events = eventsData[fixtureID]; // Get the events using the fixture ID
           
             <Match fixtureByFixtureId={fixtureByFixtureId} h2h={h2h} lineups={lineups} events={events}/>
             <div className="text-gray-300 mb-8 leading-relaxed space-y-4">
-  <h1 className="text-2xl font-bold text-white">{fixtureByFixtureId.teams.home.name} vs {fixtureByFixtureId.teams.away.name} - Match Preview & Head-to-Head</h1>
+  <h1 className="text-2xl font-bold text-white">{fixtureByFixtureId?.teams.home.name} vs {fixtureByFixtureId?.teams.away.name} - Match Preview & Head-to-Head</h1>
 
   <p>
-    The clash between <strong>{fixtureByFixtureId.teams.home.name}</strong> and <strong>{fixtureByFixtureId.teams.away.name}</strong> is set to be an exciting encounter. 
+    The clash between <strong>{fixtureByFixtureId?.teams.home.name}</strong> and <strong>{fixtureByFixtureId?.teams.away.name}</strong> is set to be an exciting encounter. 
     With both teams having a rich history in this league, this page provides detailed insights into their head-to-head records, in-game events, and starting formations.
   </p>
 
   <h2 className="text-xl font-semibold text-white">📊 Head-to-Head Statistics</h2>
   <p>
-    Over the years, these two teams have faced each other multiple times, with <strong></strong> wins for <strong>{fixtureByFixtureId.teams.home.name}</strong> and <strong></strong> wins for <strong>{fixtureByFixtureId.teams.away.name}</strong>.
+    Over the years, these two teams have faced each other multiple times, with <strong></strong> wins for <strong>{fixtureByFixtureId?.teams.home.name}</strong> and <strong></strong> wins for <strong>{fixtureByFixtureId?.teams.away.name}</strong>.
     Matches between these sides are often filled with drama, goals, and key moments that decide the outcome.
   </p>
 
@@ -129,7 +129,7 @@ let events = eventsData[fixtureID]; // Get the events using the fixture ID
   <h2 className="text-xl font-semibold text-white">📍 Tactical Lineups & Player Positions</h2>
   <p>
     Understanding the formations of each team is crucial to analyzing the game. Our lineup section provides a visual representation of how each team sets up on the field.
-    Will <strong>{fixtureByFixtureId.teams.home.name}</strong> opt for an attacking 4-3-3, or will <strong>{fixtureByFixtureId.teams.away.name}</strong> defend deep with a 5-4-1 formation?
+    Will <strong>{fixtureByFixtureId?.teams.home.name}</strong> opt for an attacking 4-3-3, or will <strong>{fixtureByFixtureId?.teams.away.name}</strong> defend deep with a 5-4-1 formation?
   </p>
 
   <p>

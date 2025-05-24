@@ -1,11 +1,5 @@
 import { Fixture } from '@/types';
 import 'server-only';
-import { Redis } from "@upstash/redis";
-
-export const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL2!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN2!,
-});
 
 const API_KEY = process.env.API_KEY as string;
 const leagues =    [
@@ -20,13 +14,7 @@ const leagues =    [
 
 
 export default async function getFixtureByTeamId() {
-    const cacheKey = `fixtureByteamId:${70}`;
-
-  // Try to get from Redis
-  const cached = await redis.get(cacheKey);
-  if (cached) {
-    return cached;
-  }
+  
     const response = await fetch("https://v3.football.api-sports.io/fixtures?date=2025-04-15", {
       method: 'GET',
       headers: {
@@ -41,7 +29,6 @@ export default async function getFixtureByTeamId() {
   
     const data = await response.json();
     const fixture = data.response; // or data.response for the array
-    await redis.set(cacheKey, fixture, { ex: 60 });
 
   return fixture;
   };

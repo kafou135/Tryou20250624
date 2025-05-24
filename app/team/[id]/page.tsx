@@ -66,7 +66,7 @@ export default async function Team({
                         height={150}
                         className="p-3 border-2 border-gray-700"
                     />
-                    <div className="text-2xl font-bold mt-3">{teamInfo.league?.standings?.[0][0].team.name}</div>
+                    <div className="text-2xl font-bold mt-3">{teamInfo?.league?.standings?.[0][0].team.name}</div>
                     <div className="flex justify-center items-center w-full mt-2 text-lg font-semibold">
                         <div className="w-1/3 text-center">#{teamInfo?.league?.standings[0]?.[0]?.rank}</div>
                         <div className="w-1/3 text-center">{teamInfo?.league?.standings[0]?.[0]?.group}</div>

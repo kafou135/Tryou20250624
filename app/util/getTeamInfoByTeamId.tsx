@@ -29,7 +29,6 @@ export default async function getFixtureByTeamId(teamid: number,teamName:string,
   
     const data = await response.json();
     const fixture = data.response[0]; // or data.response for the array
-    await redis.set(cacheKey, fixture, { ex: 60 });
 
   return fixture;
   };

@@ -267,6 +267,7 @@ type AllLiveStates = {
 
 type Lineups={
   lineups:Lineups2[],
+  events:Events[]
     
 }
 type Lineups2={
