@@ -22,18 +22,12 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
         headers: {
             'X-RapidAPI-Key': API_KEY,
         },
-        next: {
-            revalidate: 60 * 60 * 24
-        }
     };
 
     const standings: Standing[][] = [];
 
-    const leagues = [
-        { name: 'EPL', id: 39 },
-    ]
+   
 
-    for (const league of leagues) {
         let url = `https://v3.football.api-sports.io/standings?season=${2024+yearr}&league=${id}`
 
         try {
@@ -45,9 +39,9 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
               standings.push(standing);
             }
         } catch (err) {
-            console.error(`Error fetching ${league.name} standings: ${err}`);
+            console.error(`Error fetching standings: ${err}`);
         }
-    }
+    
 
     return standings;
 }
