@@ -39,7 +39,7 @@ export default async function Team({
   <h1 className="text-2xl font-bold text-white">League Standings and Top Scorers Overview</h1>
 
   <p>
-    Welcome to the official league table and top scorers page for the {standingsData[0][0]?.league?.name} {standingsData[0][0]?.league?.season} season. Whether you're following the title race, the battle for European spots, or the fight to avoid relegation, this page has all the up-to-date data you need.
+    Welcome to the official league table and top scorers page for the {standingsData[0]?.league?.name} {standingsData[0]?.league?.season} season. Whether you're following the title race, the battle for European spots, or the fight to avoid relegation, this page has all the up-to-date data you need.
   </p>
 
   <h2 className="text-xl font-semibold text-white">🏆 Live Standings & Points Table</h2>
