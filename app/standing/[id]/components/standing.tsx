@@ -30,7 +30,7 @@ export default function Match({ standingsData,topscorers }: PageProps) {
 
     return (
         <div className="flex flex-col w-full justify-center items-center bg-gray-900 text-neutral-100 py-5 md:py-6">
-            <div className="flex w-full max-w-3xl items-center justify-center bg-gray-800 p-4 rounded-lg shadow-md">
+            <div className="block w-full max-w-3xl items-center justify-center bg-gray-800 p-4 rounded-lg shadow-md">
                 <div ref={menuRef} className="w-full flex overflow-x-hidden snap-x scrollbar-none scroll-smooth text-xs md:text-sm">
                     {standingsData.map((responseData) => (
                         <div key={responseData.league.id} className="flex-shrink-0 w-full snap-center flex justify-center items-center">
