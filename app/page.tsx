@@ -88,6 +88,7 @@ export default async function Home() {
         <title>Gridiola</title>
         <meta name="description" content="Your go-to app for football stats, live matches, and team insights." />
       </Head>
+      <RefreshButton/>
     <StandingsAndFixtures filteredFixtures={filteredFixtures} filteredFixtures1={filteredFixtures1} filteredFixtures2={filteredFixtures2} filteredFixtures3={filteredFixtures3} filteredFixtures4={filteredFixtures4} filteredFixtures5={filteredFixtures5} filteredFixtures6={filteredFixtures6} filteredFixtures7={filteredFixtures7} filteredFixtures8={filteredFixtures8} filteredFixtures9={filteredFixtures9} filteredFixtures10={filteredFixtures10}
     filteredFixtures_1={filteredFixtures_1} filteredFixtures_2={filteredFixtures_2} 
       filteredFixtures1_1={filteredFixtures1_1} filteredFixtures1_2={filteredFixtures1_2} 
