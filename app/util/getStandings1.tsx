@@ -1,19 +1,10 @@
-
 import 'server-only';
 import { Standing } from "@/types";
 import moment from "moment";
 
-export default async function getStandings(yearr:number,id:number): Promise<Standing[]> {
-
-   
-
-    const currentTime = moment().format('YYYY-MM-DD')
-    const month = moment().month();
-    let year;
-
-    
-        year = moment().year() - 1;
-  
+export default async function getStandings(yearr: number, id: number): Promise<Standing[]> {
+    const currentTime = moment();
+    const year = currentTime.year() - 1;
 
     const API_KEY: string = process.env.API_KEY as string;
 
@@ -22,26 +13,18 @@ export default async function getStandings(yearr:number,id:number): Promise<Stan
         headers: {
             'X-RapidAPI-Key': API_KEY,
         },
-        
     };
 
-    const standings: Standing[] = [];
+    const url = `https://v3.football.api-sports.io/standings?season=${2024 + yearr}&league=${id}`;
 
-    
-        let url = `https://v3.football.api-sports.io/standings?season=${2024+yearr}&league=${id}`
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        const standing = data.response;
 
-        try {
-            const response = await fetch(url, options);
-            const data = await response.json();
-            const standing = data.response[0];
-        
-            if (standing) {
-              standings.push(standing);
-            }
-        } catch (err) {
-            console.error(`Error fetching ${id} standings: ${err}`);
-        }
-    
-
-    return standings;
+        return standing || [];
+    } catch (err) {
+        console.error(`Error fetching standings: ${err}`);
+        return [];
+    }
 }
