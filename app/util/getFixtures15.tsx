@@ -38,7 +38,7 @@
 //{league: 1174,yearr:0,startmonth: '2025-01-01',endmonth: '2025-05-01',country: "Cambodia",name: "EPL"},
 //{league: 411,yearr:0,startmonth: '2024-12-01',endmonth: '2025-06-01',country: "Cameroon",name: "EPL"},]
 //
-//async function fetchFixturesByLeague(
+//export default async function getFixtures()
 //    year: number,
 //    league: number,
 //    yearr: number,

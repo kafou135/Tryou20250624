@@ -1001,7 +1001,7 @@ const leagues = [
   {league: 401,yearr:1,startmonth: 2,endmonth: 3,country: "Zimbabwe",name: "EPL"}
 ]
 
-async function fetchFixturesByLeague(year: number, league: number,yearr:number): Promise<Fixture[]> {
+export default async function getFixtures()year: number, league: number,yearr:number): Promise<Fixture[]> {
 
     const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year+yearr}`;
     const options = {

@@ -1029,7 +1029,7 @@ const leagues =    [
    
     ]
 
-    async function fetchFixturesByLeague(
+    export default async function getFixtures()
         year: number,
         league: number,
         yearr: number,

@@ -25,7 +25,7 @@ const leagues =    [
     {league: 625, yearr: -1, startmonth: '2024-09-01', endmonth: '2025-01-01', country: "Brazil", name: "EPL"},
 ]
 
-async function fetchFixturesByLeague(
+export default async function getFixtures(
     year: number,
     league: number,
     yearr: number
@@ -35,9 +35,7 @@ const nextWeek1 = moment().subtract(1, 'days').format('YYYY-MM-DD');        cons
         headers: {
             'X-RapidAPI-Key': API_KEY,
         },
-        next: {
-            revalidate: 1 * 1 * 15,
-        },
+         
     };
 
     try {
@@ -50,50 +48,5 @@ const nextWeek1 = moment().subtract(1, 'days').format('YYYY-MM-DD');        cons
     }
 }
 
-export default async function getFixtures(): Promise<AllFixtures[]> {
-     
-
-    try {
-        const currentTime = moment().format('YYYY-MM-DD')
-        const year = moment().year();
-        const month = moment().month();
-
-        const allFixturesByLeague: AllFixtures[] = [];
-
-
-            for (const league of leagues) {
-            if (currentTime <= league.endmonth) {
-                allFixturesByLeague.push({
-                    name: league.name,
-                    fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),
-                });
-            } else if (currentTime >= league.startmonth) {
-                allFixturesByLeague.push({
-                    name: league.name,
-                    fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),
-                });
-            } else {
-                allFixturesByLeague.push({
-                    name: league.name,
-                    fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),
-                });
-                const existingData = allFixturesByLeague.find((data) => data.name === league.name);
-                if (existingData) {
-                    existingData.fixtures.push(...(await fetchFixturesByLeague(year, league.league,league.yearr)));
-                } else {
-                    allFixturesByLeague.push({
-                        name: league.name,
-                        fixtures: await fetchFixturesByLeague(year, league.league,league.yearr)
-                    });
-                }
-            }
-        }
-
-
-        return allFixturesByLeague;
-    } catch (error) {
-        console.error("An error occured while fetching fixtures: ", error);
-        throw error;
-    }
-}
+ 
 

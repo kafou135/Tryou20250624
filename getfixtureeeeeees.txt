@@ -289,7 +289,7 @@ const leagues = [
       // Add more leagues here
 ]
 
-async function fetchFixturesByLeague(year: number, league: number, yearr: number): Promise<Fixture[]> { 
+export default async function getFixtures()year: number, league: number, yearr: number): Promise<Fixture[]> { 
     const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}`;
     const options = {
         method: 'GET',

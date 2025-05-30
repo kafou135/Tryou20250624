@@ -38,7 +38,7 @@
 //{league: 630, yearr:0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
 //]
 //
-//async function fetchFixturesByLeague(
+//export default async function getFixtures()
 //    year: number,
 //    league: number,
 //    yearr: number,
