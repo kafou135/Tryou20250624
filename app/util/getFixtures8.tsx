@@ -30,7 +30,7 @@ export default async function getFixtures(
     year: number,
     league: number,
     yearr: number
-): Promise<Fixture[]> {
+): Promise<AllFixtures[]> {
 const nextWeek1 = moment().add(3, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().add(1, 'days').format('YYYY-MM-DD');    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek1}&to=${nextWeek1}`;    const options = {
         method: 'GET',
         headers: {

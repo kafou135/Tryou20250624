@@ -44,7 +44,7 @@ export default async function getFixtures(
     year: number,
     league: number,
     yearr: number
-): Promise<Fixture[]> {        const currentTimeFormat = moment().format('YYYY-MM-DD');
+): Promise<AllFixtures[]> {        const currentTimeFormat = moment().format('YYYY-MM-DD');
 
     const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
     const options = {

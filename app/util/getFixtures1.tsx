@@ -4,7 +4,7 @@ import moment from 'moment';
 
 const API_KEY = process.env.API_KEY as string;
 
-export default async function getFixtures(year: number, id: number,season:number): Promise<Fixture[]> {
+export default async function getFixtures(year: number, id: number,season:number): Promise<AllFixtures[]> {
 
     const url = `https://v3.football.api-sports.io/fixtures?league=${id}&season=${season}`;
     const options = {
@@ -19,7 +19,7 @@ export default async function getFixtures(year: number, id: number,season:number
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        const fixtures: Fixture[] = data.response;
+        const fixtures: AllFixtures[] = data.response;
         if (fixtures === null || fixtures === undefined) {
             return [];
         } else {

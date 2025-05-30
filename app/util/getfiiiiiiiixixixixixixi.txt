@@ -14,7 +14,7 @@ export default async function getFixtures()year: number, league: number, yearr: 
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        const fixtures: Fixture[] = data.response;
+        const fixtures: AllFixtures[] = data.response;
 
         if (fixtures === null || fixtures === undefined) {
             return [fixtures];
