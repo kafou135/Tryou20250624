@@ -23,16 +23,7 @@ export async function generateMetadata({ params }: PageProps) {
             title: 'Invalid Team | Gridiola',
             description: 'The team ID format is invalid. Please check the URL.',
     };
-} else{
-  return {title: 'GRIDIOLA', // Updated app name
-  description: 'Your go-to app for football stats, live matches, and team insights.',
-  icons:{
-    icon:['/khdam1.png?v=4'],
-    apple:['/apple-touch-icon1.png?v=4'],
-    shortcut:['/apple-touch-icon1.png']
-  }}
-
-}
+} 
     const teamId = parseInt(match[1]);
     const teamName = match[2];
     const season = parseInt(match[3]);
@@ -41,6 +32,13 @@ export async function generateMetadata({ params }: PageProps) {
     const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
     const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
     namee.push(teamName)
+    return {title: 'GRIDIOLA', // Updated app name
+  description: 'Your go-to app for football stats, live matches, and team insights.',
+  icons:{
+    icon:['/khdam1.png?v=4'],
+    apple:['/apple-touch-icon1.png?v=4'],
+    shortcut:['/apple-touch-icon1.png']
+  }}
 
 }
 
