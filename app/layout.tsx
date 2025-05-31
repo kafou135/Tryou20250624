@@ -27,6 +27,11 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta property="og:title" content="My Awesome Football App" />
+        <meta name="twitter:title" content="Live Football Scores & Fixtures - My App" />
+        {/* Optional: other Twitter/OpenGraph tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:description" content="Get live scores, upcoming fixtures, and league updates." />
       <meta name="google-site-verification" content="puUhOSsCARgxfUFDNfef5wmOccrx4Wc92YxDJw0rzXo" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
