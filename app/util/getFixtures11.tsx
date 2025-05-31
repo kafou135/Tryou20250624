@@ -26,13 +26,8 @@ const leagues =    [
     {league: 612, yearr: 0, startmonth: '2025-01-01', endmonth: '2025-04-01', country: "Brazil", name: "EPL"},
     {league: 1097, yearr: 0, startmonth: '2025-04-01', endmonth: '2025-07-01', country: "Brazil", name: "EPL"},
 ]
-
-export default async function getFixtures(
-    year: number,
-    league: number,
-    yearr: number
-): Promise<AllFixtures[]> {
-const nextWeek1 = moment().add(3, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().add(1, 'days').format('YYYY-MM-DD');
+export default async function getFixtures(): Promise<AllFixtures[]> {
+for (const { league, yearr } of leagues)  {const year= moment().year(); const nextWeek1 = moment().add(3, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().add(1, 'days').format('YYYY-MM-DD');
             const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek1}&to=${nextWeek1}`;
                 const options = {
         method: 'GET',
@@ -49,7 +44,8 @@ const nextWeek1 = moment().add(3, 'days').format('YYYY-MM-DD');        const las
     } catch (err) {
         console.log(`Error fetching ${league} fixtures in year ${year}: ${err}`);
         return [];
-    }
+    }}
+    return []
 }
 
  

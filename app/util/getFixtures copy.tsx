@@ -17,6 +17,7 @@ const redis = new Redis({
   token: REDIS_TOKEN,
 });
 
+
 const leagues =    [
     { league: 2, name: 'EPL' ,yearr:-1, startmonth: '2024-07-01', endmonth: '2025-06-01'},
      { league: 39, name: 'EPL' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
@@ -26,13 +27,9 @@ const leagues =    [
      { league: 5, name: 'euro' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
      { league: 6, name: 'caf' ,yearr:0, startmonth: '2024-08-01', endmonth: '2025-06-01'},
 ]
-
-export default async function getFixtures(
-    year: number,
-    league: number,
-    yearr: number
-): Promise<AllFixtures[]> {        const currentTimeFormat = moment().format('YYYY-MM-DD');
-
+export default async function getFixtures(): Promise<AllFixtures[]> {        const currentTimeFormat = moment().format('YYYY-MM-DD');
+for (const { league, yearr } of leagues) {
+    const year= moment().year();
     const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
     const options = {
         method: 'GET',
@@ -49,7 +46,8 @@ export default async function getFixtures(
     } catch (err) {
         console.log(`Error fetching ${league} fixtures in year ${year}: ${err}`);
         return [];
-    }
+    }}
+    return []; // here they tell me that Cannot find name 'data'.ts(2304)
 }
 
  

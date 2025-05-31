@@ -26,12 +26,8 @@ const leagues =    [
 //{league: 152,yearr: -1,startmonth: '2024-08-01',endmonth: '2025-05-01',country: "Belgium",name: "EPL"},
 ]
 
-export default async function getFixtures(
-    year: number,
-    league: number,
-    yearr: number
-): Promise<AllFixtures[]> {        const currentTimeFormat = moment().format('YYYY-MM-DD');
-
+export default async function getFixtures(): Promise<AllFixtures[]> { for (const { league, yearr } of leagues)  {      const currentTimeFormat = moment().format('YYYY-MM-DD');
+  const year= moment().year()
     const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
     const options = {
         method: 'GET',
@@ -48,7 +44,8 @@ export default async function getFixtures(
     } catch (err) {
         console.log(`Error fetching ${league} fixtures in year ${year}: ${err}`);
         return [];
-    }
+    }}
+    return []
 }
 
  
