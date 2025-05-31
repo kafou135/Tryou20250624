@@ -26,12 +26,12 @@ export default async function Match({ params }: PageProps) {
 
     // Fetch lineups
     const API_KEY = process.env.API_KEY as string;
-    const url = `https://api-football-v1.p.rapidapi.com/v3/fixtures/lineups?fixture=${fixtureByFixtureId.fixture.id}`;
+    const url = `https://v3.football.api-sports.io/v3/fixtures/lineups?fixture=${fixtureByFixtureId.fixture.id}`;
     const options = {
         method: "GET",
         headers: {
             "X-RapidAPI-Key": API_KEY,
-            "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+            "X-RapidAPI-Host": "v3.football.api-sports.io",
         },
         next: {
             revalidate: 1 * 1 * 1,

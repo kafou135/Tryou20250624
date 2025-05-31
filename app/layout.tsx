@@ -47,7 +47,6 @@ export default async function RootLayout({
       <div
   id="api_football_widget"
   data-host="v3.football.api-sports.io"
-  data-key= {API_KEY}
   data-theme="dark"
   data-refresh="60"
 ></div>

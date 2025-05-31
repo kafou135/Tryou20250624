@@ -11,7 +11,9 @@ export default async function getStandings(yearr: number, id: number): Promise<S
     const options = {
         method: 'GET',
         headers: {
+            headers: {
             'X-RapidAPI-Key': API_KEY,
+            'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
         },
     };
 

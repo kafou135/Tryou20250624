@@ -6,7 +6,7 @@ export default async function getFixtureByFixtureId(id: number,teamName:string,s
 
   // Try to get from Redis
  
-    const response = await fetch(`https://v3.football.api-sports.io/fixtures?id=${id}`, {
+    const response = await fetch(`hhhhhid=${id}`, {
       method: 'GET',
       headers: {
         'X-RapidAPI-Key': API_KEY,

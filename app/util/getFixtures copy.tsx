@@ -17,7 +17,6 @@ const redis = new Redis({
   token: REDIS_TOKEN,
 });
 
-
 const leagues =    [
     { league: 2, name: 'EPL' ,yearr:-1, startmonth: '2024-07-01', endmonth: '2025-06-01'},
      { league: 39, name: 'EPL' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
@@ -27,9 +26,13 @@ const leagues =    [
      { league: 5, name: 'euro' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
      { league: 6, name: 'caf' ,yearr:0, startmonth: '2024-08-01', endmonth: '2025-06-01'},
 ]
-export default async function getFixtures(): Promise<AllFixtures[]> {        const currentTimeFormat = moment().format('YYYY-MM-DD');
-for (const { league, yearr } of leagues) {
-    const year= moment().year();
+
+async function fetchFixturesByLeague(
+    year: number,
+    league: number,
+    yearr: number
+): Promise<Fixture[]> {        const currentTimeFormat = moment().format('YYYY-MM-DD');
+
     const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${currentTimeFormat}&to=${currentTimeFormat}`;
     const options = {
         method: 'GET',
@@ -46,9 +49,53 @@ for (const { league, yearr } of leagues) {
     } catch (err) {
         console.log(`Error fetching ${league} fixtures in year ${year}: ${err}`);
         return [];
-    }}
-    return []; // here they tell me that Cannot find name 'data'.ts(2304)
+    }
 }
 
- 
+export default async function getFixtures(): Promise<AllFixtures[]> {
+    
+
+    try {
+        const currentTime = moment().format('YYYY-MM-DD')
+        const year = moment().year();
+        const month = moment().month();
+
+        const allFixturesByLeague: AllFixtures[] = [];
+
+
+            for (const league of leagues) {
+            if (currentTime <= league.endmonth) {
+                allFixturesByLeague.push({
+                    name: league.name,
+                    fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),
+                });
+            } else if (currentTime >= league.startmonth) {
+                allFixturesByLeague.push({
+                    name: league.name,
+                    fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),
+                });
+            } else {
+                allFixturesByLeague.push({
+                    name: league.name,
+                    fixtures: await fetchFixturesByLeague(year, league.league,league.yearr),
+                });
+                const existingData = allFixturesByLeague.find((data) => data.name === league.name);
+                if (existingData) {
+                    existingData.fixtures.push(...(await fetchFixturesByLeague(year, league.league,league.yearr)));
+                } else {
+                    allFixturesByLeague.push({
+                        name: league.name,
+                        fixtures: await fetchFixturesByLeague(year, league.league,league.yearr)
+                    });
+                }
+            }
+        }
+
+
+        return allFixturesByLeague;
+    } catch (error) {
+        console.error("An error occured while fetching fixtures: ", error);
+        throw error;
+    }
+}
 
