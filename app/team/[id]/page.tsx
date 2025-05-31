@@ -31,10 +31,7 @@ export async function generateMetadata({ params }: PageProps) {
     const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
     const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
     namee.push(teamName)
-return {
-    title: `${name} – Stats, Form & Fixtures | Gridiola`,
-    description: `Explore ${name}'s latest stats, league form, and upcoming matches for the ${season}/${season + 1} season. Follow live scores and detailed insights on Gridiola.`,
-};
+
 }
 
 
