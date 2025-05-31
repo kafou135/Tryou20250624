@@ -5,35 +5,43 @@ import Image from "next/image"
 import Fixtures from "./components/Fixtures"
 import getFixturesByTeamId from "@/app/util/getFixturesByTeamId"
 import Head from "next/head"
+import { Metadata } from "next"
 
 type PageProps = {
     params: {
         id: string
     }
 }
+const namee:string[]=[]
+
 export async function generateMetadata({ params }: PageProps) {
-  const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
-  if (!match) {
-    return {
-      title: 'Invalid Team | Gridiola',
-      description: 'The team ID format is invalid. Please check the URL.',
+    const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
+    if (!match) {
+        return {
+            title: 'Invalid Team | Gridiola',
+            description: 'The team ID format is invalid. Please check the URL.',
     };
-  }
-
-  const teamId = parseInt(match[1]);
-  const teamName = match[2];
-  const season = parseInt(match[3]);
-  const leagueid = parseInt(match[4]);
-
-  const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
-  const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
-
-  return {
-    title: `${name} – Stats, Form & Fixtures | Gridiola`,
-    description: `Explore ${name}'s latest stats, league form, and upcoming matches for the ${season}/${season + 1} season. Follow live scores and detailed insights on Gridiola.`,
-  };
 }
 
+const teamId = parseInt(match[1]);
+const teamName = match[2];
+const season = parseInt(match[3]);
+const leagueid = parseInt(match[4]);
+
+const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
+const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
+namee.push(teamName)
+return {
+    title: `${name} – Stats, Form & Fixtures | Gridiola`,
+    description: `Explore ${name}'s latest stats, league form, and upcoming matches for the ${season}/${season + 1} season. Follow live scores and detailed insights on Gridiola.`,
+};
+}
+
+export const metadata: Metadata = {
+  
+    title: `${namee} – Stats, Form & Fixtures | Gridiola`,
+    
+};
 export default async function Team({
     params
 }: PageProps) {

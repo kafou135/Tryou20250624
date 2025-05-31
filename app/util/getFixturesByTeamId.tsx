@@ -15,7 +15,7 @@ export default async function getFixtureByTeamId(teamid: number,teamName:string,
   if (cached) {
     return cached;
   }
-    const response = await fetch(`hhhhhteam=${teamid}&season=${season}`, {
+    const response = await fetch(`https://v3.football.api-sports.io/fixtures?team=${teamid}&season=${season}`, {
       method: 'GET',
       headers: {
         'x-apisports-key': API_KEY,
