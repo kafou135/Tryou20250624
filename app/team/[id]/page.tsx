@@ -14,6 +14,7 @@ type PageProps = {
 }
 const namee:string[]=[]
 
+
 export async function generateMetadata({ params }: PageProps) {
     const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
     if (!match) {
@@ -22,26 +23,21 @@ export async function generateMetadata({ params }: PageProps) {
             description: 'The team ID format is invalid. Please check the URL.',
     };
 }
-
-const teamId = parseInt(match[1]);
-const teamName = match[2];
-const season = parseInt(match[3]);
-const leagueid = parseInt(match[4]);
-
-const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
-const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
-namee.push(teamName)
+    const teamId = parseInt(match[1]);
+    const teamName = match[2];
+    const season = parseInt(match[3]);
+    const leagueid = parseInt(match[4]);
+    
+    const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
+    const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
+    namee.push(teamName)
 return {
     title: `${name} – Stats, Form & Fixtures | Gridiola`,
     description: `Explore ${name}'s latest stats, league form, and upcoming matches for the ${season}/${season + 1} season. Follow live scores and detailed insights on Gridiola.`,
 };
 }
 
-export const metadata: Metadata = {
-  
-    title: `${namee} – Stats, Form & Fixtures | Gridiola`,
-    
-};
+
 export default async function Team({
     params
 }: PageProps) {
@@ -64,6 +60,7 @@ export default async function Team({
 
     return (
         <>
+        <meta property="twitter:title" content="Twitter link preview title">hh</meta>
         <div className="flex justify-center items-center text-neutral-100 py-5">
             <div className="flex flex-col max-w-7xl p-5 w-full md:flex-row gap-5 bg-gray-900 rounded-lg shadow-lg">
                 <div className="flex flex-col md:w-1/3 justify-center items-center bg-gray-800 rounded-lg p-5 shadow-md">
