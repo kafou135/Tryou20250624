@@ -9,6 +9,8 @@ const API_KEY = process.env.API_KEY!;
 
 
 export const metadata: Metadata = {
+  title: 'GRIDIOLA', // Updated app name
+  description: 'Your go-to app for football stats, live matches, and team insights.',
   icons:{
     icon:['/khdam1.png?v=4'],
     apple:['/apple-touch-icon1.png?v=4'],
