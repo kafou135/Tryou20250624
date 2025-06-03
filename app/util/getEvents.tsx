@@ -9,7 +9,7 @@ const redis = new Redis({
 
 // Function to fetch events for a single fixture
 async function getH2H(id: number, API_KEY: string) {
-    const url = `hhhhhhh/events?fixture=${id}`;
+    const url = `https://v3.football.api-sports.io/fixtures/events?fixture=${id}`;
     const options = {
         method: "GET",
         headers: { "X-RapidAPI-Key": API_KEY },

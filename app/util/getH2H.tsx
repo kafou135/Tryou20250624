@@ -9,7 +9,7 @@ const redis = new Redis({
 
 // Function to fetch H2H data from API
 async function fetchH2H(id1: number, id2: number, API_KEY: string): Promise<H2H[]> {
-    const url = `hhhhhhh/headtohead?h2h=${id1}-${id2}`;
+    const url = `https://v3.football.api-sports.io/fixtures/headtohead?h2h=${id1}-${id2}`;
     const options = {
         method: "GET",
         headers: { "X-RapidAPI-Key": API_KEY },

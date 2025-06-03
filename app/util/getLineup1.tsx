@@ -9,7 +9,7 @@ const redis = new Redis({
 
 // Function to fetch lineup data for a single fixture
 async function fetchLineup(id: number, API_KEY: string) {
-    const url = `hhhhhhh/lineups?fixture=${id}`;
+    const url = `https://v3.football.api-sports.io/fixtures/lineups?fixture=${id}`;
     const options = {
         method: "GET",
         headers: { "X-RapidAPI-Key": API_KEY },
