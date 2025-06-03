@@ -33,7 +33,7 @@ const fetches = leagues.map(async (league) => {const nextWeek1 = moment().subtra
     return data.response ?? [];
   });
   const allResponses = await Promise.all(fetches);
-  return allResponses.flat();       
+  return allResponses;       
    
 
 }

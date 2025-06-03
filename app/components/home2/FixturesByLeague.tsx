@@ -19,14 +19,14 @@ export default function FixturesByLeague({ fixturesByTeamId, selectedDate }: Pag
   };
 
   const fixturesGroupedByLeague = useMemo(() => {
-    const filtered = fixturesByTeamId.filter(
-      f => moment(f.fixture.date).format("YYYY-MM-DD") === selectedDate
+    const filtered = fixturesByTeamId?.filter(
+      f => moment(f?.fixture?.date).format("YYYY-MM-DD") === selectedDate
     );
 
     const grouped: { [leagueId: number]: AllFixtures[] } = {};
 
     filtered.forEach(fixture => {
-      const leagueId = fixture.league.id;
+      const leagueId = fixture?.league?.id;
       if (!grouped[leagueId]) {
         grouped[leagueId] = [];
       }
@@ -58,7 +58,7 @@ grouped[leagueId] = [...(grouped[leagueId] || []), fixture];
                     alt="league logo"
                     style={{ width: "24px", height: "auto", marginRight: "8px" }}
                   />
-                  {firstFixture.league.name}
+                  {firstFixture?.league?.name}
                 </div>
 
                 <div onClick={() => handleToggle(leagueId)} className="cursor-pointer ml-2">
@@ -71,7 +71,7 @@ grouped[leagueId] = [...(grouped[leagueId] || []), fixture];
             {isOpen && (
               <div className="flex flex-col mt-2">
                 {fixtures.map(fixture => (
-                  <FixtureItem match={fixture} key={fixture.fixture.id} />
+                  <FixtureItem match={fixture} key={fixture?.fixture?.id} />
                 ))}
               </div>
             )}

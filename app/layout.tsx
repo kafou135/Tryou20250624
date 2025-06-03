@@ -122,8 +122,8 @@ export default async function RootLayout({
             </main>
           </div>
         </div>
-        <Script type="module" src="main.js"></Script>
-      </body>
+           <script type="module" src="/main.js"></script>
+       </body>
     </html>
   );
 }
