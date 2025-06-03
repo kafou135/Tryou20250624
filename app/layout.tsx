@@ -27,6 +27,25 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+       <Script
+  strategy="afterInteractive"
+  src={`https://www.googletagmanager.com/gtag/js?id=G-LJ4735L424`}
+/>
+<Script
+  id="gtag-init"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-LJ4735L424', {
+        page_path: window.location.pathname,
+      });
+    `,
+  }}
+/>
+
         <meta property="og:title" content="My Awesome Football App" />
         <meta name="twitter:title" content="Live Football Scores & Fixtures - My App" />
         {/* Optional: other Twitter/OpenGraph tags */}

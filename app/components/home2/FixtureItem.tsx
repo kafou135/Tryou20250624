@@ -12,10 +12,9 @@ const API_KEY = process.env.API_KEY as string;
 
 type PageProps = {
     match: Fixture,
-    index: number,
 }
 
-export default function FixtureItem({ match, index }: PageProps) {
+export default function FixtureItem({ match }: PageProps) {
     const router = useRouter();
     const [elapsedTime, setElapsedTime] = useState(match.fixture.status.elapsed);
 
@@ -41,7 +40,7 @@ export default function FixtureItem({ match, index }: PageProps) {
         <Link
             href={`/match1/${match.fixture.id}nm${match.league.name}seas${match.league.season}lid${match.league.id}`}
             key={match.fixture.id}
-            className={`flex w-full p-3 bm-0 justify-between items-center h-24 hover:bg-red-800/50 ${index % 2 === 0 ? 'bg-black/40' : ''} rounded-md shadow-md`}
+            className={`flex w-full p-3 bm-0 justify-between items-center h-24 hover:bg-red-800/50 rounded-md shadow-md`}
         >
             <div className="flex flex-col items-center w-3/12 text-sm">
                         <img src={match.teams.home.logo} alt="HomeLogo" width={50} height={50}  />

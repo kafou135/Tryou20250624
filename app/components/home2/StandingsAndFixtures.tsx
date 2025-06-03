@@ -7,8 +7,30 @@ import FixturesByLeague from "./FixturesByLeague";
 import moment from "moment";
 import Link from "next/link";
 import LoadingComponent from "../LoadingComponent";
+import { log } from "node:console";
 
-export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures1,filteredFixtures2,filteredFixtures3,filteredFixtures4,filteredFixtures5,filteredFixtures6,filteredFixtures7,filteredFixtures8,filteredFixtures9,filteredFixtures10,filteredFixtures_1,filteredFixtures_2,filteredFixtures1_1,filteredFixtures1_2,filteredFixtures2_1,filteredFixtures2_2,filteredFixtures3_1,filteredFixtures3_2,filteredFixtures4_1,filteredFixtures4_2,filteredFixtures5_1,filteredFixtures5_2,filteredFixtures6_1,filteredFixtures6_2,filteredFixtures7_1,filteredFixtures7_2,filteredFixtures8_1,filteredFixtures8_2,filteredFixtures9_1,filteredFixtures9_2,filteredFixtures10_1,filteredFixtures10_2 }: { filteredFixtures: AllFixtures[], filteredFixtures1: AllFixtures[],filteredFixtures2: AllFixtures[],filteredFixtures3: AllFixtures[], filteredFixtures4: AllFixtures[],filteredFixtures5: AllFixtures[],filteredFixtures6: AllFixtures[], filteredFixtures7: AllFixtures[], filteredFixtures8: AllFixtures[] , filteredFixtures9: AllFixtures[] , filteredFixtures10: AllFixtures[],filteredFixtures_1:AllFixtures[],filteredFixtures_2:AllFixtures[],filteredFixtures1_1:AllFixtures[],filteredFixtures1_2:AllFixtures[],filteredFixtures2_1:AllFixtures[],filteredFixtures2_2:AllFixtures[],filteredFixtures3_1:AllFixtures[],filteredFixtures3_2:AllFixtures[],filteredFixtures4_1:AllFixtures[],filteredFixtures4_2:AllFixtures[],filteredFixtures5_1:AllFixtures[],filteredFixtures5_2:AllFixtures[],filteredFixtures6_1:AllFixtures[],filteredFixtures6_2:AllFixtures[],filteredFixtures7_1:AllFixtures[],filteredFixtures7_2:AllFixtures[],filteredFixtures8_1:AllFixtures[],filteredFixtures8_2:AllFixtures[],filteredFixtures9_1:AllFixtures[],filteredFixtures9_2:AllFixtures[],filteredFixtures10_1:AllFixtures[],filteredFixtures10_2:AllFixtures[] }) {
+export default function StandingsAndFixtures({ 
+    filteredFixtures_2
+    ,filteredFixtures1_2
+    ,filteredFixtures2_2
+    ,filteredFixtures3_2
+    ,filteredFixtures4_2
+    ,filteredFixtures5_2
+    ,filteredFixtures6_2
+    ,filteredFixtures7_2
+    ,filteredFixtures8_2
+    ,filteredFixtures9_2
+    ,filteredFixtures10_2}: { filteredFixtures2_2:AllFixtures[]
+    ,filteredFixtures1_2:AllFixtures[]
+    ,filteredFixtures_2:AllFixtures[]
+    ,filteredFixtures3_2:AllFixtures[]
+    ,filteredFixtures4_2:AllFixtures[]
+    ,filteredFixtures5_2:AllFixtures[]
+    ,filteredFixtures6_2:AllFixtures[]
+    ,filteredFixtures7_2:AllFixtures[]
+    ,filteredFixtures8_2:AllFixtures[]
+    ,filteredFixtures9_2:AllFixtures[]
+    ,filteredFixtures10_2:AllFixtures[]}) {
     const [selectedDate, setSelectedDate] = useState(moment().format("YYYY-MM-DD"));
 
     const handleDateChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -25,40 +47,39 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
     ];
 
     const [activeTab, setActiveTab] = useState(0);
-    const [updatedFixtures, setUpdatedFixtures] = useState<AllFixtures[]>(filteredFixtures);
-    const [updatedFixtures_1, setUpdatedFixtures_1] = useState<AllFixtures[]>(filteredFixtures_1);
+    //const [updatedFixtures_1, setUpdatedFixtures_1] = useState<AllFixtures[]>(filteredFixtures_1);
     const [updatedFixtures_2, setUpdatedFixtures_2] = useState<AllFixtures[]>(filteredFixtures_2);
-    const [updatedFixtures1, setUpdatedFixtures1] = useState<AllFixtures[]>(filteredFixtures1);
-    const [updatedFixtures1_1, setUpdatedFixtures1_1] = useState<AllFixtures[]>(filteredFixtures1_1);
+    //const [updatedFixtures1, setUpdatedFixtures1] = useState<AllFixtures[]>(filteredFixtures1);
+    //const [updatedFixtures1_1, setUpdatedFixtures1_1] = useState<AllFixtures[]>(filteredFixtures1_1);
     const [updatedFixtures1_2, setUpdatedFixtures1_2] = useState<AllFixtures[]>(filteredFixtures1_2);
-    const [updatedFixtures2, setUpdatedFixtures2] = useState<AllFixtures[]>(filteredFixtures2);
-    const [updatedFixtures2_1, setUpdatedFixtures2_1] = useState<AllFixtures[]>(filteredFixtures2_1);
+    //const [updatedFixtures2, setUpdatedFixtures2] = useState<AllFixtures[]>(filteredFixtures2);
+    //const [updatedFixtures2_1, setUpdatedFixtures2_1] = useState<AllFixtures[]>(filteredFixtures2_1);
     const [updatedFixtures2_2, setUpdatedFixtures2_2] = useState<AllFixtures[]>(filteredFixtures2_2);
-    const [updatedFixtures3, setUpdatedFixtures3] = useState<AllFixtures[]>(filteredFixtures3);
-    const [updatedFixtures3_1, setUpdatedFixtures3_1] = useState<AllFixtures[]>(filteredFixtures3_1);
+    //const [updatedFixtures3, setUpdatedFixtures3] = useState<AllFixtures[]>(filteredFixtures3);
+    //const [updatedFixtures3_1, setUpdatedFixtures3_1] = useState<AllFixtures[]>(filteredFixtures3_1);
     const [updatedFixtures3_2, setUpdatedFixtures3_2] = useState<AllFixtures[]>(filteredFixtures3_2);
-    const [updatedFixtures4, setUpdatedFixtures4] = useState<AllFixtures[]>(filteredFixtures4);
-    const [updatedFixtures4_1, setUpdatedFixtures4_1] = useState<AllFixtures[]>(filteredFixtures4_1);
+    //const [updatedFixtures4, setUpdatedFixtures4] = useState<AllFixtures[]>(filteredFixtures4);
+    //const [updatedFixtures4_1, setUpdatedFixtures4_1] = useState<AllFixtures[]>(filteredFixtures4_1);
     const [updatedFixtures4_2, setUpdatedFixtures4_2] = useState<AllFixtures[]>(filteredFixtures4_2);
-    const [updatedFixtures5, setUpdatedFixtures5] = useState<AllFixtures[]>(filteredFixtures5);
-    const [updatedFixtures5_1, setUpdatedFixtures5_1] = useState<AllFixtures[]>(filteredFixtures5_1);
+    //const [updatedFixtures5, setUpdatedFixtures5] = useState<AllFixtures[]>(filteredFixtures5);
+    //const [updatedFixtures5_1, setUpdatedFixtures5_1] = useState<AllFixtures[]>(filteredFixtures5_1);
     const [updatedFixtures5_2, setUpdatedFixtures5_2] = useState<AllFixtures[]>(filteredFixtures5_2);
-    const [updatedFixtures6, setUpdatedFixtures6] = useState<AllFixtures[]>(filteredFixtures6);
-    const [updatedFixtures6_1, setUpdatedFixtures6_1] = useState<AllFixtures[]>(filteredFixtures6_1);
+    //const [updatedFixtures6, setUpdatedFixtures6] = useState<AllFixtures[]>(filteredFixtures6);
+    //const [updatedFixtures6_1, setUpdatedFixtures6_1] = useState<AllFixtures[]>(filteredFixtures6_1);
     const [updatedFixtures6_2, setUpdatedFixtures6_2] = useState<AllFixtures[]>(filteredFixtures6_2);
-    const [updatedFixtures7, setUpdatedFixtures7] = useState<AllFixtures[]>(filteredFixtures7);
-    const [updatedFixtures7_1, setUpdatedFixtures7_1] = useState<AllFixtures[]>(filteredFixtures7_1);
+    //const [updatedFixtures7, setUpdatedFixtures7] = useState<AllFixtures[]>(filteredFixtures7);
+    //const [updatedFixtures7_1, setUpdatedFixtures7_1] = useState<AllFixtures[]>(filteredFixtures7_1);
     const [updatedFixtures7_2, setUpdatedFixtures7_2] = useState<AllFixtures[]>(filteredFixtures7_2);
-    const [updatedFixtures8, setUpdatedFixtures8] = useState<AllFixtures[]>(filteredFixtures8);
-    const [updatedFixtures8_1, setUpdatedFixtures8_1] = useState<AllFixtures[]>(filteredFixtures8_1);
+    //const [updatedFixtures8, setUpdatedFixtures8] = useState<AllFixtures[]>(filteredFixtures8);
+    //const [updatedFixtures8_1, setUpdatedFixtures8_1] = useState<AllFixtures[]>(filteredFixtures8_1);
     const [updatedFixtures8_2, setUpdatedFixtures8_2] = useState<AllFixtures[]>(filteredFixtures8_2);
-    const [updatedFixtures9, setUpdatedFixtures9] = useState<AllFixtures[]>(filteredFixtures9);
-    const [updatedFixtures9_1, setUpdatedFixtures9_1] = useState<AllFixtures[]>(filteredFixtures9_1);
+    //const [updatedFixtures9, setUpdatedFixtures9] = useState<AllFixtures[]>(filteredFixtures9);
+    //const [updatedFixtures9_1, setUpdatedFixtures9_1] = useState<AllFixtures[]>(filteredFixtures9_1);
     const [updatedFixtures9_2, setUpdatedFixtures9_2] = useState<AllFixtures[]>(filteredFixtures9_2);
-    const [updatedFixtures10, setUpdatedFixtures10] = useState<AllFixtures[]>(filteredFixtures10);
-    const [updatedFixtures10_1, setUpdatedFixtures10_1] = useState<AllFixtures[]>(filteredFixtures10_1);
+    //const [updatedFixtures10, setUpdatedFixtures10] = useState<AllFixtures[]>(filteredFixtures10);
+    //const [updatedFixtures10_1, setUpdatedFixtures10_1] = useState<AllFixtures[]>(filteredFixtures10_1);
     const [updatedFixtures10_2, setUpdatedFixtures10_2] = useState<AllFixtures[]>(filteredFixtures10_2);
-   
+   //
     const menuRef = useRef<HTMLDivElement>(null);
 
     const scrollToTab = (index: number) => {
@@ -78,169 +99,169 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
         scrollToTab(index);
     };
 
-    useEffect(() => {
-        if (updatedFixtures.length !== filteredFixtures.length) {
-            setUpdatedFixtures(filteredFixtures);
-        }
-    }, [filteredFixtures]);
-    useEffect(() => {
-        if ((updatedFixtures_1).length !== (filteredFixtures_1).length) {
-            setUpdatedFixtures_1(filteredFixtures_1);
-        }
-    }, [filteredFixtures_1]);
+    //useEffect(() => {
+    //    if (updatedFixtures.length !== filteredFixtures.length) {
+    //        setUpdatedFixtures(filteredFixtures);
+    //    }
+    //}, [filteredFixtures]);
+    //useEffect(() => {
+    //    if ((updatedFixtures_1).length !== (filteredFixtures_1).length) {
+    //        setUpdatedFixtures_1(filteredFixtures_1);
+    //    }
+    //}, [filteredFixtures_1]);
     useEffect(() => {
         if ((updatedFixtures_2).length !== (filteredFixtures_2).length) {
             setUpdatedFixtures_2(filteredFixtures_2);
         }
     }, [filteredFixtures_2]);
 
-    useEffect(() => {
-        if ((updatedFixtures1).length !== (filteredFixtures1).length) {
-            setUpdatedFixtures1(filteredFixtures1);
-        }
-    }, [filteredFixtures1]);
-    useEffect(() => {
-        if ((updatedFixtures1_1).length !== (filteredFixtures1_1).length) {
-            setUpdatedFixtures1_1(filteredFixtures1_1);
-        }
-    }, [filteredFixtures1_1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures1).length !== (filteredFixtures1).length) {
+    //        setUpdatedFixtures1(filteredFixtures1);
+    //    }
+    //}, [filteredFixtures1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures1_1).length !== (filteredFixtures1_1).length) {
+    //        setUpdatedFixtures1_1(filteredFixtures1_1);
+    //    }
+    //}, [filteredFixtures1_1]);
     useEffect(() => {
         if ((updatedFixtures1_2).length !== (filteredFixtures1_2).length) {
             setUpdatedFixtures1_2(filteredFixtures1_2);
         }
     }, [filteredFixtures1_2]);
-    useEffect(() => {
-        if ((updatedFixtures2).length !== (filteredFixtures2).length) {
-            setUpdatedFixtures2(filteredFixtures2);
-        }
-    }, [filteredFixtures2]);
-    useEffect(() => {
-        if ((updatedFixtures2_1).length !== (filteredFixtures2_1).length) {
-            setUpdatedFixtures2_1(filteredFixtures2_1);
-        }
-    }, [filteredFixtures2_1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures2).length !== (filteredFixtures2).length) {
+    //        setUpdatedFixtures2(filteredFixtures2);
+    //    }
+    //}, [filteredFixtures2]);
+    //useEffect(() => {
+    //    if ((updatedFixtures2_1).length !== (filteredFixtures2_1).length) {
+    //        setUpdatedFixtures2_1(filteredFixtures2_1);
+    //    }
+    //}, [filteredFixtures2_1]);
     useEffect(() => {
         if ((updatedFixtures2_2).length !== (filteredFixtures2_2).length) {
             setUpdatedFixtures2_2(filteredFixtures2_2);
         }
     }, [filteredFixtures2_2]);
-    useEffect(() => {
-        if ((updatedFixtures3).length !== (filteredFixtures3).length) {
-            setUpdatedFixtures3(filteredFixtures3);
-        }
-    }, [filteredFixtures3]);
-    useEffect(() => {
-        if ((updatedFixtures3_1).length !== (filteredFixtures3_1).length) {
-            setUpdatedFixtures3_1(filteredFixtures3_1);
-        }
-    }, [filteredFixtures3_1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures3).length !== (filteredFixtures3).length) {
+    //        setUpdatedFixtures3(filteredFixtures3);
+    //    }
+    //}, [filteredFixtures3]);
+    //useEffect(() => {
+    //    if ((updatedFixtures3_1).length !== (filteredFixtures3_1).length) {
+    //        setUpdatedFixtures3_1(filteredFixtures3_1);
+    //    }
+    //}, [filteredFixtures3_1]);
     useEffect(() => {
         if ((updatedFixtures3_2).length !== (filteredFixtures3_2).length) {
             setUpdatedFixtures3_2(filteredFixtures3_2);
         }
     }, [filteredFixtures3_2]);
-    useEffect(() => {
-        if ((updatedFixtures4).length !== (filteredFixtures4).length) {
-            setUpdatedFixtures4(filteredFixtures4);
-        }
-    }, [filteredFixtures4]);
-    useEffect(() => {
-        if ((updatedFixtures4_1).length !== (filteredFixtures4_1).length) {
-            setUpdatedFixtures4_1(filteredFixtures4_1);
-        }
-    }, [filteredFixtures4_1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures4).length !== (filteredFixtures4).length) {
+    //        setUpdatedFixtures4(filteredFixtures4);
+    //    }
+    //}, [filteredFixtures4]);
+    //useEffect(() => {
+    //    if ((updatedFixtures4_1).length !== (filteredFixtures4_1).length) {
+    //        setUpdatedFixtures4_1(filteredFixtures4_1);
+    //    }
+    //}, [filteredFixtures4_1]);
     useEffect(() => {
         if ((updatedFixtures4_2).length !== (filteredFixtures4_2).length) {
             setUpdatedFixtures4_2(filteredFixtures4_2);
         }
     }, [filteredFixtures4_2]);
-    useEffect(() => {
-        if ((updatedFixtures5).length !== (filteredFixtures5).length) {
-            setUpdatedFixtures5(filteredFixtures5);
-        }
-    }, [filteredFixtures5]);
-    useEffect(() => {
-        if ((updatedFixtures5_1).length !== (filteredFixtures5_1).length) {
-            setUpdatedFixtures5_1(filteredFixtures5_1);
-        }
-    }, [filteredFixtures5_1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures5).length !== (filteredFixtures5).length) {
+    //        setUpdatedFixtures5(filteredFixtures5);
+    //    }
+    //}, [filteredFixtures5]);
+    //useEffect(() => {
+    //    if ((updatedFixtures5_1).length !== (filteredFixtures5_1).length) {
+    //        setUpdatedFixtures5_1(filteredFixtures5_1);
+    //    }
+    //}, [filteredFixtures5_1]);
     useEffect(() => {
         if ((updatedFixtures5_2).length !== (filteredFixtures5_2).length) {
             setUpdatedFixtures5_2(filteredFixtures5_2);
         }
     }, [filteredFixtures5_2]);
-    useEffect(() => {
-        if ((updatedFixtures6).length !== (filteredFixtures6).length) {
-            setUpdatedFixtures6(filteredFixtures6);
-        }
-    }, [filteredFixtures6]);
-    useEffect(() => {
-        if ((updatedFixtures6_1).length !== (filteredFixtures6_1).length) {
-            setUpdatedFixtures6_1(filteredFixtures6_1);
-        }
-    }, [filteredFixtures6_1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures6).length !== (filteredFixtures6).length) {
+    //        setUpdatedFixtures6(filteredFixtures6);
+    //    }
+    //}, [filteredFixtures6]);
+    //useEffect(() => {
+    //    if ((updatedFixtures6_1).length !== (filteredFixtures6_1).length) {
+    //        setUpdatedFixtures6_1(filteredFixtures6_1);
+    //    }
+    //}, [filteredFixtures6_1]);
     useEffect(() => {
         if ((updatedFixtures6_2).length !== (filteredFixtures6_2).length) {
             setUpdatedFixtures6_2(filteredFixtures6_2);
         }
-    }, [filteredFixtures6]);
-    useEffect(() => {
-        if ((updatedFixtures7).length !== (filteredFixtures7).length) {
-            setUpdatedFixtures7(filteredFixtures7);
-        }
-    }, [filteredFixtures7]);
-    useEffect(() => {
-        if ((updatedFixtures7_1).length !== (filteredFixtures7_1).length) {
-            setUpdatedFixtures7_1(filteredFixtures7_1);
-        }
-    }, [filteredFixtures7_1]);
+    }, [filteredFixtures6_2]);
+    //useEffect(() => {
+    //    if ((updatedFixtures7).length !== (filteredFixtures7).length) {
+    //        setUpdatedFixtures7(filteredFixtures7);
+    //    }
+    //}, [filteredFixtures7]);
+    //useEffect(() => {
+    //    if ((updatedFixtures7_1).length !== (filteredFixtures7_1).length) {
+    //        setUpdatedFixtures7_1(filteredFixtures7_1);
+    //    }
+    //}, [filteredFixtures7_1]);
     useEffect(() => {
         if ((updatedFixtures7_2).length !== (filteredFixtures7_2).length) {
             setUpdatedFixtures7_2(filteredFixtures7_2);
         }
     }, [filteredFixtures7_2]);
-    useEffect(() => {
-        if ((updatedFixtures8).length !== (filteredFixtures8).length) {
-            setUpdatedFixtures8(filteredFixtures8);
-        }
-    }, [filteredFixtures8]);
-    useEffect(() => {
-        if ((updatedFixtures8_1).length !== (filteredFixtures8_1).length) {
-            setUpdatedFixtures8_1(filteredFixtures8_1);
-        }
-    }, [filteredFixtures8_1]);
+    //useEffect(() => {
+    //    if ((updatedFixtures8).length !== (filteredFixtures8).length) {
+    //        setUpdatedFixtures8(filteredFixtures8);
+    //    }
+    //}, [filteredFixtures8]);
+    //useEffect(() => {
+    //    if ((updatedFixtures8_1).length !== (filteredFixtures8_1).length) {
+    //        setUpdatedFixtures8_1(filteredFixtures8_1);
+    //    }
+    //}, [filteredFixtures8_1]);
     useEffect(() => {
         if ((updatedFixtures8_2).length !== (filteredFixtures8_2).length) {
             setUpdatedFixtures8_2(filteredFixtures8_2);
         }
     }, [filteredFixtures8_2]);
-
-    useEffect(() => {
-        if ((updatedFixtures9).length !== (filteredFixtures9).length) {
-            setUpdatedFixtures9(filteredFixtures9);
-        }
-    }, [filteredFixtures9]);
-    useEffect(() => {
-        if ((updatedFixtures9_1).length !== (filteredFixtures9_1).length) {
-            setUpdatedFixtures9_1(filteredFixtures9_1);
-        }
-    }, [filteredFixtures9_1]);
+//
+    //useEffect(() => {
+    //    if ((updatedFixtures9).length !== (filteredFixtures9).length) {
+    //        setUpdatedFixtures9(filteredFixtures9);
+    //    }
+    //}, [filteredFixtures9]);
+    //useEffect(() => {
+    //    if ((updatedFixtures9_1).length !== (filteredFixtures9_1).length) {
+    //        setUpdatedFixtures9_1(filteredFixtures9_1);
+    //    }
+    //}, [filteredFixtures9_1]);
     useEffect(() => {
         if ((updatedFixtures9_2).length !== (filteredFixtures9_2).length) {
             setUpdatedFixtures9_2(filteredFixtures9_2);
         }
     }, [filteredFixtures9_2]);
-
-    useEffect(() => {
-        if ((updatedFixtures10).length !== (filteredFixtures10).length) {
-            setUpdatedFixtures10(filteredFixtures10);
-        }
-    }, [filteredFixtures10]);
-    useEffect(() => {
-        if ((updatedFixtures10_1).length !== (filteredFixtures10_1).length) {
-            setUpdatedFixtures10_1(filteredFixtures10_1);
-        }
-    }, [filteredFixtures10_1]);
+//
+    //useEffect(() => {
+    //    if ((updatedFixtures10).length !== (filteredFixtures10).length) {
+    //        setUpdatedFixtures10(filteredFixtures10);
+    //    }
+    //}, [filteredFixtures10]);
+    //useEffect(() => {
+    //    if ((updatedFixtures10_1).length !== (filteredFixtures10_1).length) {
+    //        setUpdatedFixtures10_1(filteredFixtures10_1);
+    //    }
+    //}, [filteredFixtures10_1]);
     useEffect(() => {
         if ((updatedFixtures10_2).length !== (filteredFixtures10_2).length) {
             setUpdatedFixtures10_2(filteredFixtures10_2);
@@ -266,6 +287,7 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
             }
         };
     }, []);
+    
 
     return (
         <div className="flex flex-wrap w-full bg-gray-900 p-6 rounded-lg shadow-xl border border-gray-900">
@@ -300,8 +322,8 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         onChange={handleDateChange}
                         className="bg-gray-700 text-white border border-gray-600 p-2 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300 ease-in-out transform hover:scale-105 focus:scale-105"
                     >
-                        {Array.from({ length: 11 }).map((_, i) => {
-                            const date = moment().subtract(7, 'days').add(i, 'days');
+                        {Array.from({ length: 1 }).map((_, i) => {
+                            const date = moment().add(i, 'days');
                             const formattedDate = date.format("DD/MM"); // Format as dd/mm
                             const dayOfWeek = date.format("ddd"); // Get the first three characters of the day name
                             const isToday = date.isSame(moment(), 'day'); // Check if it's today's date
@@ -317,7 +339,7 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
 
                 {/* Fixtures */}
                 <div className="max-w-4xl mx-auto pt-2 space-y-4">
-                    {updatedFixtures.map((league, j) => (
+                    {/*{updatedFixtures.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
@@ -346,17 +368,55 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                         />
 
                         </>
-                    ))}
-                    {updatedFixtures1.map((league, j) => (
+                    ))}*/}
                         <>
+                        
                         <FixturesByLeague
-                            fixturesByTeamId={league.fixtures}
-                            key={league.name + j}
+                            fixturesByTeamId={updatedFixtures_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures1_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures2_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures3_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures4_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures5_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures6_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures7_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures8_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures9_2}
+                            selectedDate={selectedDate}
+                        />
+                        <FixturesByLeague
+                            fixturesByTeamId={updatedFixtures10_2}
                             selectedDate={selectedDate}
                         />
                         </>
-                    ))}
-                    {updatedFixtures1_1.map((league, j) => (
+                    {/*{updatedFixtures1_1.map((league, j) => (
                         <>
                         <FixturesByLeague
                             fixturesByTeamId={league.fixtures}
@@ -616,7 +676,8 @@ export default function StandingsAndFixtures({ filteredFixtures,filteredFixtures
                             selectedDate={selectedDate}
                         />
                         </>
-                    ))}
+                    ))}*/}
+                    
                 </div>
 
         

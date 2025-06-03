@@ -46,7 +46,7 @@
 //    lastWeek: string,
 //    nextWeek: string
 //): Promise<Fixture[]> {
-//const nextWeek1 = moment().subtract(1, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().subtract(7, 'days').format('YYYY-MM-DD');    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}&from=${lastWeek1}&to=${nextWeek1}`;//    const options = {
+//const nextWeek1 = moment().subtract(1, 'days').format('YYYY-MM-DD');        const lastWeek1 = moment().subtract(7, 'days').format('YYYY-MM-DD');    const url = `hhhhhhh?league=${league}&season=${year + yearr}&from=${lastWeek1}&to=${nextWeek1}`;//    const options = {
 //        method: 'GET',
 //        headers: {
 //            'X-RapidAPI-Key': API_KEY,

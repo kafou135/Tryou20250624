@@ -5,43 +5,34 @@ import Image from "next/image"
 import Fixtures from "./components/Fixtures"
 import getFixturesByTeamId from "@/app/util/getFixturesByTeamId"
 import Head from "next/head"
-import { Metadata } from "next"
 
 type PageProps = {
     params: {
         id: string
     }
 }
-const namee:string[]=[]
-
-
 export async function generateMetadata({ params }: PageProps) {
-    
-    const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
-    if (!match) {
-        return {
-            title: 'Invalid Team | Gridiola',
-            description: 'The team ID format is invalid. Please check the URL.',
+  const match = params.id.match(/(\d+)nm(.*?)seas(\d+)lid(\d+)/);
+  if (!match) {
+    return {
+      title: 'Invalid Team | Gridiola',
+      description: 'The team ID format is invalid. Please check the URL.',
     };
-} 
-    const teamId = parseInt(match[1]);
-    const teamName = match[2];
-    const season = parseInt(match[3]);
-    const leagueid = parseInt(match[4]);
-    
-    const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
-    const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
-    namee.push(teamName)
-    return {title: 'GRIDIOLA', // Updated app name
-  description: 'Your go-to app for football stats, live matches, and team insights.',
-  icons:{
-    icon:['/khdam1.png?v=4'],
-    apple:['/apple-touch-icon1.png?v=4'],
-    shortcut:['/apple-touch-icon1.png']
-  }}
+  }
 
+  const teamId = parseInt(match[1]);
+  const teamName = match[2];
+  const season = parseInt(match[3]);
+  const leagueid = parseInt(match[4]);
+
+  const teamInfo = await getTeamInfoByTeamId(teamId, teamName, season, leagueid);
+  const name = teamInfo?.league?.standings?.[0]?.[0]?.team?.name || teamName;
+
+  return {
+    title: `${name} – Stats, Form & Fixtures | Gridiola`,
+    description: `Explore ${name}'s latest stats, league form, and upcoming matches for the ${season}/${season + 1} season. Follow live scores and detailed insights on Gridiola.`,
+  };
 }
-
 
 export default async function Team({
     params
@@ -65,15 +56,7 @@ export default async function Team({
 
     return (
         <>
-<head>
-        <title>{teamName} – Stats, Form & Fixtures | Gridiola</title>
-        <meta property="og:title" content={`${teamName} – Stats, Form & Fixtures | Gridiola`} />
-        <meta name="twitter:title" content={`${teamName} – Stats, Form & Fixtures | Gridiola`} />
-        {/* Optional: other Twitter/OpenGraph tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:description" content={`Explore ${teamName}'s latest stats, league form, and upcoming matches for the ${season}/${season + 1} season. Follow live scores and detailed insights on Gridiola.`} />
-      </head>        
-      <div className="flex justify-center items-center text-neutral-100 py-5">
+        <div className="flex justify-center items-center text-neutral-100 py-5">
             <div className="flex flex-col max-w-7xl p-5 w-full md:flex-row gap-5 bg-gray-900 rounded-lg shadow-lg">
                 <div className="flex flex-col md:w-1/3 justify-center items-center bg-gray-800 rounded-lg p-5 shadow-md">
                     <img

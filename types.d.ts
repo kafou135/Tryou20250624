@@ -116,7 +116,12 @@ type Fixture = {
 type AllFixtures = {
     name: string,
     results?:number,
-    fixtures: Fixture[]
+    fixtures: Fixture[],
+    fixture: FixtureInfo,
+    league: LeagueFixtures,
+    teams: Teams,
+    goals: Goals,
+    score: Score
 }
  // Odds
  type ResponseOdds = {

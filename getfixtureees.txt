@@ -302,7 +302,7 @@ export default async function getFixtures()year: number, league: number, yearr: 
     console.log(`⚠️ No cache found, fetching ${league} fixtures from API...`);
 
     // 2️⃣ Fetch from API (only if Redis has NO data)
-    const url = `https://v3.football.api-sports.io/fixtures?league=${league}&season=${year + yearr}`;
+    const url = `hhhhhhh?league=${league}&season=${year + yearr}`;
     const options = {
         method: "GET",
         headers: { "X-RapidAPI-Key": process.env.API_KEY as string },
