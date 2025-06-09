@@ -30,7 +30,7 @@ const fetches = leagues.map(async (league) => {const nextWeek1 = moment().subtra
      };
     const res = await fetch(url, options);
     const data = await res.json();
-    return data.response ?? [];
+    return data.response;
   });
   const allResponses = await Promise.all(fetches);
   return allResponses;       
