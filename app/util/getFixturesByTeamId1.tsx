@@ -14,22 +14,23 @@ const leagues =    [
 
 
 export default async function getFixtureByTeamId(teamid: number,teamName:string,) {
-  
-    const response = await fetch(`https://v3.football.api-sports.io/fixtures?team=${teamid}`, {
+    const seasons = [2024, 2025, 2026];
+    for (const season of seasons)  {const response = await fetch(`https://v3.football.api-sports.io/fixtures?team=${teamid}&season=${season}`, {
       method: 'GET',
       headers: {
         'x-apisports-key': API_KEY,
         'x-rapidapi-host': 'v3.football.api-sports.io', // optional, may not be required anymore
       },
     });
-  
     if (!response.ok) {
       throw new Error(`Failed to fetch fixture with ID ${70}`);
     }
-  
     const data = await response.json();
     const fixture = data.response; // or data.response for the array
-
-  return fixture;
+  
+    return fixture;
+  }
+  
+  
   };
   
