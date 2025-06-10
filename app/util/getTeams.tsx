@@ -1,13 +1,13 @@
-import { Standing, Team } from '@/types';
+import { Standing, Team1 } from '@/types';
 import 'server-only';
 import getStandings from './getStandings1';
 
-export default async function getTeams(): Promise<Team[]> {
+export default async function getTeams(): Promise<Team1[]> {
 
     try {
 
 
-        const teams: Team[]  = [
+        const teams: Team1[]  = [
   { country: "BE", name: "Belgium", id: 1 },
   { country: "FR", name: "France", id: 2 },
   { country: "HR", name: "Croatia", id: 3 },

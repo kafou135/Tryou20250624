@@ -15,6 +15,26 @@ type League = {
 }
 
 type Team = {
+    rank: number,
+    team: {
+        id: number,
+        name: string,
+        logo: string
+    },
+    points: number,
+    goalsDiff: number,
+    group: string,
+    form: string,
+    status: {
+      long:string;
+    },
+    description: string,
+    all: Games,
+    home: Games,
+    away: Games,
+    update: string
+}
+type Team1 = {
     country:string,
     name:string,
     id:number
@@ -631,4 +651,4 @@ standings: [
 ]
 }
 
-export { AllFixtures, Fixture , Team,Standing, ResponseOdds,Odds, Livestates, AllLiveStates,Lineupsreponse,Lineups,League,Topscorers,H2H,Events,EventsRes,leaguebyid}
+export { AllFixtures, Fixture , Team,Standing, ResponseOdds,Odds,Team1, Livestates, AllLiveStates,Lineupsreponse,Lineups,League,Topscorers,H2H,Events,EventsRes,leaguebyid}

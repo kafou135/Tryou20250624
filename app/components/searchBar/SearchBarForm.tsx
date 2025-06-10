@@ -1,12 +1,12 @@
 'use client';
 
-import { Team } from "@/types";
+import { Team1 } from "@/types";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Search } from "lucide-react";
 
-export default function SearchBarForm({ teamsData }: { teamsData: Team[] }) {
+export default function SearchBarForm({ teamsData }: { teamsData: Team1[] }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const [showFilteredBox, setShowFilteredBox] = useState(false);

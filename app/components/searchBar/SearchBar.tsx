@@ -1,11 +1,11 @@
-import { Team } from "@/types";
+import { Team1 } from "@/types";
 import SearchBarForm from "./SearchBarForm";
 import getTeams from "@/app/util/getTeams";
 
 export default async function SearchBar() {
     {/*let teamsData: Team[] = await getTeams(teamid,teamName,season,leagueid);
 */}
-    let teamsData: Team[] = await getTeams();
+    let teamsData: Team1[] = await getTeams();
 
     return (
         <div className="flex justify-between items-center w-full p-4 bg-gray-900 rounded-lg shadow-xl border border-gray-700">
