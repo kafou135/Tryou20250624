@@ -15,24 +15,9 @@ type League = {
 }
 
 type Team = {
-    rank: number,
-    team: {
-        id: number,
-        name: string,
-        logo: string
-    },
-    points: number,
-    goalsDiff: number,
-    group: string,
-    form: string,
-    status: {
-      long:string;
-    },
-    description: string,
-    all: Games,
-    home: Games,
-    away: Games,
-    update: string
+    country:string,
+    name:string,
+    id:number
 }
 type Games = {
     played: number,

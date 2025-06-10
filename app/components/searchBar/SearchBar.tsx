@@ -1,9 +1,12 @@
 import { Team } from "@/types";
 import SearchBarForm from "./SearchBarForm";
+import getTeams from "@/app/util/getTeams";
 
 export default async function SearchBar() {
     {/*let teamsData: Team[] = await getTeams(teamid,teamName,season,leagueid);
 */}
+    let teamsData: Team[] = await getTeams();
+
     return (
         <div className="flex justify-between items-center w-full p-4 bg-gray-900 rounded-lg shadow-xl border border-gray-700">
             <div className="flex items-center text-neutral-100">
@@ -19,6 +22,7 @@ export default async function SearchBar() {
                 </a>
             </div>
             <div className="flex-grow mx-5">
+                                <SearchBarForm teamsData={teamsData} />
             </div>
             <div className="hidden md:flex w-12 h-12"></div>
         </div>

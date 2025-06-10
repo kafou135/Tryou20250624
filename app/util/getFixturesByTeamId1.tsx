@@ -13,9 +13,9 @@ const leagues =    [
 ]
 
 
-export default async function getFixtureByTeamId() {
+export default async function getFixtureByTeamId(teamid: number,teamName:string,) {
   
-    const response = await fetch("hhhhhhh?date=2025-04-15", {
+    const response = await fetch(`https://v3.football.api-sports.io/fixtures?team=${teamid}`, {
       method: 'GET',
       headers: {
         'x-apisports-key': API_KEY,

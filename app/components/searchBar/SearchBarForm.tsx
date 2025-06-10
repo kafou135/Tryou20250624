@@ -15,7 +15,7 @@ export default function SearchBarForm({ teamsData }: { teamsData: Team[] }) {
   let router = useRouter();
 
   const filteredTeams = teamsData.filter((team) =>
-    team.team.name.toLowerCase().includes(searchTerm.toLowerCase())
+    team.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +31,7 @@ export default function SearchBarForm({ teamsData }: { teamsData: Team[] }) {
       event.preventDefault();
       setFocusedIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
     } else if (event.key === "Enter" && focusedIndex !== -1) {
-      router.push(`/team/${filteredTeams[focusedIndex].team.id}`);
+      router.push(`/team/${filteredTeams[focusedIndex].id}`);
       setSearchTerm("");
       setIsExpanded(false);
     }
@@ -80,12 +80,12 @@ export default function SearchBarForm({ teamsData }: { teamsData: Team[] }) {
           <div ref={teamListRef} className="absolute top-full left-0 w-full bg-white shadow-lg rounded-md z-20">
             {filteredTeams.slice(0, 10).map((standing, i) => (
               <Link
-                href={`/team/${standing.team.id}`}
-                key={standing.team.id}
+                href={`/team/${standing.id}nm${standing.name}`}
+                key={standing.id}
                 className={`block p-2 text-gray-900 hover:bg-gray-200 ${i === focusedIndex ? "bg-gray-300" : ""}`}
                 onClick={handleTeamItemClick}
               >
-                {standing.team.name}
+                {standing.name}
               </Link>
             ))}
           </div>
