@@ -13,6 +13,10 @@ const leagues =    [
      { league: 78, name: 'EPL' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
      { league: 5, name: 'euro' ,yearr:-1, startmonth: '2024-08-01', endmonth: '2025-06-01'},
      { league: 6, name: 'caf' ,yearr:0, startmonth: '2024-08-01', endmonth: '2025-06-01'},
+       {league: 859, yearr:0, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
+       {league: 35, yearr:-1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
+       {league: 30, yearr: 1, startmonth: '2024-09-01', endmonth: '2025-06-01', name: "EPL"},
+
 ]
 
 export default async function getFixtures(): Promise<AllFixtures[]> {
