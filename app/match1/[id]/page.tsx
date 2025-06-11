@@ -55,7 +55,7 @@ let eventsData = await getEventsBatch([fixtureID]);
 const today= moment().format('YYYY-MM-DD');
 // Access the events for the specific fixture ID
 let events = eventsData[fixtureID]; // Get the events using the fixture ID
-
+console.log("fixtures:::",fixtureByFixtureId)
   return {
     title: `${fixtureByFixtureId?.teams.home.name} vs ${fixtureByFixtureId?.teams.away.name}`,
     description: `the match between ${fixtureByFixtureId?.teams.home.name} and ${fixtureByFixtureId?.teams.away.name} ${today}`,

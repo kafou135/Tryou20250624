@@ -80,7 +80,7 @@ export default function SearchBarForm({ teamsData }: { teamsData: Team1[] }) {
           <div ref={teamListRef} className="absolute top-full left-0 w-full bg-white shadow-lg rounded-md z-20">
             {filteredTeams.slice(0, 10).map((standing, i) => (
               <Link
-                href={`/team/${standing.id}nm${standing.name}`}
+                href={`/team1/${standing.id}nm${standing.name}`}
                 key={standing.id}
                 className={`block p-2 text-gray-900 hover:bg-gray-200 ${i === focusedIndex ? "bg-gray-300" : ""}`}
                 onClick={handleTeamItemClick}

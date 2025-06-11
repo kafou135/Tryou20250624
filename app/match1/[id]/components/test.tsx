@@ -816,6 +816,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
         return `${topPosition}%`;
     };
     
+console.log("fixtures:::s",fixtureByFixtureId)
 
     return (
         <div className="flex flex-col w-full justify-center items-center bg-gray-900 text-neutral-100 py-5 md:py-6">
@@ -1030,9 +1031,9 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                   />
                                               
                                                   {/* Home Team Players */}
-                                                  {lineups?.lineups?.[0]?.startXI.map((player) => {
+                                                  {lineups?.lineups?.[0]?.startXI?.map((player) => {
                                                       if (player.player.grid.length!=3) return null
-                                                                  const [x, y] = player.player.grid.split(":").map(Number);
+                                                                  const [x, y] = player?.player?.grid?.split(":").map(Number);
                                                                   const positionTop = getTopPositionForHome(player.player.pos, y,x);
                                                       let leftPosition;
                                                       if (lineups?.lineups[0]?.formation.length === 5) {
@@ -1092,9 +1093,9 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                                                   })}
                                               
                                                   {/* Away Team Players */}
-                                                  {lineups?.lineups?.[1]?.startXI.map((player) => {
+                                                  {lineups?.lineups?.[1]?.startXI?.map((player) => {
                                                       if (!player.player.grid) return null
-                                                      const [x, y] = player.player.grid.split(":").map(Number);
+                                                      const [x, y] = player?.player?.grid?.split(":").map(Number);
                                                       const positionTop = getTopPositionForAway(player.player.pos, y, x);
                                                       let leftPosition;
                                                       if (lineups?.lineups[1]?.formation.length === 5) {
@@ -1188,7 +1189,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                         <div className="mt-3 bg-gray-700 p-2 rounded-md shadow">
                             <h4 className="text-xs font-semibold text-center text-yellow-400">Starting XI</h4>
                             <ul className="text-xs">
-                                {lineups?.lineups?.[0]?.startXI.map((player) => (
+                                {lineups?.lineups?.[0]?.startXI?.map((player) => (
                                     <li key={player.player.id} className="py-1">
                                         {player.player.name} ({player.player.number})
                                     </li>
@@ -1233,7 +1234,7 @@ export default async function Match({ fixtureByFixtureId,h2h,lineups,events }: P
                         <div className="mt-3 bg-gray-700 p-2 rounded-md shadow">
                             <h4 className="text-xs font-semibold text-center text-yellow-400">Starting XI</h4>
                             <ul className="text-xs">
-                                {lineups?.lineups?.[1]?.startXI.map((player) => (
+                                {lineups?.lineups?.[1]?.startXI?.map((player) => (
                                     <li key={player.player.id} className="py-1">
                                         {player.player.name} ({player.player.number})
                                     </li>
