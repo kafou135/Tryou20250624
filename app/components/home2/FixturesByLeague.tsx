@@ -21,7 +21,7 @@ export default function Fixtures({ fixturesByTeamId,selectedDate }: PageProps) {
     
   
   const fixturesToday = allFixtures
-    .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") === selectedDate);
+    .filter(fixture => fixture?.fixture?.date && moment(fixture.fixture.date).format("YYYY-MM-DD") === "2025-03-16");
   
  
 

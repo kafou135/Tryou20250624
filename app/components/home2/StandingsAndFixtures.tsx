@@ -118,7 +118,7 @@ export default function StandingsAndFixtures({
 
                             return (
                                 <option key={date.format("YYYY-MM-DD")} value={date.format("YYYY-MM-DD")}>
-                                    {isToday ? "Today" : `${formattedDate} ${dayOfWeek}`}
+                                    {isToday ? "2025-03-16" : `${formattedDate} ${dayOfWeek}`}
                                 </option>
                             );
                         })}
