@@ -16,8 +16,7 @@ export default async function Home() {
   const filteredFixtures_2   : AllFixtures[] = await getFixtures_2();
 
 
-  
- 
+
   return (
     <div>
       <Head>
