@@ -1,4 +1,3 @@
-import BTCChart from "./components/page";
 import ChartComponent from "./components/page2";
 import BTC_MACD_Chart from "./components/BTC_MACD_Chart";
 import SignalPanel from "./components/SignalPanel";
