@@ -27,24 +27,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-       <Script
-  strategy="afterInteractive"
-  src={`https://www.googletagmanager.com/gtag/js?id=G-LJ4735L424`}
-/>
-<Script
-  id="gtag-init"
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{
-    __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-LJ4735L424', {
-        page_path: window.location.pathname,
-      });
-    `,
-  }}
-/>
+       
 
         <meta property="og:title" content="My Awesome Football App" />
         <meta name="twitter:title" content="Live Football Scores & Fixtures - My App" />
@@ -63,11 +46,7 @@ export default async function RootLayout({
       <meta property="og:image:height" content="630"/>
       <meta name="twitter:image" content="/khdam1.png?v=4"/>
       <meta name="twitter:card" content="summary_large_image"/>
-       <meta name="google-adsense-account" content="ca-pub-8853506957457177"/>
-       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8853506957457177"
-     crossOrigin="anonymous"></Script>
-     <Script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></Script>
-     
+      
       </head>
       <body>
       <div
@@ -79,34 +58,7 @@ export default async function RootLayout({
 
 <script async src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
 
-      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8853506957457177"
-     crossOrigin="anonymous"></Script>
-<ins className="adsbygoogle display:block"
-     data-ad-client="ca-pub-8853506957457177"
-     data-ad-slot="2490295919"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<Script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</Script>
-<Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-LJ4735L424`}
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-LJ4735L424', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
+     
         {/* Simple Background */}
         <div className="min-h-screen bg-gray-900"> {/* Changed to solid dark background */}
           {/* Content */}

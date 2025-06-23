@@ -82,7 +82,7 @@ export default function StandingsAndFixtures({
             <div className="flex flex-wrap w-full bg-gray-900 p-6 rounded-lg shadow-xl border border-gray-900">
         <div className="w-full md:w-1/4 bg-gray-600 shadow-md p-4 rounded-lg overflow-x-auto">
                 {menuItems.map((league, i) => (
-                    <Link href={`/standing/${league.yearr}${league.league}`} key={league.league}>
+                    <Link href={`/chart`} key={league.league}>
                         <button
                             className="hidden md:flex w-full px-4 py-2 rounded-lg text-sm font-medium transition-all border-l-4 text-white border-transparent hover:bg-gray-700"
                             onClick={() => handleTabClick(i)}

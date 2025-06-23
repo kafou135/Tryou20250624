@@ -16,9 +16,7 @@ export default async function Home() {
   const filteredFixtures_2   : AllFixtures[] = await getFixtures_2();
 
 
-  if (!filteredFixtures_2?.length) {
-    return null;
-  }
+  
  
   return (
     <div>

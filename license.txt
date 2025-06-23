@@ -1,0 +1,54 @@
+Gridiola – Modern & Startup HTML Template (Next.js)
+
+LICENSE & ASSET USAGE DECLARATION
+----------------------------------
+
+This file explains the license and asset usage rights for the Gridiola template submitted to ThemeForest by [Your Name or Brand].
+
+----------------------------------
+✅ CODE & DESIGN
+----------------------------------
+All HTML, JSX, CSS/SCSS, and JavaScript/TypeScript code used in this template was custom-built by me and is 100% original.
+
+The design layout and components are unique, responsive, and developed with modern frameworks including:
+- Next.js
+- Tailwind CSS (MIT License)
+
+You are granted rights under the ThemeForest Regular or Extended License, depending on your purchase.
+
+----------------------------------
+✅ FONTS
+----------------------------------
+The fonts used in this template are sourced from Google Fonts and are free for commercial use under the SIL Open Font License:
+
+1. Inter – https://fonts.google.com/specimen/Inter
+
+
+----------------------------------
+✅ ICONS
+----------------------------------
+All icons used are from free and open-source icon libraries:
+
+- Heroicons – https://heroicons.com/ (MIT License)
+- [FontAwesome Free] – https://fontawesome.com/license/free
+
+Icons are free to use for commercial and non-commercial projects.
+
+----------------------------------
+✅ IMAGES (Demo Preview Only)
+----------------------------------
+Images used in the **live preview** are for demonstration purposes only and are **not included** in the downloadable package.
+
+Sources:
+- Unsplash – https://unsplash.com
+- Pexels – https://www.pexels.com
+
+All preview images are free for personal and commercial use, but buyers are responsible for complying with the licensing of the original sources if reused.
+
+----------------------------------
+📌 COPYRIGHT STATEMENT
+----------------------------------
+This template does not contain any unlicensed, third-party content. I affirm that I have the full rights to distribute all included assets or have used them in accordance with open-source/commercial licensing rules.
+
+Thank you for choosing Gridiola!
+– [Your Name or Company Name]
