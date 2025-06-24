@@ -1,59 +1,57 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { type Time } from "lightweight-charts";
+import { Time } from "lightweight-charts";
 
 type Price = { time: Time; value: number };
 
-function calculateRSI(closes: number[], period = 14): number | null {
-  if (closes.length < period + 1) return null;
+function calculateRSI(prices: number[], period = 14): number[] {
+  if (prices.length < period + 1) return [];
 
-  let gains = 0;
-  let losses = 0;
+  const rsiValues: number[] = [];
 
-  for (let i = 1; i <= period; i++) {
-    const diff = closes[i] - closes[i - 1];
-    if (diff >= 0) {
-      gains += diff;
-    } else {
-      losses -= diff;
+  for (let i = period; i < prices.length; i++) {
+    let gains = 0;
+    let losses = 0;
+
+    for (let j = i - period + 1; j <= i; j++) {
+      const diff = prices[j] - prices[j - 1];
+      if (diff >= 0) gains += diff;
+      else losses -= diff;
     }
+
+    const avgGain = gains / period;
+    const avgLoss = losses / period;
+
+    const rs = avgGain / (avgLoss || 1); // prevent division by zero
+    const rsi = 100 - 100 / (1 + rs);
+    rsiValues.push(rsi);
   }
 
-  let avgGain = gains / period;
-  let avgLoss = losses / period;
-
-  for (let i = period + 1; i < closes.length; i++) {
-    const diff = closes[i] - closes[i - 1];
-    if (diff >= 0) {
-      avgGain = (avgGain * (period - 1) + diff) / period;
-      avgLoss = (avgLoss * (period - 1)) / period;
-    } else {
-      avgGain = (avgGain * (period - 1)) / period;
-      avgLoss = (avgLoss * (period - 1) - diff) / period;
-    }
-  }
-
-  if (avgLoss === 0) return 100;
-
-  const rs = avgGain / avgLoss;
-  return Math.round((100 - 100 / (1 + rs)) * 100) / 100;
+  return rsiValues;
 }
 
 export default function BTC_RSI_Chart() {
   const [priceHistory, setPriceHistory] = useState<Price[]>([]);
-  const [rsi, setRSI] = useState<number | null>(null);
+  const [rsiValue, setRsiValue] = useState<number | null>(null);
 
   useEffect(() => {
     const ws = new WebSocket("wss://stream.binance.com:443/ws/btcusdt@trade");
 
+    let lastUpdate = 0;
+
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
       const price = parseFloat(data.p);
-      const time: Time = new Date().toISOString();
+      const now = Date.now();
 
       if (!price || isNaN(price)) return;
 
+      // Only update every 30 seconds
+      if (now - lastUpdate < 30000) return;
+
+      lastUpdate = now;
+      const time: Time = new Date().toISOString();
       const newPrice: Price = { time, value: price };
 
       setPriceHistory((prev) => {
@@ -67,25 +65,20 @@ export default function BTC_RSI_Chart() {
   }, []);
 
   useEffect(() => {
-    if (priceHistory.length < 15) return;
     const closes = priceHistory.map((p) => p.value);
-    const calculatedRSI = calculateRSI(closes);
-    if (calculatedRSI !== null) {
-      setRSI(calculatedRSI);
-      console.log("📈 RSI:", calculatedRSI);
+    const rsi = calculateRSI(closes);
 
-      if (calculatedRSI > 70) {
-        console.log("⚠️ RSI says: OVERBOUGHT! Possible drop.");
-      } else if (calculatedRSI < 30) {
-        console.log("⚠️ RSI says: OVERSOLD! Possible bounce.");
-      }
+    if (rsi.length > 0) {
+      const latestRsi = rsi[rsi.length - 1];
+      console.log("📈 RSI:", latestRsi.toFixed(2));
+      setRsiValue(latestRsi);
     }
   }, [priceHistory]);
 
   return (
     <div>
-      <h2 style={{ color: rsi !== null && rsi > 70 ? "red" : rsi !== null && rsi < 30 ? "lime" : "gray" }}>
-        RSI: {rsi !== null ? rsi : "Loading..."}
+      <h2 style={{ color: rsiValue ? (rsiValue > 70 ? "red" : rsiValue < 30 ? "lime" : "gray") : "gray" }}>
+        RSI: {rsiValue ? rsiValue.toFixed(2) : "Loading..."}
       </h2>
     </div>
   );
