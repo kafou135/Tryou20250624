@@ -37,6 +37,42 @@ function calculateBollingerBands(prices: number[], period: number = 20) {
 
   return { upper, lower, width };
 }
+function calculateRSI(closes: number[], period = 14): number | null {
+  if (closes.length < period + 1) return null;
+
+  let gains = 0;
+  let losses = 0;
+
+  for (let i = 1; i <= period; i++) {
+    const diff = closes[i] - closes[i - 1];
+    if (diff >= 0) {
+      gains += diff;
+    } else {
+      losses -= diff;
+    }
+  }
+
+  let avgGain = gains / period;
+  let avgLoss = losses / period;
+
+  for (let i = period + 1; i < closes.length; i++) {
+    const diff = closes[i] - closes[i - 1];
+    if (diff >= 0) {
+      avgGain = (avgGain * (period - 1) + diff) / period;
+      avgLoss = (avgLoss * (period - 1)) / period;
+    } else {
+      avgGain = (avgGain * (period - 1)) / period;
+      avgLoss = (avgLoss * (period - 1) - diff) / period;
+    }
+  }
+
+  if (avgLoss === 0) return 100;
+
+  const rs = avgGain / avgLoss;
+  const rsi = 100 - 100 / (1 + rs);
+
+  return Math.round(rsi * 100) / 100; // round to 2 decimals
+}
 
 export default function BTCChart() {
   const [priceHistory, setPriceHistory] = useState<Price[]>([]);
@@ -84,6 +120,16 @@ export default function BTCChart() {
     const signalLine = calculateEMA(macd, 9);
     const lastMacd = macd.at(-1);
     const lastSignal = signalLine.at(-1);
+const rsi = calculateRSI(closes);
+if (rsi !== null) {
+  console.log("📈 RSI:", rsi);
+
+  if (rsi > 70) {
+    console.log("⚠️ RSI says: OVERBOUGHT! Possible drop.");
+  } else if (rsi < 30) {
+    console.log("⚠️ RSI says: OVERSOLD! Possible bounce.");
+  }
+}
 
     if (
       typeof lastMacd !== "number" ||
