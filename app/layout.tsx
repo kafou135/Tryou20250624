@@ -9,8 +9,8 @@ const API_KEY = process.env.API_KEY!;
 
 
 export const metadata: Metadata = {
-  title: 'GRIDIOLA', // Updated app name
-  description: 'Your go-to app for football stats, live matches, and team insights.',
+  title: 'localhost', // Updated app name
+  description: 'hts.',
   icons:{
     icon:['/khdam1.png?v=4'],
     apple:['/apple-touch-icon1.png?v=4'],
@@ -29,17 +29,16 @@ export default async function RootLayout({
       <head>
        
 
-        <meta property="og:title" content="My Awesome Football App" />
-        <meta name="twitter:title" content="Live Football Scores & Fixtures - My App" />
+        <meta property="og:title" content=" App" />
+        <meta name="twitter:title" content="y App" />
         {/* Optional: other Twitter/OpenGraph tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:description" content="Get live scores, upcoming fixtures, and league updates." />
+        <meta name="twitter:description" content="tes." />
       <meta name="google-site-verification" content="puUhOSsCARgxfUFDNfef5wmOccrx4Wc92YxDJw0rzXo" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "name": "Gridiola",
-          "url": "https://www.gridiola.com/"
+          
         }) }} />
       <meta property="og:image" content="/khdam1.png?v=4"/>
       <meta property="og:image:width" content="1200"/>
@@ -49,12 +48,7 @@ export default async function RootLayout({
       
       </head>
       <body>
-      <div
-  id="api_football_widget"
-  data-host="v3.football.api-sports.io"
-  data-theme="dark"
-  data-refresh="60"
-></div>
+    
 
 <script async src="https://widgets.api-sports.io/2.0.3/widgets.js"></script>
 
@@ -69,7 +63,6 @@ export default async function RootLayout({
 
             {/* Main Content (Children) */}
             <main className="px-4 py-8 sm:px-6 lg:px-8">
-              <SearchBar/>
              {children}
             </main>
           </div>

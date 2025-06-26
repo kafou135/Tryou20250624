@@ -49,7 +49,7 @@ export default function BTCChart() {
 
     ws.onmessage = (event) => {
       const now = Date.now();
-      if (now - lastUpdate < 30000) return; // update every 15s
+      if (now - lastUpdate < 15000) return; // update every 15s
       lastUpdate = now;
 
       const data = JSON.parse(event.data);
@@ -127,7 +127,7 @@ const bbThreshold = 50;
 
   return (
     <div>
-      <h2>MACD 30 MIN</h2>
+      <h2>MACD 15 MIN</h2>
       <h2 style={{ color: macdSignal === "BUY" ? "lime" : macdSignal === "SELL" ? "red" : "gray" }}>
         Signal: {macdSignal}
       </h2>

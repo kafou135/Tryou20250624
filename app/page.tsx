@@ -17,16 +17,6 @@ export default async function Home() {
 
 
 
-  return (
-    <div>
-      <Head>
-        <title>Gridiola</title>
-        <meta name="description" content="Your go-to app for football stats, live matches, and team insights." />
-      </Head>
-      <RefreshButton/>
-    <StandingsAndFixtures filteredFixtures_2={filteredFixtures_2} />
-    
-      </div>
-  )
+  return null
   
 }

@@ -60,7 +60,7 @@ export default function BTCChart() {
 
         return newHistory;
       });
-    }, 300000); // 🕔 every 5 seconds
+    }, 15000); // 🕔 every 5 seconds
 
     return () => clearInterval(interval);
   }, [lastFast, lastSlow]);
@@ -86,7 +86,7 @@ export default function BTCChart() {
   
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold">BTC/USDT Live 5 MIN</h2>
+      <h2 className="text-xl font-bold">BTC/USDT Live 15 Seconds</h2>
       <p className="text-3xl mb-2 text-green-500">
         {livePrice ? `$${livePrice}` : "Loading..."}
       </p>
@@ -98,7 +98,6 @@ export default function BTCChart() {
       )}
 
       <div className="mt-4">
-        <h3 className="font-semibold">SMA Indicators</h3>
         
       </div>
     </div>

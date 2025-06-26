@@ -98,15 +98,7 @@ export default function BTCChart() {
       )}
 
       <div className="mt-4">
-        <h3 className="font-semibold">SMA Indicators</h3>
-        <ul className="text-sm mt-2">
-          <li>Fast SMA (10): {fastSMA?.toFixed(2)}</li>
-          <li>Slow SMA (30): {slowSMA?.toFixed(2)}</li>
-          <li>Prev Fast: {prevFast?.toFixed(2)}</li>
-          <li>Last Fast: {lastFast?.toFixed(2)}</li>
-          <li>Prev Slow: {prevSlow?.toFixed(2)}</li>
-          <li>Last Slow: {lastSlow?.toFixed(2)}</li>
-        </ul>
+        
       </div>
     </div>
   );
