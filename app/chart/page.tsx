@@ -9,14 +9,14 @@ import MACDScalpingSignal1 from "./components/MACD_SCALPING_SIGNAL copy";
 export default function Home() {
   return (
     <div>
-      <MACDScalpingSignal/>
-      <MACDScalpingSignal1/>
-      <SignalPanel/>
       <SignalPanel1/>
-      <BTC_MACD_Chart/>
-      <BTC_RSI_Chart/>
+      <SignalPanel/>
       <BTCIndic/>
       <ChartComponent/>
+      <MACDScalpingSignal/>
+      <BTC_MACD_Chart/>
+      <MACDScalpingSignal1/>
+      <BTC_RSI_Chart/>
     </div>
   );
 }

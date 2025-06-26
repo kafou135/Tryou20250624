@@ -85,7 +85,7 @@ export default function BTCChart() {
   }, [prevFast, prevSlow, lastFast, lastSlow]);
   
   return (
-    <div className="p-4">
+    <div className="p-1">
       <h2 className="text-xl font-bold">BTC/USDT Live 1 MIN</h2>
       <p className="text-3xl mb-2 text-green-500">
         {livePrice ? `$${livePrice}` : "Loading..."}

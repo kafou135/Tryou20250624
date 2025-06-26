@@ -127,7 +127,7 @@ const bbThreshold = 50;
 
   return (
     <div>
-      <h2>MACD 30 MIN</h2>
+      <h2>MACD 30 SECONDS</h2>
       <h2 style={{ color: macdSignal === "BUY" ? "lime" : macdSignal === "SELL" ? "red" : "gray" }}>
         Signal: {macdSignal}
       </h2>
