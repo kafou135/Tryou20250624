@@ -11,12 +11,7 @@ export default function Home() {
     <div>
       <SignalPanel1/>
       <SignalPanel/>
-      <BTCIndic/>
-      <ChartComponent/>
-      <MACDScalpingSignal/>
       <BTC_MACD_Chart/>
-      <MACDScalpingSignal1/>
-      <BTC_RSI_Chart/>
     </div>
   );
 }

@@ -1,143 +1,170 @@
 "use client";
-import { useRef } from "react";
 
-// At the top inside your BTCChart component
+import React, { useEffect, useState, useMemo } from "react";
 
-import { useEffect, useState } from "react";
-import { type Time } from "lightweight-charts";
+type Candle = {
+  close: number;
+};
 
-
-type Price = { time: Time; value: number };
-function calculateEMA(prices: number[], period: number): number[] {
+// Same EMA, MACD, getNextMove functions as before
+function calculateEMA(prices: number[], period: number): (number | undefined)[] {
   const k = 2 / (period + 1);
-  const ema: number[] = [];
+  const emaArray: (number | undefined)[] = [];
+  let ema = prices.slice(0, period).reduce((a, b) => a + b, 0) / period;
 
-  prices.forEach((price, i) => {
-    if (i === 0) {
-      ema.push(price);
+  emaArray[period - 1] = ema;
+
+  for (let i = period; i < prices.length; i++) {
+    ema = prices[i] * k + (ema ?? 0) * (1 - k);
+    emaArray[i] = ema;
+  }
+
+  return emaArray;
+}
+
+function calculateMACD(prices: number[]) {
+  const ema12 = calculateEMA(prices, 12);
+  const ema26 = calculateEMA(prices, 26);
+
+  const macdLine: (number | undefined)[] = [];
+
+  for (let i = 0; i < prices.length; i++) {
+    if (ema12[i] !== undefined && ema26[i] !== undefined) {
+      macdLine[i] = (ema12[i] as number) - (ema26[i] as number);
     } else {
-      ema.push(price * k + ema[i - 1] * (1 - k));
+      macdLine[i] = undefined;
     }
+  }
+
+  const macdFiltered = macdLine.filter((v): v is number => v !== undefined);
+
+  const signalLineCalc = calculateEMA(macdFiltered, 9);
+
+  const signalLine: (number | undefined)[] = new Array(macdLine.length).fill(undefined);
+  let signalIndex = 0;
+  for (let i = 0; i < macdLine.length; i++) {
+    if (macdLine[i] !== undefined) {
+      signalLine[i] = signalLineCalc[signalIndex++];
+    }
+  }
+
+  const histogram = macdLine.map((value, i) => {
+    if (value !== undefined && signalLine[i] !== undefined) {
+      return value - (signalLine[i] as number);
+    }
+    return undefined;
   });
 
-  return ema;
+  return { macdLine, signalLine, histogram };
 }
 
-function calculateBollingerBands(prices: number[], period: number = 20) {
-  if (prices.length < period) return null;
+function getNextMove(
+  macdLine: (number | undefined)[],
+  signalLine: (number | undefined)[]
+): "BUY" | "SELL" | "HOLD" {
+  const len = macdLine.length;
 
-  const recent = prices.slice(-period);
-  const mean = recent.reduce((sum, p) => sum + p, 0) / period;
-  const variance = recent.reduce((sum, p) => sum + (p - mean) ** 2, 0) / period;
-  const stdDev = Math.sqrt(variance);
+  if (len < 2) return "HOLD";
 
-  const upper = mean + 2 * stdDev;
-  const lower = mean - 2 * stdDev;
-  const width = upper - lower;
+  const prevMacd = macdLine[len - 2];
+  const prevSignal = signalLine[len - 2];
+  const currentMacd = macdLine[len - 1];
+  const currentSignal = signalLine[len - 1];
 
-  return { upper, lower, width };
+  if (
+    prevMacd === undefined ||
+    prevSignal === undefined ||
+    currentMacd === undefined ||
+    currentSignal === undefined
+  ) {
+    return "HOLD";
+  }
+
+  if (prevMacd < prevSignal && currentMacd > currentSignal) {
+    return "BUY";
+  }
+
+  if (prevMacd > prevSignal && currentMacd < currentSignal) {
+    return "SELL";
+  }
+
+  return "HOLD";
 }
 
-export default function BTCChart() {
-  const [priceHistory, setPriceHistory] = useState<Price[]>([]);
-  const [macdSignal, setMacdSignal] = useState<string>("HOLD");
-  const lastBBWidth = useRef<number | null>(null); // ✅ Moved inside component
+export default function LiveMACDChart() {
+  const [closingPrices, setClosingPrices] = useState<number[]>([]);
+
+  // Fetch BTCUSDT 1m candles from Binance
+  async function fetchCandles() {
+    try {
+      const response = await fetch(
+        "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=15s&limit=100"
+      );
+      const data = await response.json();
+
+      // Extract closing prices from API response
+      const closes = data.map((candle: any) => parseFloat(candle[4]));
+
+      setClosingPrices(closes);
+    } catch (error) {
+      console.error("Error fetching candles:", error);
+    }
+  }
+
+  // Initial fetch and interval
   useEffect(() => {
-    const ws = new WebSocket("wss://stream.binance.com:443/ws/btcusdt@trade");
+    fetchCandles();
 
-    let lastUpdate = Date.now();
+    const interval = setInterval(() => {
+      fetchCandles();
+    }, 15000); // 15 seconds
 
-    ws.onmessage = (event) => {
-      const now = Date.now();
-      if (now - lastUpdate < 30000) return; // update every 15s
-      lastUpdate = now;
-
-      const data = JSON.parse(event.data);
-      const price = parseFloat(data.p);
-      const time: Time = new Date().toISOString();
-
-      if (!price || isNaN(price)) return;
-
-      const newPrice: Price = { time, value: price };
-
-      setPriceHistory((prev) => {
-        const updated = [...prev, newPrice];
-        if (updated.length > 100) updated.shift();
-        return updated;
-      });
-    };
-
-    return () => ws.close();
+    return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (priceHistory.length < 35) return;
+  const { macdLine, signalLine, histogram } = useMemo(
+    () => calculateMACD(closingPrices),
+    [closingPrices]
+  );
 
-    const closes = priceHistory.map((p) => p.value);
-    const ema12 = calculateEMA(closes.slice(-26), 12);
-    const ema26 = calculateEMA(closes.slice(-26), 26);
+  const nextMove = useMemo(() => getNextMove(macdLine, signalLine), [macdLine, signalLine]);
 
-    const macd = ema12
-      .slice(-ema26.length)
-      .map((v, i) => v - ema26[i]);
-
-    const signalLine = calculateEMA(macd, 9);
-    const lastMacd = macd.at(-1);
-    const lastSignal = signalLine.at(-1);
-
-    if (
-      typeof lastMacd !== "number" ||
-      typeof lastSignal !== "number" ||
-      isNaN(lastMacd) ||
-      isNaN(lastSignal)
-    ) return;
-
-    let newSignal = "HOLD";
-    const threshold = 0.1;
-
-    if (lastMacd - lastSignal > threshold) {
-      newSignal = "BUY";
-    } else if (lastSignal - lastMacd > threshold) {
-      newSignal = "SELL";
-    }
-
-    setMacdSignal((prev) => {
-      if (prev !== newSignal) {
-        console.log("📈 MACD Signal:", newSignal);
-        return newSignal;
-      }
-      return prev;
-    });
-
-   const bb = calculateBollingerBands(closes);
-const bbThreshold = 50;
-
-
-    if (bb) {
-      if (lastBBWidth.current !== null) {
-        const diff = Math.abs(bb.width - lastBBWidth.current);
-        if (diff > 20) {
-          console.log("⚠️ BB width change:", diff.toFixed(2), "New width:", bb.width.toFixed(2));
-        }
-      }
-      lastBBWidth.current = bb.width;
-    }
-
-  }, [priceHistory]);
+  const lastIndex = closingPrices.length - 1;
 
   return (
-    <div>
-      <h2>MACD 30 SECONDS</h2>
-      <h2 style={{ color: macdSignal === "BUY" ? "lime" : macdSignal === "SELL" ? "red" : "gray" }}>
-        Signal: {macdSignal}
-      </h2>
-     {/* <ul style={{ maxHeight: 200, overflowY: "auto" }}>
-        {priceHistory.map((p, i) => (
-          <li key={i}>
-            Time: {p.time.toString()} — Price: {p.value.toFixed(2)}
-          </li>
-        ))}
-      </ul>*/}
+    <div style={{ fontFamily: "monospace", padding: 20, color:"white" }}>
+      <h2>BTC/USDT MACD Indicator (1-minute candles, refreshed every 15s)</h2>
+      <p>
+        Next move signal: <strong>{nextMove}</strong>
+      </p>
+      <table
+        border={1}
+        cellPadding={6}
+        style={{ borderCollapse: "collapse", width: "100%", maxWidth: 600 }}
+      >
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Close Price</th>
+            <th>MACD</th>
+            <th>Signal</th>
+            <th>Histogram</th>
+          </tr>
+        </thead>
+        <tbody>
+          {closingPrices.map((price, i) => (
+            <tr key={i} style={{ background: i === lastIndex ? "#e0ffe0" : "transparent" }}>
+              <td>{i + 1}</td>
+              <td>{price.toFixed(2)}</td>
+              <td>{macdLine[i]?.toFixed(4) ?? "-"}</td>
+              <td>{signalLine[i]?.toFixed(4) ?? "-"}</td>
+              <td style={{ color: histogram[i] && histogram[i]! > 0 ? "green" : "red" }}>
+                {histogram[i]?.toFixed(4) ?? "-"}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

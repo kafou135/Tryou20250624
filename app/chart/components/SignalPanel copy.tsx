@@ -1,103 +1,108 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
 
-export default function BTCChart() {
+import { useEffect, useRef, useState } from "react";
+import { createChart, IChartApi } from "lightweight-charts";
+
+const BTCChart = () => {
+  const chartContainerRef = useRef<HTMLDivElement | null>(null);
+  const chartRef = useRef<IChartApi | null>(null);
+  const lineSeriesRef = useRef<any>(null);
+  const [price, setPrice] = useState<number | null>(null);
   const [priceHistory, setPriceHistory] = useState<number[]>([]);
-  const [livePrice, setLivePrice] = useState<number | null>(null);
-  const [fastSMA, setFastSMA] = useState<number | null>(null);
-  const [slowSMA, setSlowSMA] = useState<number | null>(null);
-  const [lastFast, setLastFast] = useState<number | null>(null);
-  const [prevFast, setPrevFast] = useState<number | null>(null);
-  const [lastSlow, setLastSlow] = useState<number | null>(null);
-  const [prevSlow, setPrevSlow] = useState<number | null>(null);
-  const [signal, setSignal] = useState<string>("");
-
-  const latestPriceRef = useRef<number | null>(null); // hold latest tick price
+  const [signal, setSignal] = useState<"BUY" | "SELL" | "HOLD">("HOLD");
 
   useEffect(() => {
-    const socket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade");
+    if (!chartContainerRef.current) return;
 
-    socket.onmessage = (event) => {
+    chartRef.current = createChart(chartContainerRef.current, {
+      width: 600,
+      height: 300,
+    });
+
+    lineSeriesRef.current = chartRef.current.addLineSeries();
+
+    let lastPushTime = 0;
+    const ws = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade");
+
+    ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      const price = parseFloat(data.p);
-      latestPriceRef.current = price;
-      setLivePrice(price);
+      const current = parseFloat(data.p);
+      setPrice(current);
+
+      const now = Date.now();
+      if (now - lastPushTime >= 30000) {
+        lastPushTime = now;
+        setPriceHistory((prev) => {
+          const newHistory = [...prev, current];
+          if (newHistory.length > 100) newHistory.shift();
+          return newHistory;
+        });
+      }
+
+      if (lineSeriesRef.current) {
+        const time = Math.floor(Date.now() / 1000);
+        lineSeriesRef.current.update({ time, value: current });
+      }
     };
 
-    return () => socket.close();
+    return () => {
+      ws.close();
+      chartRef.current?.remove();
+    };
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const current = latestPriceRef.current;
-      if (!current) return;
-
-      setPriceHistory((prev) => {
-        const newHistory = [...prev, current];
-        if (newHistory.length > 100) newHistory.shift();
-
-        const fastPeriod = 5;
-        const slowPeriod = 20;
-
-        if (newHistory.length >= fastPeriod) {
-          const recentFast = newHistory.slice(-fastPeriod);
-          const fastAvg = recentFast.reduce((a, b) => a + b, 0) / fastPeriod;
-
-          setPrevFast(lastFast);
-          setLastFast(fastAvg);
-          setFastSMA(fastAvg);
-        }
-
-        if (newHistory.length >= slowPeriod) {
-          const recentSlow = newHistory.slice(-slowPeriod);
-          const slowAvg = recentSlow.reduce((a, b) => a + b, 0) / slowPeriod;
-
-          setPrevSlow(lastSlow);
-          setLastSlow(slowAvg);
-          setSlowSMA(slowAvg);
-        }
-        console.log("history",newHistory)
-
-        return newHistory;
-      });
-    }, 15000); // 🕔 every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [lastFast, lastSlow]);
-  // Detect signal
-  useEffect(() => {
-    if (
-      prevFast !== null &&
-      prevSlow !== null &&
-      lastFast !== null &&
-      lastSlow !== null
-    ) {
-      if (prevFast < prevSlow && lastFast > lastSlow) {
-        setSignal("BUY");
-        console.log("📈 BUY SIGNAL!");
-      } else if (prevFast > prevSlow && lastFast < lastSlow) {
-        setSignal("SELL");
-        console.log("📉 SELL SIGNAL!");
-      } else {
-        setSignal("");
-      }
+  function calculateSMA(data: number[], period: number): number[] {
+    let sma: number[] = [];
+    for (let i = 0; i <= data.length - period; i++) {
+      const slice = data.slice(i, i + period);
+      const avg = slice.reduce((a, b) => a + b, 0) / period;
+      sma.push(avg);
     }
-  }, [prevFast, prevSlow, lastFast, lastSlow]);
-  
+    return sma;
+  }
+
+  function checkSignal(fast: number[], slow: number[]): "BUY" | "SELL" | "HOLD" {
+    if (fast.length < 2 || slow.length < 2) return "HOLD";
+
+    const lastFast = fast[fast.length - 1];
+    const prevFast = fast[fast.length - 2];
+    const lastSlow = slow[slow.length - 1];
+    const prevSlow = slow[slow.length - 2];
+
+    if (prevFast < prevSlow && lastFast > lastSlow) return "BUY";
+    if (prevFast > prevSlow && lastFast < lastSlow) return "SELL";
+    return "HOLD";
+  }
+
+  useEffect(() => {
+    if (priceHistory.length < 20) return;
+    const fastSMA = calculateSMA(priceHistory, 5);
+    const slowSMA = calculateSMA(priceHistory, 20);
+    const currentSignal = checkSignal(fastSMA, slowSMA);
+    setSignal(currentSignal);
+  }, [priceHistory]);
+
   return (
-    <div >
-      <h2 className="text-xl font-bold">BTC/USDT Live 15 Seconds</h2>
-      <p className="text-3xl mb-2 text-green-500">
-        {livePrice ? `$${livePrice}` : "Loading..."}
-      </p>
+    <div className="p-6">
+      <div className="text-2xl font-bold my-4">
+        Signal:{" "}
+        <span
+          style={{
+            color:
+              signal === "BUY" ? "green" : signal === "SELL" ? "red" : "gray",
+          }}
+        >
+          {signal}
+        </span>
+      </div>
 
-      {signal && (
-        <div className={`text-xl font-bold mt-2 ${signal === "BUY" ? "text-blue-600" : "text-red-600"}`}>
-          Signal: {signal}
-        </div>
-      )}
-
-      
+      <h1 className="text-2xl mb-4 font-bold">BTC/USDT Live Price</h1>
+      <div className="text-xl mb-2">
+        {price ? `$${price.toFixed(2)}` : "Loading..."}
+      </div>
+      <div ref={chartContainerRef} />
     </div>
   );
-}
+};
+
+export default BTCChart;
